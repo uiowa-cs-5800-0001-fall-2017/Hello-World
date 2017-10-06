@@ -4,7 +4,7 @@ Our Chatbot Project
 ## Setup
 Text that is formatted ```like this``` means that it is to be run in a command-line.
 1. Clone the repo and open a command-line inside the folder
-  * Check that directories __scratch-vm__, __scratch-blocks__, __scratch-gui__ are present inside the git repo before continuing.
+  * Check that directories __scratch-vm__, __scratch-blocks__, __scratch-gui__, and __closure-library__ are present inside the git repo before continuing.
 2. ```cd scratch-vm```
 3. ```npm install```
 4. ```npm link```
