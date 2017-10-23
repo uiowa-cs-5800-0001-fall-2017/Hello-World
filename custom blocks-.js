@@ -82,3 +82,20 @@ Blockly.Blocks['question_input_block'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.JavaScript['connection'] = function(block) {
+  var code;
+  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
+  
+  var url_prefix =  "http://";
+  var slave      = "8888";
+  var scriptname_prefix = "132.162.2.136:";
+  var url = url_prefix + scriptname_prefix + value_script + slave;
+  var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
+  var xmlopen = "xmlHttp.open( 'GET', " + url + ", false );";
+  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
+  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
+  
+  return code;
+};
