@@ -14,6 +14,7 @@
   <script src="Blockly/blocks_compressed.js"></script>
   <script src="Blockly/javascript_compressed.js"></script>
   <script src="Blockly/msg/js/en.js"></script>
+  <script src="exampleBlocks.js"></script>
 </head>
 
 <body>
@@ -44,6 +45,7 @@
     toolbox += '  <block type="controls_whileUntil"></block>';
     toolbox += ' <block type="text"></block>';
     toolbox += ' <block type="text_print"></block>';
+    toolbox += ' <block type="math_change"></block>'
     toolbox += '</xml>';
     // var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
     var workspace = Blockly.inject(blocklyDiv, {
