@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Chatbot</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="Blockly/blockly_compressed.js"></script>
+  <script src="Blockly/blocks_compressed.js"></script>
+  <script src="Blockly/javascript_compressed.js"></script>
+  <script src="Blockly/msg/js/en.js"></script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="row toolbar">
+        <button type="button" class="btn btn-primary" onclick="outputCode()">Output Code</button>
+        <button type="button" class="btn btn-primary">Clear Blocks</button>
+        <button type="button" class="btn btn-primary">Other Things</button>
+      </div>
+      <div class="row" style="min-height:600px;">
+        <div id="blocklyArea" class="col-lg-6"></div>
+        <div class="col-lg-6 codeArea">
+          <p id="codeDisplay">"Code area"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+
+  <script>
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var toolbox = '<xml>';
+    toolbox += '  <block type="controls_if"></block>';
+    toolbox += '  <block type="controls_whileUntil"></block>';
+    toolbox += ' <block type="text"></block>';
+    toolbox += ' <block type="text_print"></block>';
+    toolbox += '</xml>';
+    // var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+    var workspace = Blockly.inject(blocklyDiv, {
+      toolbox: toolbox
+    });
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(workspace);
+
+    function generateCode(event) {
+      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      $('#codeDisplay').text(code);
+    }
+    workspace.addChangeListener(generateCode);
+
+    function outputCode() {
+      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      alert(code);
+    }
+  </script>
+</body>
+
+</html>

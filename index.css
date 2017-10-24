@@ -1,0 +1,24 @@
+/*body{
+  background-color: skyblue;
+}
+.content{
+  margin: 0 auto;
+  width: 95%;
+  height: 100vh;
+  background-color: white;
+}*/
+
+.toolbar {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.toolbar .btn+.btn{
+  margin-left: 10px;
+}
+
+
+.codeArea {
+  -webkit-box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.3);
+}
