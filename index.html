@@ -15,20 +15,28 @@
   <script src="Blockly/javascript_compressed.js"></script>
   <script src="Blockly/msg/js/en.js"></script>
   <script src="exampleBlocks.js"></script>
+  <script src="index.js"></script>
 </head>
 
 <body>
   <div class="content">
     <div class="container">
       <div class="row toolbar">
-        <button type="button" class="btn btn-primary" onclick="outputCode()">Output Code</button>
-        <button type="button" class="btn btn-primary">Clear Blocks</button>
-        <button type="button" class="btn btn-primary">Other Things</button>
+        <h1 class="app-title col-md-4">Blockly Chatbot</h1>
+        <button id="outputButton" type="button" class="btn btn-primary">Output Code</button>
+        <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
+        <button type="button" class="btn btn-primary disabled">Other Things</button>
       </div>
-      <div class="row" style="min-height:600px;">
-        <div id="blocklyArea" class="col-lg-6"></div>
-        <div class="col-lg-6 codeArea">
-          <p id="codeDisplay">"Code area"</p>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Block Editor</h2>
+          <div id="blocklyArea" class="displayArea"></div>
+        </div>
+        <div class="col-md-6">
+          <h2>Code Display</h2>
+          <div id="codeDisplay" class="codeArea displayArea">
+            <code>"Add Blocks to Generate Code"</code>
+          </div>
         </div>
       </div>
     </div>
@@ -37,51 +45,6 @@
 
   <div id="blocklyDiv" style="position: absolute"></div>
 
-  <script>
-    var blocklyArea = document.getElementById('blocklyArea');
-    var blocklyDiv = document.getElementById('blocklyDiv');
-    var toolbox = '<xml>';
-    toolbox += '  <block type="controls_if"></block>';
-    toolbox += '  <block type="controls_whileUntil"></block>';
-    toolbox += ' <block type="text"></block>';
-    toolbox += ' <block type="text_print"></block>';
-    toolbox += ' <block type="math_change"></block>'
-    toolbox += '</xml>';
-    // var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
-    var workspace = Blockly.inject(blocklyDiv, {
-      toolbox: toolbox
-    });
-    var onresize = function(e) {
-      // Compute the absolute coordinates and dimensions of blocklyArea.
-      var element = blocklyArea;
-      var x = 0;
-      var y = 0;
-      do {
-        x += element.offsetLeft;
-        y += element.offsetTop;
-        element = element.offsetParent;
-      } while (element);
-      // Position blocklyDiv over blocklyArea.
-      blocklyDiv.style.left = x + 'px';
-      blocklyDiv.style.top = y + 'px';
-      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
-      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
-    };
-    window.addEventListener('resize', onresize, false);
-    onresize();
-    Blockly.svgResize(workspace);
-
-    function generateCode(event) {
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
-      $('#codeDisplay').text(code);
-    }
-    workspace.addChangeListener(generateCode);
-
-    function outputCode() {
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
-      alert(code);
-    }
-  </script>
 </body>
 
 </html>
