@@ -32,7 +32,6 @@ function generateBlocks () {
     }
   }
   toolbox += '</xml>'
-  console.log(toolbox)
   return toolbox
 }
 
