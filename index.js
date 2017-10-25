@@ -1,3 +1,18 @@
+// Download code from https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
+function download (filename, text) {
+  var pom = document.createElement('a')
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+  pom.setAttribute('download', filename)
+
+  if (document.createEvent) {
+    var event = document.createEvent('MouseEvents')
+    event.initEvent('click', true, true)
+    pom.dispatchEvent(event)
+  } else {
+    pom.click()
+  }
+}
+
 window.onload = function () {
   var blocklyArea = document.getElementById('blocklyArea')
   var blocklyDiv = document.getElementById('blocklyDiv')
@@ -12,7 +27,7 @@ window.onload = function () {
   var workspace = Blockly.inject(blocklyDiv, {
     toolbox: toolbox
   })
-  var onresize = function(e) {
+  var onresize = function (e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea
     var x = 0
@@ -32,11 +47,11 @@ window.onload = function () {
   onresize()
   Blockly.svgResize(workspace)
 
-  function generateCode(event) {
+  function generateCode (event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
     if (code === '') {
       $('#codeDisplay code').text('Add More Blocks to Generate Code')
-    }else{
+    } else {
       $('#codeDisplay code').text(code)
     }
   }
@@ -44,11 +59,13 @@ window.onload = function () {
 
   function outputCode () {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
-    alert(code)
+    // alert(code)
+    download('blocklyCode.js', code)
   }
+
   $('#outputButton').click(outputCode)
 
-  function clearBlocks(){
+  function clearBlocks () {
     var count = workspace.getAllBlocks().length
     if (count < 2 || window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
       workspace.clear()
@@ -62,7 +79,7 @@ window.onload = function () {
   var chatbotPreview = $('#chatbotDisplay')
   var codePreview = $('#codeDisplay')
   //Still generates code in the code preview even while hidden
-  function previewCode () {
+  function previewCode() {
     if (chatbotButton.hasClass('active')) {
       chatbotButton.toggleClass('active', false)
       codeButton.toggleClass('active', true)
@@ -70,6 +87,7 @@ window.onload = function () {
       codePreview.show()
     }
   }
+
   function previewChatbot () {
     if (codeButton.hasClass('active')) {
       chatbotButton.toggleClass('active', true)
