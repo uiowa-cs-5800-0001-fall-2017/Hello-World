@@ -14,7 +14,10 @@
   <script src="Blockly/blocks_compressed.js"></script>
   <script src="Blockly/javascript_compressed.js"></script>
   <script src="Blockly/msg/js/en.js"></script>
+  <!-- Add a link to the .js file of any new blocks, then add them to the BLOCKS at the top of index.js -->
   <script src="exampleBlocks.js"></script>
+
+  <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
   <script src="index.js"></script>
 </head>
 
@@ -29,9 +32,8 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-            <div class="navbar" style="height:3em;">
-              <h2 class="navbar-brand" style="margin:0; padding:0">Blockly Editor</h2>
-              </ul>
+          <div class="navbar" style="height:3em;">
+            <h2 class="navbar-brand" style="margin:0; padding:0">Blockly Editor</h2>
           </div>
           <div id="blocklyArea" class="displayArea"></div>
         </div>
@@ -48,7 +50,7 @@
             </ul>
           </div>
           <div id="codeDisplay" class="codeArea displayArea">
-            <code>"Add Blocks to Generate Code"</code>
+            <code>Start Adding Blocks to Generate Code</code>
           </div>
           <div id="chatbotDisplay" class="displayArea" style="background-color:red; display:none">
 

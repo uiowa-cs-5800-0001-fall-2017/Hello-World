@@ -1,3 +1,41 @@
+// Add block names/categories here to add them to the toolbox
+var BLOCKS = {
+  categories: [
+    {
+      name: 'Basic',
+      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
+      color: '210'
+    },
+    {
+      name: 'Chatbot',
+      blocks: ['response', 'input'],
+      color: '20'
+    }
+  ]
+}
+function generateBlocks () {
+  var toolbox = '<xml>'
+  for (var category in BLOCKS.categories) {
+    if (BLOCKS.categories[category].blocks.length > 0) {
+      toolbox += `<category name="${BLOCKS.categories[category].name}" colour="${BLOCKS.categories[category].color}">`
+      /* Swap the previous line with this code to start with the first category expanded
+      if(category==0){
+        toolbox += `<category name="${BLOCKS.categories[category].name}" colour="${BLOCKS.categories[category].color}">`
+      }else{
+        toolbox += `<category name="${BLOCKS.categories[category].name}" colour="${BLOCKS.categories[category].color}">`
+      }
+      */
+      for (var block in BLOCKS.categories[category].blocks) {
+        toolbox += `  <block type="${BLOCKS.categories[category].blocks[block]}"></block>`
+      }
+      toolbox += '</category>'
+    }
+  }
+  toolbox += '</xml>'
+  console.log(toolbox)
+  return toolbox
+}
+
 // Download code from https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
 function download (filename, text) {
   var pom = document.createElement('a')
@@ -16,17 +54,7 @@ function download (filename, text) {
 window.onload = function () {
   var blocklyArea = document.getElementById('blocklyArea')
   var blocklyDiv = document.getElementById('blocklyDiv')
-  var toolbox = '<xml>'
-  toolbox += '  <block type="controls_if"></block>'
-  toolbox += '  <block type="controls_whileUntil"></block>'
-  toolbox += ' <block type="text"></block>'
-  toolbox += ' <block type="text_print"></block>'
-  toolbox += ' <block type="math_change"></block>'
-  toolbox += '</xml>'
-  // var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
-  var workspace = Blockly.inject(blocklyDiv, {
-    toolbox: toolbox
-  })
+  var workspace = Blockly.inject(blocklyDiv, { toolbox: generateBlocks() })
   var onresize = function (e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea
@@ -47,7 +75,7 @@ window.onload = function () {
   onresize()
   Blockly.svgResize(workspace)
 
-  function generateCode (event) {
+  function generateCode(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
     if (code === '') {
       $('#codeDisplay code').text('Add More Blocks to Generate Code')
@@ -57,7 +85,7 @@ window.onload = function () {
   }
   workspace.addChangeListener(generateCode)
 
-  function outputCode () {
+  function outputCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
     // alert(code)
     download('blocklyCode.js', code)
@@ -65,7 +93,7 @@ window.onload = function () {
 
   $('#outputButton').click(outputCode)
 
-  function clearBlocks () {
+  function clearBlocks() {
     var count = workspace.getAllBlocks().length
     if (count < 2 || window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
       workspace.clear()
@@ -88,7 +116,7 @@ window.onload = function () {
     }
   }
 
-  function previewChatbot () {
+  function previewChatbot() {
     if (codeButton.hasClass('active')) {
       chatbotButton.toggleClass('active', true)
       codeButton.toggleClass('active', false)
