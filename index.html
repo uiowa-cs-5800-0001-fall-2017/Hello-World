@@ -29,13 +29,29 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h2>Block Editor</h2>
+            <div class="navbar" style="height:3em;">
+              <h2 class="navbar-brand" style="margin:0; padding:0">Blockly Editor</h2>
+              </ul>
+          </div>
           <div id="blocklyArea" class="displayArea"></div>
         </div>
         <div class="col-md-6">
-          <h2>Code Display</h2>
+          <div class="navbar" style="height:3em;">
+            <h2 class="navbar-brand" style="margin:0; padding:0">Code Display</h2>
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a id="codePreviewButton" class="nav-link active" href="#">Code Preview</a>
+              </li>
+              <li class="nav-item">
+                <a id="chatbotPreviewButton" class="nav-link" href="#">Chatbot Preview</a>
+              </li>
+            </ul>
+          </div>
           <div id="codeDisplay" class="codeArea displayArea">
             <code>"Add Blocks to Generate Code"</code>
+          </div>
+          <div id="chatbotDisplay" class="displayArea" style="background-color:red; display:none">
+
           </div>
         </div>
       </div>

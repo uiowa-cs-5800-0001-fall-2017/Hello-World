@@ -56,4 +56,28 @@ window.onload = function () {
     }
   }
   $('#clearButton').click(clearBlocks)
+
+  var codeButton = $('#codePreviewButton')
+  var chatbotButton = $('#chatbotPreviewButton')
+  var chatbotPreview = $('#chatbotDisplay')
+  var codePreview = $('#codeDisplay')
+  //Still generates code in the code preview even while hidden
+  function previewCode () {
+    if (chatbotButton.hasClass('active')) {
+      chatbotButton.toggleClass('active', false)
+      codeButton.toggleClass('active', true)
+      chatbotPreview.hide()
+      codePreview.show()
+    }
+  }
+  function previewChatbot () {
+    if (codeButton.hasClass('active')) {
+      chatbotButton.toggleClass('active', true)
+      codeButton.toggleClass('active', false)
+      codePreview.hide()
+      chatbotPreview.show()
+    }
+  }
+  codeButton.click(previewCode)
+  chatbotButton.click(previewChatbot)
 }
