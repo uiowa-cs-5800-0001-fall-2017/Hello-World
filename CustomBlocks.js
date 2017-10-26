@@ -99,7 +99,7 @@ Blockly.Blocks['end_sockets'] = {
   }
 };
 
-Blockly.Blocks['end_sockets'] = {
+Blockly.Blocks['http_request'] = {
   init: function() {
     // TODO: create block in blockly editor
   }
