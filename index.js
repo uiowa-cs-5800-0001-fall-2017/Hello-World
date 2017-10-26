@@ -51,6 +51,8 @@ function download (filename, text) {
 }
 
 window.onload = function () {
+   var bt = document.getElementById("bt");
+   bt.onclick = runCode;
   var blocklyArea = document.getElementById('blocklyArea')
   var blocklyDiv = document.getElementById('blocklyDiv')
   var workspace = Blockly.inject(blocklyDiv, { toolbox: generateBlocks() })
@@ -83,6 +85,18 @@ window.onload = function () {
     }
   }
   workspace.addChangeListener(generateCode)
+  
+  function runCode(){
+	Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
+  var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
+  try{
+  eval(code);
+  }
+  catch(e){
+  alert(e);
+  }
+
+  }
 
   function outputCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace)

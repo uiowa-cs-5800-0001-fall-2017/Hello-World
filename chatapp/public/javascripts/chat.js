@@ -19,11 +19,14 @@ $("#chat-input").keydown(function(event) {
 			 socket.emit("chat-message", $("#chat-input").val());   
 		  }
 		  $("#chat-input").val("");
+		  
+		  $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); //this makes the scroll bar go to the bottom.
+
       }
 });
 
 //-----------------------------------------------------------------------------
-// Receive chat message from server.
+// Receive chat message from server
 //-----------------------------------------------------------------------------
 socket.on("chat-message", function(message) {
 	var div = ('<div id = "chat-bubble-message" >'+ message + "</div>");
@@ -80,7 +83,10 @@ socket.on("chat-message", function(message) {
 		  
 		  else if(counter == 3)
 		  {
-			var div = ('<div id = "bot-bubble-message" >'+ "TYour order is on the way. Call 1-555-PLZ-WAIT if you have a concern." + "</div>");
-			$("#chat-container").append(div.toString() + "<br />");	   
+			var div = ('<div id = "bot-bubble-message" >'+ "Your order is on the way. Call 1-555-PLZ-WAIT if you have a concern." + "</div>");
+			$("#chat-container").append(div.toString() + "<br />");
+			$("#chat-container").animate({ scrollTop: $(this).height() }, "fast");			
 		  }	
+		  
+		  
 });
