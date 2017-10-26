@@ -20,8 +20,8 @@
   <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
   <script src="index.js"></script>
   <script src="CustomBlocks.js"></script>
-  
-  
+
+
 </head>
 
 <body>
@@ -31,6 +31,7 @@
         <h1 class="app-title col-md-4">Blockly Chatbot</h1>
         <button id="outputButton" type="button" class="btn btn-primary">Export Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
+        <button id="bt" type="button" class="btn btn-primary">Run Blocks</button>
         <button type="button" class="btn btn-primary disabled">Save To Server</button>
       </div>
       <div class="row">
@@ -64,8 +65,7 @@
   </div>
 
   <div id="blocklyDiv" style="position: absolute"></div>
- 
+
 </body>
 
 </html>
-

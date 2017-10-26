@@ -1,7 +1,6 @@
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
-  categories: [
-    {
+  categories: [{
       name: 'Basic',
       blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
       color: '210'
@@ -13,7 +12,8 @@ var BLOCKS = {
     }
   ]
 }
-function generateBlocks () {
+
+function generateBlocks() {
   var toolbox = '<xml>'
   for (var category in BLOCKS.categories) {
     if (BLOCKS.categories[category].blocks.length > 0) {
@@ -36,7 +36,7 @@ function generateBlocks () {
 }
 
 // Download code from https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file
-function download (filename, text) {
+function download(filename, text) {
   var pom = document.createElement('a')
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
   pom.setAttribute('download', filename)
@@ -50,13 +50,13 @@ function download (filename, text) {
   }
 }
 
-window.onload = function () {
-   var bt = document.getElementById("bt");
-   bt.onclick = runCode;
+window.onload = function() {
   var blocklyArea = document.getElementById('blocklyArea')
   var blocklyDiv = document.getElementById('blocklyDiv')
-  var workspace = Blockly.inject(blocklyDiv, { toolbox: generateBlocks() })
-  var onresize = function (e) {
+  var workspace = Blockly.inject(blocklyDiv, {
+    toolbox: generateBlocks()
+  })
+  var onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea
     var x = 0
@@ -85,18 +85,19 @@ window.onload = function () {
     }
   }
   workspace.addChangeListener(generateCode)
-  
-  function runCode(){
-	Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
-  var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
-  try{
-  eval(code);
-  }
-  catch(e){
-  alert(e);
-  }
+
+  function runCode() {
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
+    var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
+    try {
+      eval(code);
+    } catch (e) {
+      alert(e);
+    }
 
   }
+  var bt = $('#bt');
+  bt.click(runCode);
 
   function outputCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
