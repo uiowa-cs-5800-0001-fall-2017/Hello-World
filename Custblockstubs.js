@@ -20,7 +20,7 @@ Blockly.JavaScript['validate'] = function(block) {
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = var div = ('<div id = "bot-bubble-message" >'+ text_intromessage + "</div>");
   return code;
 };
 
@@ -44,10 +44,6 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
 		  $("#chat-input").val("");
 		  
 		  $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); //this makes the scroll bar go to the bottom.
-
-	 };
-  return code;
-};
 
 	 };
   return code;
@@ -121,6 +117,29 @@ Blockly.JavaScript['end_sockets'] = function(block) {
   var code = socket.disconnect();
   return code;
 };
+<<<<<<<<< saved version
+  // TODO: Assemble JavaScript into code variable.
+  var code = socket.disconnect();
+  return code;
+};
+
+Blockly.JavaScript['http_request'] = function(block) {
+  var code;
+  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
+  
+  var url_prefix =  "http://";
+  var slave      = "8888";
+  var scriptname_prefix = "132.162.2.136:";
+  var url = url_prefix + scriptname_prefix + value_script + slave;
+  var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
+  var xmlopen = "xmlHttp.open( 'GET', " + url + ", false );";
+  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
+  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
+  
+  return code;
+};
+
 
 Blockly.JavaScript['http_request'] = function(block) {
   var code;
