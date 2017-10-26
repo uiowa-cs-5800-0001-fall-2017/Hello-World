@@ -1,3 +1,19 @@
+Blockly.Blocks['validate'] = {
+  init: function() {
+    this.appendValueInput("ar")
+        .setCheck("Array")
+        .appendField("Text List");
+    this.appendValueInput("ar2")
+        .setCheck("Array")
+        .appendField("Matching List");
+    this.setOutput(true, "Boolean");
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
 Blockly.Blocks['input'] = {
   init: function() {
     this.appendDummyInput()

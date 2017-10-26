@@ -29,7 +29,7 @@
         <button id="outputButton" type="button" class="btn btn-primary">Output Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
         <button type="button" class="btn btn-primary disabled">Other Things</button>
-	 <button onclick= "runCode()">Run JavaScript</button>
+	 <button id = "bt">Run JavaScript</button>
 	 <xml id="toolbox" style="display:none:">
 	   <category name = "custom blocks">
 	     <block type="input">
@@ -59,17 +59,3 @@
 
 </html>
 
-  <script>
-    var workspace = Blocky.inject('blocklyDiv',media: '../../media/',toolbox: document.getElementById('toolbox')});
-function runCode(){
- Blocky.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n;
-  var code = Blocky.JavaScript.INFINITE_LOOP_TRAP = null;
-  try{
-  eval(code);
-  }
-  catch(e){
-  alert(e);
-  }}
-
-  }
-</script>
