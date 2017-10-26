@@ -16,6 +16,9 @@
   <script src="Blockly/msg/js/en.js"></script>
   <script src="exampleBlocks.js"></script>
   <script src="index.js"></script>
+  <script src="CustomBlocks.js"></script>
+  
+  
 </head>
 
 <body>
@@ -26,6 +29,13 @@
         <button id="outputButton" type="button" class="btn btn-primary">Output Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
         <button type="button" class="btn btn-primary disabled">Other Things</button>
+	 <button onclick= "runCode()">Run JavaScript</button>
+	 <xml id="toolbox" style="display:none:">
+	   <category name = "custom blocks">
+	     <block type="input">
+	     </block>
+	   </category>
+	   </xml>
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -36,15 +46,30 @@
           <h2>Code Display</h2>
           <div id="codeDisplay" class="codeArea displayArea">
             <code>"Add Blocks to Generate Code"</code>
-          </div>
+          </div>  
+
         </div>
       </div>
     </div>
   </div>
 
-
   <div id="blocklyDiv" style="position: absolute"></div>
-
+ 
 </body>
 
 </html>
+
+  <script>
+    var workspace = Blocky.inject('blocklyDiv',media: '../../media/',toolbox: document.getElementById('toolbox')});
+function runCode(){
+ Blocky.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n;
+  var code = Blocky.JavaScript.INFINITE_LOOP_TRAP = null;
+  try{
+  eval(code);
+  }
+  catch(e){
+  alert(e);
+  }}
+
+  }
+</script>

@@ -1,36 +1,11 @@
 Blockly.Blocks['input'] = {
   init: function() {
     this.appendDummyInput()
-        .setAlign(Blockly.ALIGN_RIGHT)
         .appendField(new Blockly.FieldTextInput(""), "intromessage")
         .appendField("introduction ");
-    this.setNextStatement(true, "String");
-    this.setColour(120);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks['response'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("resonse")
-        .appendField(new Blockly.FieldTextInput("default"), "userResponse");
-    this.setNextStatement(true, "String");
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks['output'] = {
-  init: function() {
-    this.appendValueInput("NAME")
-        .setCheck("String")
-        .appendField("output")
-        .appendField(new Blockly.FieldTextInput(""), "ClientResonse");
+    this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(0);
+    this.setColour(120);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -40,6 +15,7 @@ Blockly.Blocks['get_user_resopnse'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("get user response");
+    this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
@@ -64,6 +40,7 @@ Blockly.Blocks['question_block'] = {
     this.appendDummyInput()
         .appendField("Question ")
         .appendField(new Blockly.FieldTextInput(""), "Question they want to ask");
+    this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
@@ -71,12 +48,35 @@ Blockly.Blocks['question_block'] = {
   }
 };
 
-Blockly.Blocks['question_input_block'] = {
+Blockly.Blocks['socket_setup'] = {
   init: function() {
-    this.appendValueInput("NAME")
-        .setCheck("String")
-        .appendField("ask question");
+    this.appendDummyInput()
+        .appendField("Socket set up");
     this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['send'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("send ")
+        .appendField(new Blockly.FieldTextInput("URL"), "NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['end_sockets'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("end ");
+    this.setPreviousStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
