@@ -99,8 +99,14 @@ Blockly.Blocks['end_sockets'] = {
   }
 };
 
-Blockly.Blocks['http_request'] = {
+Blockly.Blocks['http_get'] = {
   init: function() {
-    // TODO: create block in blockly editor
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("url for the http GET request"), "url");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(225);
+ this.setTooltip("type entire URL,starting with http://, or https://");
+ this.setHelpUrl("");
   }
 };

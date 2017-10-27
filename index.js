@@ -9,6 +9,7 @@ window.onload = function () {
   toolbox += ' <block type="text"></block>'
   toolbox += ' <block type="text_print"></block>'
   toolbox += ' <block type="math_change"></block>'
+  toolbox += ' <block type="http_get"></block>'
   toolbox += '</xml>'
   // var workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
   var workspace = Blockly.inject(blocklyDiv, {
