@@ -34,8 +34,16 @@ h2 {
   padding: 20px;
 }
 
+.section-header{
+  margin-bottom: 10px;
+}
+
 .toolbar .btn+.btn {
   margin-left: 10px;
+}
+
+.nav-link{
+  color:black;
 }
 
 .displayArea {
