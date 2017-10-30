@@ -17,10 +17,12 @@
   <!-- Add a link to the .js file of any new blocks, then add them to the BLOCKS at the top of index.js -->
   <script src="exampleBlocks.js"></script>
 
+  <script type="text/javascript" src="data.js"></script>
+
   <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
-  <script src="CustomBlocks.js"></script>
-  <script src="Custblockstubs.js"></script>
-  <script src="index.js"></script>
+  <script type="text/javascript" src="CustomBlocks.js"></script>
+  <script type="text/javascript" src="Custblockstubs.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 
 </head>
 
@@ -31,7 +33,7 @@
         <h1 class="app-title col-md-4">Blockly Chatbot</h1>
         <button id="outputButton" type="button" class="btn btn-primary">Export Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
-        <button id="bt" type="button" class="btn btn-primary">Run Blocks</button>
+        <button id="runCodeButton" type="button" class="btn btn-primary">Run Blocks</button>
         <button type="button" class="btn btn-primary disabled">Save To Server</button>
       </div>
       <div class="row">

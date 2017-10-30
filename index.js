@@ -1,3 +1,9 @@
+// These two are just for linting purposes. Leave them in, but don't worry about them.
+/*eslint-env jquery*/
+/*global Blockly:true*/
+/*global loadLocalWorkspace:true*/
+/*global saveLocalWorkspace:true*/
+
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
   categories: [
@@ -82,6 +88,8 @@ window.onload = function() {
   onresize()
   Blockly.svgResize(workspace)
 
+  loadLocalWorkspace()
+
   function generateCode(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
     if (code === '') {
@@ -89,6 +97,7 @@ window.onload = function() {
     } else {
       $('#codeDisplay code').text(code)
     }
+    saveLocalWorkspace()
   }
   workspace.addChangeListener(generateCode)
 
@@ -102,8 +111,8 @@ window.onload = function() {
     }
 
   }
-  var bt = $('#bt');
-  bt.click(runCode);
+  var runCodeButton = $('#runCodeButton')
+  runCodeButton.click(runCode)
 
   function outputCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace)
