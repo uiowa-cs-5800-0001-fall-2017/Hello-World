@@ -1,9 +1,15 @@
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
-  categories: [{
+  categories: [
+    {
       name: 'Basic',
       blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
       color: '210'
+    },
+    {
+      name: 'Requests',
+      blocks: ['http_get', 'http_put'],
+      color: 80
     },
     {
       name: 'Chatbot',
