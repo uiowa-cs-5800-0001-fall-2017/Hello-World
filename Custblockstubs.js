@@ -1,20 +1,21 @@
 Blockly.JavaScript['validate'] = function (block) {
   var value_ar = Blockly.JavaScript.valueToCode(block, 'ar', Blockly.JavaScript.ORDER_ATOMIC);
   var value_ar2 = Blockly.JavaScript.valueToCode(block, 'ar2', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  var k = false;
-  for (var i = 0; i < ar2.length; i++) {
-    for (var j = 0; j < ar; j++) {
+  var functionName = Blockly.JavaScript.provideFunction_(
+    'validate',
+    [ 'function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(aList,aList2) {',
+		'var k = false;',
+		'for(int i = 0; i < aList2.length; i++){',
+		'for (int j = 0; j < aList; j++ ){', 
+		'if(aList[i] = aList2[j]){k == true;}',  
+		'}',
+		'}',    
+		'}']);
+// Generate the function call for this block.
+var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
+return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
 
-      if (ar2[i] = ar[j]) {
-        k === true;
-      }
-    }
-  }
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, k]
-}
 
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
