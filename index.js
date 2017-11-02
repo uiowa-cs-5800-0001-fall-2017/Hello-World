@@ -19,7 +19,7 @@ var BLOCKS = {
     },
     {
       name: 'Chatbot',
-      blocks: ['response', 'input','validate'],
+      blocks: ['response', 'input','validate','lists_create_with'],
       color: '20'
     }
   ]

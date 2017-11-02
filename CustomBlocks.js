@@ -6,7 +6,7 @@ Blockly.Blocks['validate'] = {
     this.appendValueInput("ar2")
         .setCheck("Array")
         .appendField("Matching List");
-    this.setOutput(true, "Boolean");
+    this.setOutput("Boolean");
     this.setColour(0);
  this.setTooltip("");
  this.setHelpUrl("");

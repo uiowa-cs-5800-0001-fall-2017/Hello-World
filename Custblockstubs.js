@@ -4,12 +4,13 @@ Blockly.JavaScript['validate'] = function (block) {
   var functionName = Blockly.JavaScript.provideFunction_(
     'validate',
     [ 'function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(aList,aList2) {',
-		'var k = false;',
-		'for(int i = 0; i < aList2.length; i++){',
-		'for (int j = 0; j < aList; j++ ){', 
-		'if(aList[i] = aList2[j]){k == true;}',  
+		'var k = true;',
+		'for(var i = 0; i < aList2.length; i++){',
+		'for(var j = 0; j < aList.length; j++ ){', 
+		'if(aList[j] != aList2[i]){k = false;}',  
 		'}',
 		'}',    
+		'return k;',
 		'}']);
 // Generate the function call for this block.
 var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
