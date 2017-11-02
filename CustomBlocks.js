@@ -107,7 +107,7 @@ Blockly.Blocks['http_get'] = {
     this.setNextStatement(true, null);
     this.setColour(225);
  this.setTooltip("Type entire URL, and surround it in quotes. Example: " +  "\"http://www.google.com\"");
- this.setHelpUrl("help.html");
+ this.setHelpUrl("help.html#http_get");
   }
 };
 
@@ -119,6 +119,6 @@ Blockly.Blocks['http_put'] = {
     this.setNextStatement(true, null);
     this.setColour(225);
  this.setTooltip("Type entire URL, and surround it in quotes. Example: " + "\"http://www.google.com\"");
- this.setHelpUrl("help.html");
+ this.setHelpUrl("help.html#http_put");
   }
 };
