@@ -123,7 +123,7 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 Blockly.JavaScript['http_get'] = function(block) {
   
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open('GET', " + block.getFieldValue('url') + ", false);";
+  var xmlopen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
   var xmltry = "xmlHttp.send(null);";
   var xmlresp = "alert(xmlHttp.responseText);";
   var code = xmlHttp + '\n' + xmlopen + '\n' + xmltry + '\n' + xmlresp;
@@ -135,7 +135,7 @@ Blockly.JavaScript['http_put'] = function(block) {
   
   var xmlHttp = "var xmlHttp = getNewHTTPObject();";
   var mimeType = "text/plain";
-  var xmlopen = "xmlHttp.open('PUT', " + block.getFieldValue('url') + ", false);";
+  var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
   var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
   var xmlsend = "xmlHttp.send($('#data').val());";
   var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
