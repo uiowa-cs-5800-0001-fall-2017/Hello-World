@@ -121,37 +121,24 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 };
 
 Blockly.JavaScript['http_get'] = function(block) {
-  var url = block.getFieldValue('url');
-  var code;
-  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
-
-  //var url_prefix =  "http://";
-  //var slave      = "8888";
-  //var scriptname_prefix = "132.162.2.136:";
-  //var url = url_prefix + scriptname_prefix + value_script + slave;
+  
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open( 'GET', " + url + ", false );";
-  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
-  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
+  var xmlopen = "xmlHttp.open('GET', " + block.getFieldValue('url') + ", false);";
+  var xmltry = "xmlHttp.send(null);";
+  var xmlresp = "alert(xmlHttp.responseText);";
+  var code = xmlHttp + '\n' + xmlopen + '\n' + xmltry + '\n' + xmlresp;
 
   return code;
 };
 
 Blockly.JavaScript['http_put'] = function(block) {
-  var url = block.getFieldValue('url');
-  var code;
-  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
-
-  //var url_prefix =  "http://";
-  //var slave      = "8888";
-  //var scriptname_prefix = "132.162.2.136:";
-  //var url = url_prefix + scriptname_prefix + value_script + slave;
-  var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open( 'PUT', " + url + ", false );";
-  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
-  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
+  
+  var xmlHttp = "var xmlHttp = getNewHTTPObject();";
+  var mimeType = "text/plain";
+  var xmlopen = "xmlHttp.open('PUT', " + block.getFieldValue('url') + ", false);";
+  var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
+  var xmlsend = "xmlHttp.send($('#data').val());";
+  var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
 
   return code;
 };

@@ -106,8 +106,8 @@ Blockly.Blocks['http_get'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("type entire URL,starting with http://, or https://");
- this.setHelpUrl("");
+ this.setTooltip("Type entire URL, and surround it in quotes. Example: " +  "\"http://www.google.com\"");
+ this.setHelpUrl("help.html");
   }
 };
 
@@ -118,7 +118,7 @@ Blockly.Blocks['http_put'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("type entire URL,starting with http://, or https://");
- this.setHelpUrl("");
+ this.setTooltip("Type entire URL, and surround it in quotes. Example: " + "\"http://www.google.com\"");
+ this.setHelpUrl("help.html");
   }
 };

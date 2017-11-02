@@ -15,7 +15,7 @@ var BLOCKS = {
     {
       name: 'Requests',
       blocks: ['http_get', 'http_put'],
-      color: 80
+      color: '80'
     },
     {
       name: 'Chatbot',
