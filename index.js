@@ -15,11 +15,11 @@ var BLOCKS = {
     {
       name: 'Requests',
       blocks: ['http_get', 'http_put'],
-      color: 80
+      color: '80'
     },
     {
       name: 'Chatbot',
-      blocks: ['response', 'input'],
+      blocks: ['response', 'input','validate','lists_create_with'],
       color: '20'
     }
   ]

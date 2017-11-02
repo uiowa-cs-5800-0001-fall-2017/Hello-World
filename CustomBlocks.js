@@ -6,7 +6,7 @@ Blockly.Blocks['validate'] = {
     this.appendValueInput("ar2")
         .setCheck("Array")
         .appendField("Matching List");
-    this.setOutput(true, "Boolean");
+    this.setOutput("Boolean");
     this.setColour(0);
  this.setTooltip("");
  this.setHelpUrl("");
@@ -106,8 +106,8 @@ Blockly.Blocks['http_get'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("type entire URL,starting with http://, or https://");
- this.setHelpUrl("");
+ this.setTooltip("Type entire URL, and surround it in quotes. Example: " +  "\"http://www.google.com\"");
+ this.setHelpUrl("help.html#http_get");
   }
 };
 
@@ -118,7 +118,7 @@ Blockly.Blocks['http_put'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("type entire URL,starting with http://, or https://");
- this.setHelpUrl("");
+ this.setTooltip("Type entire URL, and surround it in quotes. Example: " + "\"http://www.google.com\"");
+ this.setHelpUrl("help.html#http_put");
   }
 };
