@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="index.css">
 
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -19,39 +20,53 @@
   <!-- Add a link to the .js file of any new blocks, then add them to the BLOCKS at the top of index.js -->
   <script type="text/javascript" src="exampleBlocks.js"></script>
 
+  <script src="https://s3.amazonaws.com/stitch-sdks/js/library/stable/stitch.min.js"></script>
   <script type="text/javascript" src="data.js"></script>
 
   <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
   <script type="text/javascript" src="CustomBlocks.js"></script>
   <script type="text/javascript" src="Custblockstubs.js"></script>
   <script type="text/javascript" src="index.js"></script>
-
+  <script type="chat/javascript" src="chat.js"></script>
 </head>
 
 <body>
   <div class="content">
-    <nav class="navbar nav navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <ul class="nav">
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot</a>
+      <ul class="nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">Block Editor<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Help</a>
+          <a class="nav-link" href="help.html">Help</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World">Github</a>
         </li>
       </ul>
+      <ul class="nav">
+        <li class="nav-item active">
+          <div class="navbar-brand">Block Actions</div>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-success" id="runCodeButton">Run Code</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger" id="clearButton">Clear All</button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Export
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-item" id="exportJS">As JS Code</div>
+            <div class="dropdown-item" id="exportBlocks">As Blockly Code</div>
+          </div>
+        </li>
+      </ul>
     </nav>
     <div class="container">
-      <div class="row toolbar" hidden>
-        <h1 class="app-title col-md-4">Blockly Chatbot</h1>
-        <button id="outputButton" type="button" class="btn btn-primary">Export Code</button>
-        <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
-        <button id="runCodeButton" type="button" class="btn btn-primary">Run Blocks</button>
-        <button type="button" class="btn btn-primary disabled">Save To Server</button>
-      </div>
       <div class="row">
         <div class="col-md-6">
           <div class="navbar" style="height:3em;">
@@ -79,20 +94,7 @@
             <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
             <textarea id="chat-input"></textarea>
-            <script src="chat.js"></script>
           </div>
-        </div>
-        <div class="col-md-4">
-          <h2>Chat Preview</h2>
-          <div id="chatPreview" class="codeArea displayArea">
-                <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1>
-                <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2>
-                <div id="chat-container">
-                    </div>
-                <textarea id="chat-input">
-                </textarea>
-                <script src="chat.js"></script>
-          </div>  
         </div>
       </div>
     </div>
