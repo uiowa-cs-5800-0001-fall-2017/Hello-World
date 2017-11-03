@@ -66,8 +66,9 @@ h2 {
 }
 
 .helpItem {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
+
 /* Chat stylings */
 #chat-container {
     /*top:180px;*/
