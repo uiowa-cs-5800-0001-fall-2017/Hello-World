@@ -1,20 +1,28 @@
 Blockly.JavaScript['validate'] = function (block) {
   var value_ar = Blockly.JavaScript.valueToCode(block, 'ar', Blockly.JavaScript.ORDER_ATOMIC);
   var value_ar2 = Blockly.JavaScript.valueToCode(block, 'ar2', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  var k = false;
-  for (var i = 0; i < ar2.length; i++) {
-    for (var j = 0; j < ar; j++) {
+  var functionName = Blockly.JavaScript.provideFunction_(
+    'validate',
+    [ 'function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(aList,aList2) {',
+		'var k = true;',
+		'for(var i = 0; i < aList2.length; i++){',
+		'for(var j = 0; j < aList.length; j++ ){', 
+		'if(aList[j] != aList2[i]){k = false;}',  
+		'}',
+		'}',    
+		'return k;',
+		'}']);
+// Generate the function call for this block.
+var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
+return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
 
-      if (ar2[i] = ar[j]) {
-        k === true;
-      }
-    }
-  }
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, k]
-}
+Blockly.JavaScript['socket_setup'] = function(block) {
+  var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
@@ -48,7 +56,7 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
     };
   });
   return code
-}
+};
 // grammar checking block
 Blockly.JavaScript['userresonsevarable'] = function(block) {
   var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
@@ -63,7 +71,7 @@ Blockly.JavaScript['question_block'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
   return code;
-}
+};
 
 Blockly.JavaScript['question_input_block'] = function(block) {
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);

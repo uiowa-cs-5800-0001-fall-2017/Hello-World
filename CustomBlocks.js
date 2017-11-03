@@ -6,14 +6,23 @@ Blockly.Blocks['validate'] = {
     this.appendValueInput("ar2")
         .setCheck("Array")
         .appendField("Matching List");
-    this.setOutput(true, "Boolean");
+    this.setOutput("Boolean");
     this.setColour(0);
- this.setTooltip("");
- this.setHelpUrl("");
+ this.setTooltip("vaildates strings ");
+ this.setHelpUrl("hel.html");
   }
 };
 
-
+Blockly.Blocks['socket_setup'] = {
+  init: function() {
+    this.appendStatementInput("socket_set_up")
+        .setCheck(null)
+        .appendField("Botsetup");
+    this.setColour(230);
+ this.setTooltip("sets up sockets");
+ this.setHelpUrl("help.html");
+  }
+};
 Blockly.Blocks['input'] = {
   init: function() {
     this.appendDummyInput()
@@ -22,8 +31,8 @@ Blockly.Blocks['input'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
- this.setTooltip("");
- this.setHelpUrl("");
+ this.setTooltip("sends first message to user");
+ this.setHelpUrl("help.html#http_introduction");
   }
 };
 
@@ -59,21 +68,12 @@ Blockly.Blocks['question_block'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
+ this.setTooltip("sends next question to user");
+ this.setHelpUrl("help.html#http_Question");
   }
 };
 
-Blockly.Blocks['socket_setup'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Socket set up");
-    this.setNextStatement(true, null);
-    this.setColour(60);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+
 
 Blockly.Blocks['send'] = {
   init: function() {
