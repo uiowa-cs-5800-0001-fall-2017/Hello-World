@@ -17,6 +17,12 @@ var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
 return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.JavaScript['socket_setup'] = function(block) {
+  var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
