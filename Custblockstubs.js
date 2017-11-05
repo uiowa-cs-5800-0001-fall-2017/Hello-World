@@ -1,26 +1,33 @@
-
-Blockly.JavaScript['validate'] = function(block) {
+Blockly.JavaScript['validate'] = function (block) {
   var value_ar = Blockly.JavaScript.valueToCode(block, 'ar', Blockly.JavaScript.ORDER_ATOMIC);
   var value_ar2 = Blockly.JavaScript.valueToCode(block, 'ar2', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  var k = false;
-  for(int i = 0; i < ar2.length; i++){
-	  for (int j = 0; j < ar; j++ ){
-		  
-		  if(ar2[i] = ar[j]){k == true;}
-		  
-	  }
-  }
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, k];
+  var functionName = Blockly.JavaScript.provideFunction_(
+    'validate',
+    [ 'function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(aList,aList2) {',
+		'var k = true;',
+		'for(var i = 0; i < aList2.length; i++){',
+		'for(var j = 0; j < aList.length; j++ ){', 
+		'if(aList[j] != aList2[i]){k = false;}',  
+		'}',
+		'}',    
+		'return k;',
+		'}']);
+// Generate the function call for this block.
+var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
+return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.JavaScript['socket_setup'] = function(block) {
+  var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
   // TODO: Assemble JavaScript into code variable.
-  var code = var div = ('<div id = "bot-bubble-message" >'+ text_intromessage + "</div>");
+  var code = ('<div id = "bot-bubble-message" >' + text_intromessage + "</div>");
   return code;
 };
 
@@ -34,21 +41,23 @@ Blockly.JavaScript['response'] = function(block) {
 Blockly.JavaScript['get_user_resopnse'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = $("#chat-input").keydown(function(event) {
-	 if (event.keyCode == 13) 
-	 {
-          event.preventDefault();
-	     if($("#char-input").val() != ""){
-		 var userResponse =  $("#chat-input").val()
-			 socket.emit("chat-message", $("#chat-input").val());   
-		  }
-		  $("#chat-input").val("");
-		  
-		  $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); //this makes the scroll bar go to the bottom.
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      if ($("#char-input").val() != "") {
+        var userResponse = $("#chat-input").val()
+        socket.emit("chat-message", $("#chat-input").val());
+      }
+      $("#chat-input").val("");
 
-	 };
-  return code;
+      $("#chat-container").animate({
+        scrollTop: 10000000
+      }, "fast"); //this makes the scroll bar go to the bottom.
+
+    };
+  });
+  return code
 };
-// grammar checking block 
+// grammar checking block
 Blockly.JavaScript['userresonsevarable'] = function(block) {
   var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
@@ -60,8 +69,9 @@ Blockly.JavaScript['userresonsevarable'] = function(block) {
 Blockly.JavaScript['question_block'] = function(block) {
   var text_question_they_want_to_ask = block.getFieldValue('Question they want to ask');
   // TODO: Assemble JavaScript into code variable.
-    var code = var div = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n';
+  var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
   return code;
+};
 
 Blockly.JavaScript['question_input_block'] = function(block) {
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
@@ -72,35 +82,35 @@ Blockly.JavaScript['question_input_block'] = function(block) {
 
 Blockly.JavaScript['socket_setup'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = var express = require('express');
- var app = express();
- var server = require('http').createServer(app);
- var io = require('socket.io').listen(server);
- var path = require('path');
- app.use(express.static(path.join(__dirname, 'public')));
- app.set('view engine', 'ejs');
+  var code = require('express');
+  var app = express();
+  var server = require('http').createServer(app);
+  var io = require('socket.io').listen(server);
+  var path = require('path');
+  app.use(express.static(path.join(__dirname, 'public')));
+  app.set('view engine', 'ejs');
 
-server.listen(process.env.PORT || 8000, function() {
-  console.log('Server listening');
-});
+  server.listen(process.env.PORT || 8000, function() {
+    console.log('Server listening');
+  });
 
-//-----------------------------------------------------------------------------
-// Routes.
-//-----------------------------------------------------------------------------
-app.get("/", function(req, res) {
+  //-----------------------------------------------------------------------------
+  // Routes.
+  //-----------------------------------------------------------------------------
+  app.get("/", function(req, res) {
     res.render("chat");
-});
+  });
 
-//-----------------------------------------------------------------------------
-// Configure web sockets.
-//-----------------------------------------------------------------------------
-io.sockets.on("connection", function(socket) {
+  //-----------------------------------------------------------------------------
+  // Configure web sockets.
+  //-----------------------------------------------------------------------------
+  io.sockets.on("connection", function(socket) {
 
     socket.on("chat-message", function(message) {
-        io.sockets.emit("chat-message", message);
+      io.sockets.emit("chat-message", message);
     });
 
-});
+  });
 
   return code;
 };
@@ -119,37 +129,24 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 };
 
 Blockly.JavaScript['http_get'] = function(block) {
-  var url = block.getFieldValue('url');
-  var code;
-  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
   
-  //var url_prefix =  "http://";
-  //var slave      = "8888";
-  //var scriptname_prefix = "132.162.2.136:";
-  //var url = url_prefix + scriptname_prefix + value_script + slave;
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open( 'GET', " + url + ", false );";
-  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
-  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
-  
+  var xmlopen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
+  var xmltry = "xmlHttp.send(null);";
+  var xmlresp = "alert(xmlHttp.responseText);";
+  var code = xmlHttp + '\n' + xmlopen + '\n' + xmltry + '\n' + xmlresp;
+
   return code;
 };
 
 Blockly.JavaScript['http_put'] = function(block) {
-  var url = block.getFieldValue('url');
-  var code;
-  var value_slave = Blockly.JavaScript.valueToCode(this, 'slave', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_script = Blockly.JavaScript.valueToCode(this, 'script', Blockly.JavaScript.ORDER_ATOMIC);
   
-  //var url_prefix =  "http://";
-  //var slave      = "8888";
-  //var scriptname_prefix = "132.162.2.136:";
-  //var url = url_prefix + scriptname_prefix + value_script + slave;
-  var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open( 'PUT', " + url + ", false );";
-  var xmltry = "xmlHttp.send( null );" + '\n' + "alert(xmlHttp.responseText)";
-  code = xmlHttp + '\n' + xmlopen + '\n' + xmltry;
-  
+  var xmlHttp = "var xmlHttp = getNewHTTPObject();";
+  var mimeType = "text/plain";
+  var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
+  var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
+  var xmlsend = "xmlHttp.send($('#data').val());";
+  var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
+
   return code;
 };

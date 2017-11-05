@@ -8,17 +8,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
+    
+   <style>
 
+    #chat-container {
+        top:180px;
+        height: 75vh;
+        width: 24vw;
+        border-style: solid;
+        margin-top: 1.5em;
+        background-color: lightblue;
+        overflow-y: scroll;
+        word-wrap: break-word;
+        font-family: verdana;
+
+    }
+
+    #chat-input {
+        height: 10vh;
+        width: 24vw;
+        resize: none;
+        margin-top: 1em;
+        overflow-y: scroll;
+        border-style: solid;
+    }
+
+
+    h1 {
+        font-family: verdana;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    }
+
+    #chat-bubble-message{
+      height: 50px;
+      width: 85%;
+      background: white;
+      position: relative;
+      cursor: pointer;
+      border: 3px double black;
+      border-radius: 10px;
+      left: 13%;
+    }
+    #chat-bubble-message::before{
+      content: "";
+      position: absolute;
+      top: 100%;
+      right: 30px;
+      height: 20px;
+      width: 20px;
+      background: white;
+      box-sizing:border-box;
+      transform: rotate(45deg) translate(-50%);
+      border-bottom: inherit;
+      border-right: inherit;
+      box-shadow: inherit;
+    }
+
+    #bot-bubble-message{
+      height: 50px;
+      width: 85%;
+      background: gray;
+      position: relative;
+      cursor: pointer;
+      border: 3px double black;
+      border-radius: 10px;
+    }
+    #bot-bubble-message::before{
+          content: "";
+      position: absolute;
+      top: 100%;
+      left: 30px;
+      height: 20px;
+      width: 20px;
+      background: gray;
+      box-sizing:border-box;
+      transform: rotate(45deg) translate(-50%);
+      border-bottom: inherit;
+      border-right: inherit;
+      box-shadow: inherit;
+    }
+    
+    </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="Blockly/blockly_compressed.js"></script>
   <script src="Blockly/blocks_compressed.js"></script>
   <script src="Blockly/javascript_compressed.js"></script>
   <script src="Blockly/msg/js/en.js"></script>
+  <!-- Add a link to the .js file of any new blocks, then add them to the BLOCKS at the top of index.js -->
   <script src="exampleBlocks.js"></script>
-  <script src="index.js"></script>
-  <script src="CustomBlocks.js"></script>
-  
-  
+
+  <script type="text/javascript" src="data.js"></script>
+
+  <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
+  <script type="text/javascript" src="CustomBlocks.js"></script>
+  <script type="text/javascript" src="Custblockstubs.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+
 </head>
 
 <body>
@@ -26,36 +111,59 @@
     <div class="container">
       <div class="row toolbar">
         <h1 class="app-title col-md-4">Blockly Chatbot</h1>
-        <button id="outputButton" type="button" class="btn btn-primary">Output Code</button>
+        <button id="outputButton" type="button" class="btn btn-primary">Export Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
-        <button type="button" class="btn btn-primary disabled">Other Things</button>
-	 <button id = "bt">Run JavaScript</button>
-	 <xml id="toolbox" style="display:none:">
-	   <category name = "custom blocks">
-	     <block type="input">
-	     </block>
-	   </category>
-	   </xml>
+        <button id="runCodeButton" type="button" class="btn btn-primary">Run Blocks</button>
+        <button type="button" class="btn btn-primary disabled">Save To Server</button>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h2>Block Editor</h2>
+          <div class="navbar" style="height:3em;">
+            <h2 class="navbar-brand" style="margin:0; padding:0">Blockly Editor</h2>
+          </div>
           <div id="blocklyArea" class="displayArea"></div>
         </div>
         <div class="col-md-6">
-          <h2>Code Display</h2>
+          <div class="navbar" style="height:3em;">
+            <h2 class="navbar-brand" style="margin:0; padding:0">Code Display</h2>
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a id="codePreviewButton" class="nav-link active" href="#">Code Preview</a>
+              </li>
+              <li class="nav-item">
+                <a id="chatbotPreviewButton" class="nav-link" href="#">Chatbot Preview</a>
+              </li>
+            </ul>
+          </div>
           <div id="codeDisplay" class="codeArea displayArea">
-            <code>"Add Blocks to Generate Code"</code>
+            <code>Start Adding Blocks to Generate Code</code>
+          </div>
+          <div id="chatbotDisplay" class="displayArea" style="display:none">
+            <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
+            <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
+            <div id="chat-container"></div>
+            <textarea id="chat-input"></textarea>
+            <script src="chat.js"></script>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2>Chat Preview</h2>
+          <div id="chatPreview" class="codeArea displayArea">
+                <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1>
+                <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2>
+                <div id="chat-container">
+                    </div>
+                <textarea id="chat-input">
+                </textarea>
+                <script src="chat.js"></script>
           </div>  
-
         </div>
       </div>
     </div>
   </div>
 
   <div id="blocklyDiv" style="position: absolute"></div>
- 
+
 </body>
 
 </html>
-
