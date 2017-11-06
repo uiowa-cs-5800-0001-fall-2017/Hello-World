@@ -58,7 +58,7 @@ function download(filename, text) {
   if (document.createEvent) {
     var event = document.createEvent('MouseEvents');
     event.initEvent('click', true, true);
-    pom.dispatchEvent(event)
+    pom.dispatchEvent(event);
   } else {
     pom.click();
   }
@@ -69,7 +69,7 @@ window.onload = function() {
   var blocklyDiv = document.getElementById('blocklyDiv');
   var workspace = Blockly.inject(blocklyDiv, {
     toolbox: generateBlocks()
-  })
+  });
   var onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea;
@@ -79,7 +79,7 @@ window.onload = function() {
       x += element.offsetLeft;
       y += element.offsetTop;
       element = element.offsetParent;
-    } while (element)
+    } while (element);
     // Position blocklyDiv over blocklyArea.
     blocklyDiv.style.left = x + 'px';
     blocklyDiv.style.top = y + 'px';
