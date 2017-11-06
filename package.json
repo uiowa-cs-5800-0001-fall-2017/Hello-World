@@ -12,6 +12,6 @@
   },
   "scripts": {
     "test": "./node_modules/jshint/bin/jshint index.js",
-    "start": "node index.js"
+    "start": "node index.html"
   }
 }
