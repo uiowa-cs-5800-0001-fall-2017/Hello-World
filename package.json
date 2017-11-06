@@ -1,17 +1,16 @@
-
 {
-    "name": "helloworld",
-    "repository": {
-      "type": "github",
-      "url": "https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World"
-    },
-    "description": "Simple nodejs, travis and grunt demo",
-    "author": "hello world group",
-    "version": "1.0.0",
-    "devDependencies": {
-      "jshint": "^2.8.0"
-    },
-    "scripts": {
-      "test": "./node_modules/jshint/bin/jshint index.js"
-    }
+  "name": "helloworld",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World"
+  },
+  "description": "Simple nodejs, travis and grunt demo",
+  "author": "hello world group",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  },
+  "scripts": {
+    "test": "./node_modules/jshint/bin/jshint index.js"
   }
+}
