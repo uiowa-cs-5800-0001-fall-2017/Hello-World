@@ -12,5 +12,5 @@ after_success:
   - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
   - yes | heroku keys:add
   - yes | git push heroku master
-  node_js:
+node_js:
 - node
