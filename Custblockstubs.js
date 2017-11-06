@@ -49,8 +49,8 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
 
     };
   });
-  return code
-}
+  return code;}
+
 // grammar checking block
 Blockly.JavaScript['userresonsevarable'] = function(block) {
   var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
@@ -143,4 +143,56 @@ Blockly.JavaScript['http_put'] = function(block) {
   var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
 
   return code;
+};
+
+Blockly.JavaScript['responsespeed'] = function(block) {
+  var value_input_speed = Blockly.JavaScript.valueToCode(block, 'Input speed', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['memoryfunction'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['language'] = function(block) {
+  var dropdown_lan = block.getFieldValue('Lan');
+  var value_userinput = Blockly.JavaScript.valueToCode(block, 'UseriNPUT', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['search_function'] = function(block) {
+  var dropdown_name = block.getFieldValue('NAME');
+  var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `var box=document.getElementById(`+ value_userinput +`);` + ` window.location='http://www.google.com/search?q='+escape(box.value)';`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+Blockly.JavaScript['grammar_check'] = function(block) {
+  var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = $("#chat-input").keydown(function(event) {     //get convert block
+    var a = $Spelling.SpellCheckAsYouType('myTextArea');
+    a.onChangeWord = function(from,to){alert(from+" changed to "+to)}
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+//>>confuse
+Blockly.JavaScript['response_speed2'] = function(block) {
+  var dropdown_name = block.getFieldValue('NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
