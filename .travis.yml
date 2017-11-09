@@ -1,10 +1,16 @@
-deploy:
-  provider: heroku
-  api_key:
-    secure: hIcTC5wx42SG1gW7i2fBq2ssNWb0F/FCvCa3UbpDucEzwGRuC08XEg9t35NQWArga9m2i4F8nD5YNu+H+pMfa+wrimq3YTdD7tpErQA2kutXYjHLzlZYzceFbnNGyLiHjdS4NyrjOgGKgT4wBJ9l2ma5WZyyx2GxBscqTXuUia8UzNng5j063m30E0I5w2uQkm1SlcAN4GWy/DrfxcaHPGaMULo62AapKPrWPOfoXYUeH74//pCL54h5taVh+fkPVbtkUQHcwIbQUmJA2w8C1oc7GEydGkqU5VHt+iVtlotBWU691cK5hAhdnPzzrid4HhRy5nWgN3qr3HJFLmL87BhyypUgovn3dYKptvSfiNt9twgN74IZVIw3VyaZDhIzMvP7CtX0JiKZ3mthWwTZkSk0PzuLwt28nRbpeQzwBe9h44OIaYojhHvPDWUWRuDMyQvx1vgaBsS+JZG451rsEsLeNDUpt+a2UBxBt3QaoImf0ptvJuXU7HWIwwBef0sWIBh0d5+3Jg/cfssHkcI1EvnFjRXVpfuLj0DcgdELWQl+LWf/Zx0EOK8gRhmV4Fv+ITWXxpYPjibWKdkBP6tgUEVMe3js4QSL2qobQMeFk45fHpL/AHrEK5wdGrm0P3bDXF7avms/ZrX8ikCM+Lyv2O+nsdoLtZlYcH/mX1B8rFs=
-  app: Hello-World
-  on:
-    repo: uiowa-cs-5800-0001-fall-2017/Hello-World
-  language: node_js
-  node_js: 
-    - "node"
+language: node_js
+env:
+  global:
+    secure: jOtZh5TBfvKVB9gbjrGDZtlfPIWbXmjGbz7Zwo2200NSnG2jFJExBVxtH8b8n+8jgCWsFXbnzV00ZeENX5KpkkJgDObh55p2/zp88SqfMeerX/v/J0ChQAtYe1QrrSIVpjqI25OftKkuQzWV8FPrKIqoXaLPhiJDf+SYuj3WFnlh93Xm6klr+p8eRmhAOLm4N+c0RTewhS3wcww3kA8ayeJF8l7Y/f9dGNpblz9VMW5KSdgCrRvlncEcdOe3MM7jT4t9n6cO9Iu40ZDbD4GhNZl9hNtlcyeCJYHoMBlelrBrgbkIEqZAWXIpo6duGOw7dUyYMgwELqOEUwAI/2QTJb+IoR5Wmt2eF+U4hUgAmNJLEE0EKN3IIMLvNhy5B7aAzygdBW6jYioM9HOvoGqVsge+hrVmY5V4tKJqKJzkymSsdJ99sAdL0go6TCv7TNfrHqX0C2m0+Im/DMzR43D+ut7971+whQtnxEMSxBP/P1KHPnRJ93LdwueUilnf2zFcVgVuK8PgI6mEcp613HNBJa863ZAbmqYzM+lieLQBwD+VbjhBG9tIAKJ6sFPHiTP2Df6GHPD0uVpdtmlDrBCaX21Lt7qJyPtZEjx23+4aixv6ZpCcdBN58mXRJLN0xZDFHdtZ8kYYNDVlWioeh6uqDQhu/K7RhzUI2jc7hCLJUco=
+
+after_success:
+  - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  - git remote add heroku git@heroku.com:hello-world-blockly.git
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+  - yes | heroku keys:add
+  - yes | git push heroku master
+node_js:
+- node

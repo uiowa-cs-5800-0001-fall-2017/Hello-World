@@ -17,6 +17,12 @@ var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
 return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.JavaScript['socket_setup'] = function(block) {
+  var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
 Blockly.JavaScript['input'] = function(block) {
   var text_intromessage = block.getFieldValue('intromessage');
@@ -50,7 +56,7 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
     };
   });
   return code
-}
+};
 // grammar checking block
 Blockly.JavaScript['userresonsevarable'] = function(block) {
   var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
@@ -65,7 +71,7 @@ Blockly.JavaScript['question_block'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
   return code;
-}
+};
 
 Blockly.JavaScript['question_input_block'] = function(block) {
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
