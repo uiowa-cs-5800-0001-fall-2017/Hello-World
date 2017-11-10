@@ -1,11 +1,3 @@
-// These two are just for linting purposes. Leave them in, but don't worry about them.
-/*eslint-env jquery*/
-/*global Blockly:true*/
-/*global loadLocalWorkspace:true*/
-/*global saveLocalWorkspace:true*/
-/*jshint esversion: 6*/
-/*jshint -W061*/
-
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
   categories: [
@@ -90,7 +82,7 @@ window.onload = function() {
   onresize();
   Blockly.svgResize(workspace);
 
-  loadLocalWorkspace();
+  Chatbot.loadLocalWorkspace();
 
   function generateCode(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -99,7 +91,7 @@ window.onload = function() {
     } else {
       $('#codeDisplay code').text(code);
     }
-    saveLocalWorkspace();
+    Chatbot.saveLocalWorkspace();
   }
   workspace.addChangeListener(generateCode);
 
@@ -107,22 +99,25 @@ window.onload = function() {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
     var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
     try {
-      eval(code);
+      eval(code); //jshint ignore: line
     } catch (e) {
-      alert(e);
+      alert(e); //jshint ignore: line
     }
-
   }
   var runCodeButton = $('#runCodeButton');
   runCodeButton.click(runCode);
 
-  function outputCode() {
+  function exportCode () {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     // alert(code)
-    download('blocklyCode.js', code);
+    download('blocklyCode_javascript.js', code);
+  }
+  function exportBlocks () {
+    download('blocklyCode_blocks.txt', Chatbot.getLocalWorkspace());
   }
 
-  $('#outputButton').click(outputCode);
+  $('#exportJS').click(exportCode);
+  $('#exportBlocks').click(exportBlocks);
 
   function clearBlocks() {
     var count = workspace.getAllBlocks().length;
