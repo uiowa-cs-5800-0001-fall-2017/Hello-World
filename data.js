@@ -1,4 +1,5 @@
-goog.provide('Chatbot.Data');
+// goog.provide('Chatbot');
+Chatbot = {};
 Chatbot.database = null;
 
 // Same as 'window.onload', but uses jQuery so it doesn't overwrite the other one in index.js
@@ -89,10 +90,7 @@ $(document).ready(function() {
     } else {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-        console.log(token);
-        console.log(user);
+        console.log(result.user.displayName+" has logged in");
       }).catch(function(error) {
         //Handle errors
         console.log('error logging in');
