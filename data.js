@@ -1,5 +1,5 @@
-// These two are just for linting purposes. Leave them in, but don't worry about them.
 goog.provide('Chatbot.Data');
+Chatbot.database = null;
 
 // Same as 'window.onload', but uses jQuery so it doesn't overwrite the other one in index.js
 Chatbot.saveLocalWorkspace = function() {
@@ -18,6 +18,40 @@ Chatbot.loadLocalWorkspace = function() {
     console.log('No local save found');
   }
 };
+
+Chatbot.getBlocksFromServer = function(userId, projectName){
+  // This is for end users since it doesn't require logging in.
+  // Returns a promise, so use .then on the return variable
+  // ex: Chatbot.getBlocksFromServer(x,y).then(function(data){console.log(data);});
+  return $.get(`https://blocklychatbot.firebaseio.com/${userId}/${projectName}.json`).done(function(data) {
+    console.log("GET succeeded");
+    return data;
+  }).fail(function(error){
+    console.log("GET failed");
+    console.log(error);
+  });
+};
+
+Chatbot.readFromServer = function(projectName){
+  //This is for use with the block editor and requires a user to be logged in
+  // Returns a promise, so use .then on the return variable
+  // ex: Chatbot.readFromServer(x).then(function(data){console.log(data);});
+  return Chatbot.database.child(projectName).once('value').then(function(snapshot){
+    return snapshot.val();
+  });
+};
+
+Chatbot.writeToServer = function(projectName, blocks){
+  var updates = {};
+  updates[projectName] = blocks;
+  Chatbot.database.update(updates).then(function(){
+    console.log("Successfully wrote to server");
+  }).catch(function(error){
+    console.log("Failed to write to server");
+    console.log(error);
+  });
+};
+
 $(document).ready(function() {
   var loginButton = $("#loginButton");
   var config = {
@@ -34,6 +68,7 @@ $(document).ready(function() {
       // User is signed in.
       console.log("signed in");
       console.log(user);
+      Chatbot.database = firebase.database().ref(user.uid);
       loginButton.text("Log Out");
     } else {
       // User is signed out.
@@ -46,7 +81,7 @@ $(document).ready(function() {
   loginButton.click(function() {
     var user = firebase.auth().currentUser;
     if (user) {
-      firebase.auth().signOut().then(function(){
+      firebase.auth().signOut().then(function() {
 
       }).catch(function(error) {
         console.log("error signing in");
@@ -67,51 +102,8 @@ $(document).ready(function() {
     }
   });
 
-});
+  $("#publish").click(function() {
+    Chatbot.writeToServer('newblocks','<this is a block>');
+  });
 
-//
-// firebase.auth().onAuthStateChanged(function(user) {
-//   console.log(user);
-//   if (user) {
-//     console.log("just logged in")
-//     $("#loginButton").text("Log Out")
-//     // loggin in
-//     globalUser = user;
-//   } else {
-//     console.log("just logged out");
-//     // not logged in
-//     $("#loginButton").text("Log In")
-//   }
-//   if(!$("#loginModal").attr('aria-hidden')){
-//     $("#loginModal").modal('hide');
-//   }
-// });
-//
-// $("#loginModal").on('shown.bs.modal', function(e) {
-//   if(globalUser){
-//     console.log("logged in -> out");
-//     firebase.auth().signOut().then(function(){
-//       //Signout successful
-//     }).catch(function(error){
-//       //An error occurred
-//       alert(error);
-//     });
-//   }else{
-//     console.log("logged out -> setup")
-//     //User is not signed in
-//     var uiConfig = {
-//       signInSuccessUrl: 'localhost:8000/help.html',
-//       signInOptions: [
-//         // Leave the lines as is for the providers you want to offer your users.
-//         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//       ],
-//       // Terms of service url.
-//       tosUrl: 'localhost:8000/help.html'
-//     };
-//     // Initialize the FirebaseUI Widget using Firebase.
-//     var ui = new firebaseui.auth.AuthUI(firebase.auth());
-//     // The start method will wait until the DOM is loaded.
-//     ui.start('#firebaseui-auth-container', uiConfig);
-//   }
-// })
-// });
+});
