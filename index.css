@@ -65,8 +65,12 @@ h2 {
   padding: 10px;
 }
 
-.helpItem {
+.helpItem1 {
   margin-bottom: 10px;
+}
+
+.helpItem2 {
+  margin-bottom: 20px;
 }
 
 /* Chat stylings */
