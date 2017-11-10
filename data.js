@@ -6,8 +6,7 @@ Chatbot.saveLocalWorkspace = function() {
   var xml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
   localStorage.setItem('xml', xml);
 };
-
-Chatbot.getLocalWorkspace = function() {
+Chatbot.getBlocks = function() {
   return Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
 };
 
@@ -103,7 +102,7 @@ $(document).ready(function() {
   });
 
   $("#publish").click(function() {
-    Chatbot.writeToServer('newblocks','<this is a block>');
+    Chatbot.writeToServer($("#projectTitle").val(),Chatbot.getBlocks());
   });
 
 });

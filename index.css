@@ -39,6 +39,15 @@ h2 {
   padding: 20px;
 }
 
+.dottedUnderline{
+  font-size: 1.5em;
+  padding-bottom: 0;
+  border: none;
+  background: #fff transparent;
+  border-bottom: 3px dashed #999;
+  text-decoration: none;
+}
+
 .section-header{
   margin-bottom: 10px;
 }
