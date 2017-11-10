@@ -4,7 +4,9 @@
   "globals": {
     "Blockly": true,
     "Chatbot": true,
-    "goog": true
+    "goog": true,
+    "firebase": true,
+    "firebaseui": true
   },
   "jquery": true,
   "browser": true,
