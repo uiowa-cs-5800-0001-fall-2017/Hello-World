@@ -32,12 +32,14 @@
         overflow-y: scroll;
         border-style: solid;
     }
-
-
+    
     h1 {
         font-family: verdana;
         text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     }
+       a {
+           padding: 10px;
+       }
 
     #chat-bubble-message{
       height: 50px;
@@ -114,7 +116,9 @@
         <button id="outputButton" type="button" class="btn btn-primary">Export Code</button>
         <button id="clearButton" type="button" class="btn btn-primary" onclick="clearBlocks()">Clear Blocks</button>
         <button id="runCodeButton" type="button" class="btn btn-primary">Run Blocks</button>
+         
         <button type="button" class="btn btn-primary disabled">Save To Server</button>
+        <a href ="help.html"><button id="help" type="button" class="btn btn-primary">Help</button></a> 
       </div>
       <div class="row">
         <div class="col-md-6">
@@ -143,20 +147,8 @@
             <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
             <textarea id="chat-input"></textarea>
-            <script src="chat.js"></script>
+  <script type="text/javascript" src="chat.js"></script>
           </div>
-        </div>
-        <div class="col-md-4">
-          <h2>Chat Preview</h2>
-          <div id="chatPreview" class="codeArea displayArea">
-                <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1>
-                <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2>
-                <div id="chat-container">
-                    </div>
-                <textarea id="chat-input">
-                </textarea>
-                <script src="chat.js"></script>
-          </div>  
         </div>
       </div>
     </div>
