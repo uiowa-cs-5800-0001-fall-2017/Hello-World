@@ -1,0 +1,11 @@
+{
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "Blockly": true,
+    "Chatbot": true
+  },
+  "jquery": true,
+  "browser": true,
+  "esversion": 6
+}
