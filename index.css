@@ -61,10 +61,11 @@ h2 {
   padding: 10px;
 }
 
-.helpItem1 {
+.helpItem {
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .tab1{
   margin-left: 40px;
 }
@@ -72,6 +73,8 @@ h2 {
   margin-left: 20px;
 }
 
+=======
+>>>>>>> Nate
 /* Chat stylings */
 #chat-container {
     /*top:180px;*/
