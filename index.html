@@ -9,8 +9,13 @@
   <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="index.css">
 
+  <!--  Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css" />
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Bootstrap & Blockly JS -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script type="text/javascript" src="Blockly/blockly_compressed.js"></script>
@@ -20,14 +25,13 @@
   <!-- Add a link to the .js file of any new blocks, then add them to the BLOCKS at the top of index.js -->
   <script type="text/javascript" src="exampleBlocks.js"></script>
 
-  <script type="text/javascript" src="https://s3.amazonaws.com/stitch-sdks/js/library/stable/stitch.min.js"></script>
   <script type="text/javascript" src="data.js"></script>
 
   <!-- General JavaScript: Initial blockly setup, button actions,  etc. -->
   <script type="text/javascript" src="CustomBlocks.js"></script>
   <script type="text/javascript" src="Custblockstubs.js"></script>
   <script type="text/javascript" src="index.js"></script>
-  
+
 </head>
 
 <body>
@@ -62,12 +66,19 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <button class="dropdown-item" id="exportJS" type="button">As JS Code</button>
             <button class="dropdown-item" id="exportBlocks">As Blockly Code</button>
-            <button class="dropdown-item" id="publish">Publish To Cloud</button>
+            <button class="dropdown-item" id="publish">Save To Cloud</button>
           </div>
+        </li>
+        <li class="nav-item">
+          <!-- <button id="loginButton" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button> -->
+          <button id="loginButton" class="btn btn-primary">Loading...</button>
         </li>
       </ul>
     </nav>
     <div class="container">
+      <div class="row">
+        <input id="projectTitle" class="dottedUnderline" type="text" value="Untitled Project" readonly="true">
+      </div>
       <div class="row">
         <div class="col-md-6">
           <div class="navbar" style="height:3em;">
@@ -94,17 +105,15 @@
             <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
             <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
-            <textarea id="chat-input">
-            </textarea>
+            <textarea id="chat-input"></textarea>
           </div>
-            <script type="text/javascript" src="chat.js"></script>
+          <script type="text/javascript" src="chat.js"></script>
         </div>
       </div>
     </div>
   </div>
 
   <div id="blocklyDiv" style="position: absolute"></div>
-
 </body>
 
 </html>

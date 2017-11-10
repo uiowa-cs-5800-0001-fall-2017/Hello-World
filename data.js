@@ -1,37 +1,108 @@
-// These two are just for linting purposes. Leave them in, but don't worry about them.
-/* eslint-env jquery */
-/* global Blockly:true */
-/* global Chatbot:true */
-
-goog.provide('Chatbot.Data')
+goog.provide('Chatbot.Data');
+Chatbot.database = null;
 
 // Same as 'window.onload', but uses jQuery so it doesn't overwrite the other one in index.js
-Chatbot.saveLocalWorkspace = function () {
-  var xml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace))
-  localStorage.setItem('xml', xml)
-}
+Chatbot.saveLocalWorkspace = function() {
+  var xml = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
+  localStorage.setItem('xml', xml);
+};
+Chatbot.getBlocks = function() {
+  return Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
+};
 
-Chatbot.getLocalWorkspace = function () {
-  return Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace))
-}
-
-Chatbot.loadLocalWorkspace = function () {
+Chatbot.loadLocalWorkspace = function() {
   if (localStorage.xml != null) {
-    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(localStorage.xml), Blockly.mainWorkspace)
-  }else{
-    console.log('No local save found')
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(localStorage.xml), Blockly.mainWorkspace);
+  } else {
+    console.log('No local save found');
   }
-}
+};
 
-const client = new stitch.StitchClient('chatblocks-xzynv');
-const db = client.service('mongodb', 'mongodb-atlas').db('ChatBlocks');
-client.login().then(() =>
-  db.collection('Scripts').updateOne({owner_id: client.authedId()}, {$set:{number:42}}, {upsert:true})
-).then(()=>
-  db.collection('Scripts').find({owner_id: client.authedId()})
-).then(docs => {
-  console.log("Found docs", docs)
-  console.log("[MongoDB Stitch] Connected to Stitch")
-}).catch(err => {
-  console.error(err)
+Chatbot.getBlocksFromServer = function(userId, projectName){
+  // This is for end users since it doesn't require logging in.
+  // Returns a promise, so use .then on the return variable
+  // ex: Chatbot.getBlocksFromServer(x,y).then(function(data){console.log(data);});
+  return $.get(`https://blocklychatbot.firebaseio.com/${userId}/${projectName}.json`).done(function(data) {
+    console.log("GET succeeded");
+    return data;
+  }).fail(function(error){
+    console.log("GET failed");
+    console.log(error);
+  });
+};
+
+Chatbot.readFromServer = function(projectName){
+  //This is for use with the block editor and requires a user to be logged in
+  // Returns a promise, so use .then on the return variable
+  // ex: Chatbot.readFromServer(x).then(function(data){console.log(data);});
+  return Chatbot.database.child(projectName).once('value').then(function(snapshot){
+    return snapshot.val();
+  });
+};
+
+Chatbot.writeToServer = function(projectName, blocks){
+  var updates = {};
+  updates[projectName] = blocks;
+  Chatbot.database.update(updates).then(function(){
+    console.log("Successfully wrote to server");
+  }).catch(function(error){
+    console.log("Failed to write to server");
+    console.log(error);
+  });
+};
+
+$(document).ready(function() {
+  var loginButton = $("#loginButton");
+  var config = {
+    apiKey: "AIzaSyBaistpX-tR7EgwF_ZPBfVzAKobRN_e_B0",
+    authDomain: "blocklychatbot.firebaseapp.com",
+    databaseURL: "https://blocklychatbot.firebaseio.com",
+    projectId: "blocklychatbot",
+    storageBucket: "",
+    messagingSenderId: "857756444543"
+  };
+  firebase.initializeApp(config);
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log("signed in");
+      console.log(user);
+      Chatbot.database = firebase.database().ref(user.uid);
+      loginButton.text("Log Out");
+    } else {
+      // User is signed out.
+      console.log("signed out");
+      loginButton.text("Log In");
+    }
+  }, function(error) {
+    console.log(error);
+  });
+  loginButton.click(function() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      firebase.auth().signOut().then(function() {
+
+      }).catch(function(error) {
+        console.log("error signing in");
+        console.log(error);
+      });
+    } else {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+        var token = result.credential.accessToken;
+        var user = result.user;
+        console.log(token);
+        console.log(user);
+      }).catch(function(error) {
+        //Handle errors
+        console.log('error logging in');
+        console.log(error);
+      });
+    }
+  });
+
+  $("#publish").click(function() {
+    Chatbot.writeToServer($("#projectTitle").val(),Chatbot.getBlocks());
+  });
+
 });
