@@ -4,11 +4,14 @@ Blockly.JavaScript['validate'] = function (block) {
   var functionName = Blockly.JavaScript.provideFunction_(
     'validate',
     [ 'function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + '(aList,aList2) {',
-		'var k = true;',
+		'var k = false;',
 		'for(var i = 0; i < aList2.length; i++){',
+		'var tmp = false;',
 		'for(var j = 0; j < aList.length; j++ ){', 
-		'if(aList[j] != aList2[i]){k = false;}',  
+		'if(aList[j] == aList2[i]){tmp = true;}',  
 		'}',
+		'if(tmp == true){k = true;}',
+		'else{return k;}',
 		'}',    
 		'return k;',
 		'}']);
@@ -58,8 +61,8 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
   return code
 };
 // grammar checking block
-Blockly.JavaScript['userresonsevarable'] = function(block) {
-  var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['userresponsevarable'] = function(block) {
+  var value_userresponse = Blockly.JavaScript.valueToCode(block, 'UserResponse', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   // TODO: Change ORDER_NONE to the correct strength.
