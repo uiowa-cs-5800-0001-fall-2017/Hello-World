@@ -61,8 +61,8 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
   return code
 };
 // grammar checking block
-Blockly.JavaScript['userresonsevarable'] = function(block) {
-  var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['userresponsevarable'] = function(block) {
+  var value_userresponse = Blockly.JavaScript.valueToCode(block, 'UserResponse', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   // TODO: Change ORDER_NONE to the correct strength.

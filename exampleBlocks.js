@@ -37,7 +37,7 @@ Blockly.Blocks['input'] = {
 Blockly.Blocks['response'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("resonse")
+        .appendField("response")
         .appendField(new Blockly.FieldTextInput("default"), "userResponse");
     this.setNextStatement(true, "String");
     this.setColour(230);
@@ -51,7 +51,7 @@ Blockly.Blocks['output'] = {
     this.appendValueInput("NAME")
         .setCheck("String")
         .appendField("output")
-        .appendField(new Blockly.FieldTextInput(""), "ClientResonse");
+        .appendField(new Blockly.FieldTextInput(""), "ClientResponse");
     this.setNextStatement(true, null);
     this.setColour(0);
  this.setTooltip("");
@@ -70,9 +70,9 @@ Blockly.Blocks['get_user_resopnse'] = {
   }
 };
 
-Blockly.Blocks['userresonsevarable'] = {
+Blockly.Blocks['userresponsevarable'] = {
   init: function() {
-    this.appendValueInput("UserResonse")
+    this.appendValueInput("UserResponse")
         .setCheck("String")
         .appendField("User ResponseChecker");
     this.setOutput(true, "Boolean");
@@ -121,7 +121,7 @@ Blockly.JavaScript['response'] = function(block) {
 };
 
 Blockly.JavaScript['output'] = function(block) {
-  var text_clientresonse = block.getFieldValue('ClientResonse');
+  var text_clientresponse = block.getFieldValue('ClientResponse');
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...;\n';
@@ -134,8 +134,8 @@ Blockly.JavaScript['get_user_resopnse'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['userresonsevarable'] = function(block) {
-  var value_userresonse = Blockly.JavaScript.valueToCode(block, 'UserResonse', Blockly.JavaScript.ORDER_ATOMIC);
+Blockly.JavaScript['userresponsevarable'] = function(block) {
+  var value_userresponse = Blockly.JavaScript.valueToCode(block, 'UserResponse', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   // TODO: Change ORDER_NONE to the correct strength.

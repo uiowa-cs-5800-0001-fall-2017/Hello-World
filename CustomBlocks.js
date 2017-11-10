@@ -48,9 +48,9 @@ Blockly.Blocks['get_user_resopnse'] = {
   }
 };
 
-Blockly.Blocks['userresonsevarable'] = {
+Blockly.Blocks['userresponsevarable'] = {
   init: function() {
-    this.appendValueInput("UserResonse")
+    this.appendValueInput("UserResponse")
         .setCheck("String")
         .appendField("User ResponseChecker");
     this.setOutput(true, "Boolean");
