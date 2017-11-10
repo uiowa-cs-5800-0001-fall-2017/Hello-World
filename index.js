@@ -1,8 +1,3 @@
-// These two are just for linting purposes. Leave them in, but don't worry about them.
-/*eslint-env jquery*/
-/*global Blockly:true*/
-/*global Chatbot:true*/
-
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
   categories: [
@@ -87,7 +82,7 @@ window.onload = function() {
   onresize();
   Blockly.svgResize(workspace);
 
-  Chatbot.loadLocalWorkspace()
+  Chatbot.loadLocalWorkspace();
 
   function generateCode(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -96,33 +91,33 @@ window.onload = function() {
     } else {
       $('#codeDisplay code').text(code);
     }
-    Chatbot.saveLocalWorkspace()
+    Chatbot.saveLocalWorkspace();
   }
   workspace.addChangeListener(generateCode);
 
   function runCode() {
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n'
-    var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace)
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
+    var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
     try {
-      eval(code)
+      eval(code); //jshint ignore: line
     } catch (e) {
-      alert(e)
+      alert(e); //jshint ignore: line
     }
   }
   var runCodeButton = $('#runCodeButton');
   runCodeButton.click(runCode);
 
   function exportCode () {
-    var code = Blockly.JavaScript.workspaceToCode(workspace)
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
     // alert(code)
-    download('blocklyCode_javascript.js', code)
+    download('blocklyCode_javascript.js', code);
   }
   function exportBlocks () {
-    download('blocklyCode_blocks.txt', Chatbot.getLocalWorkspace())
+    download('blocklyCode_blocks.txt', Chatbot.getLocalWorkspace());
   }
 
-  $('#exportJS').click(exportCode)
-  $('#exportBlocks').click(exportBlocks)
+  $('#exportJS').click(exportCode);
+  $('#exportBlocks').click(exportBlocks);
 
   function clearBlocks() {
     var count = workspace.getAllBlocks().length;
