@@ -121,4 +121,52 @@ Blockly.Blocks['http_put'] = {
  this.setTooltip("Type entire URL, and surround it in quotes. Example: " + "\"http://www.google.com\"");
  this.setHelpUrl("help.html#http_put");
   }
+};Blockly.Blocks['language'] = {
+  init: function() {
+    this.appendValueInput("UseriNPUT")
+        .setCheck("String")
+        .appendField("Languages Setting")
+        .appendField(new Blockly.FieldDropdown([["English","OPTIONNAME"], ["Chinese","OPTIONNAME"], ["Franch","OPTIONNAME"], ["Germany","OPTIONNAME"], ["Russian","OPTIONNAME"], ["Korean","OPTIONNAME"], ["Janpan","OPTIONNAME"]]), "Lan");
+    this.setOutput(true, "required language mode");
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['search_function'] = {
+  init: function() {
+    this.appendValueInput("Userinput")
+        .setCheck("String")
+        .appendField("SearchBy")
+        .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","bing"], ["Yahoo","yahoo"]]), "NAME");
+    this.setOutput(true, "String");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['grammar_check'] = {
+  init: function() {
+    this.appendValueInput("Userinput")
+        .setCheck("String")
+        .appendField("Grammar Chcek");
+    this.setOutput(true, "Boolean");
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['response_speed2'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Speed Setting")
+        .appendField(new Blockly.FieldDropdown([["Fast","OPTIONNAME"], ["Normal","OPTIONNAME"], ["Slow","OPTIONNAME"]]), "NAME");
+    this.setOutput(true, "Change of global timer");
+    this.setColour(30);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
 };

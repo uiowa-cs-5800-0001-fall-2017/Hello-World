@@ -21,9 +21,13 @@ var BLOCKS = {
       name: 'Chatbot',
       blocks: ['response', 'input','validate','lists_create_with'],
       color: '20'
+    },{
+      name: 'Function',
+      blocks: ['language', 'search_function','grammar_check','response_speed2'],
+      color: '20'
     }
-  ]
-}
+    ]
+};
 
 function generateBlocks() {
   var toolbox = '<xml>'

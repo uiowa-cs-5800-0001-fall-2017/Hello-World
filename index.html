@@ -103,6 +103,8 @@
   <script type="text/javascript" src="CustomBlocks.js"></script>
   <script type="text/javascript" src="Custblockstubs.js"></script>
   <script type="text/javascript" src="index.js"></script>
+  <script type='text/javascript' src='/JavaScriptSpellCheck/include.js' ></script>
+  <script type='text/javascript'>$Spelling.SpellCheckAsYouType('chat-input">')</script>
 
 </head>
 
@@ -155,6 +157,7 @@
                     </div>
                 <textarea id="chat-input">
                 </textarea>
+                <input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
                 <script src="chat.js"></script>
           </div>  
         </div>
