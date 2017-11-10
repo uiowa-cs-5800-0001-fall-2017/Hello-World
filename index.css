@@ -39,6 +39,15 @@ h2 {
   padding: 20px;
 }
 
+.dottedUnderline{
+  font-size: 1.5em;
+  padding-bottom: 0;
+  border: none;
+  background: #fff transparent;
+  border-bottom: 3px dashed #999;
+  text-decoration: none;
+}
+
 .section-header{
   margin-bottom: 10px;
 }
@@ -50,6 +59,7 @@ h2 {
 .displayArea {
   height: 100%;
   min-height: 600px;
+  max-height: 800px;
   width: 100%;
 }
 
@@ -65,7 +75,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-<<<<<<< HEAD
 .tab1{
   margin-left: 40px;
 }

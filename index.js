@@ -113,7 +113,7 @@ window.onload = function() {
     download('blocklyCode_javascript.js', code);
   }
   function exportBlocks () {
-    download('blocklyCode_blocks.txt', Chatbot.getLocalWorkspace());
+    download('blocklyCode_blocks.txt', Chatbot.getBlocks());
   }
 
   $('#exportJS').click(exportCode);
@@ -152,4 +152,12 @@ window.onload = function() {
   }
   codeButton.click(previewCode);
   chatbotButton.click(previewChatbot);
+
+  $("#projectTitle").click(function(){
+      $("#projectTitle").prop("readonly","");
+      console.log("clicked");
+  });
+  $("#projectTitle").blur(function(){
+    $("#projectTitle").prop("readonly","true");
+  })
 };
