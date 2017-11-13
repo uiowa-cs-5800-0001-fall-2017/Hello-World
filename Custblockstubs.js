@@ -28,9 +28,9 @@ Blockly.JavaScript['socket_setup'] = function(block) {
 };
 
 Blockly.JavaScript['input'] = function(block) {
-  var text_intromessage = block.getFieldValue('intromessage');
+  var text_intromessage = block.getFieldValue('intromessage').toString();
   // TODO: Assemble JavaScript into code variable.
-  var code = ('<div id = "bot-bubble-message" >' + text_intromessage + "</div>");
+  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_intromessage + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
   return code;
 };
 
