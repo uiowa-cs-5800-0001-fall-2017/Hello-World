@@ -27,7 +27,9 @@
   <script type="text/javascript" src="CustomBlocks.js"></script>
   <script type="text/javascript" src="Custblockstubs.js"></script>
   <script type="text/javascript" src="index.js"></script>
-  
+  <script type='text/javascript' src='/JavaScriptSpellCheck/include.js' ></script>
+  <script type='text/javascript'>$Spelling.SpellCheckAsYouType('chat-input">')</script>
+
 </head>
 
 <body>
@@ -101,6 +103,19 @@
             </textarea>
           </div>
             <script type="text/javascript" src="chat.js"></script>
+        </div>
+        <div class="col-md-4">
+          <h2>Chat Preview</h2>
+          <div id="chatPreview" class="codeArea displayArea">
+                <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1>
+                <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2>
+                <div id="chat-container">
+                    </div>
+                <textarea id="chat-input">
+                </textarea>
+                <input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
+                <script src="chat.js"></script>
+          </div>  
         </div>
       </div>
     </div>
