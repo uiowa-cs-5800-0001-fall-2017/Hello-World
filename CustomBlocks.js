@@ -139,7 +139,7 @@ Blockly.Blocks['search_function'] = {
     this.appendValueInput("Userinput")
         .setCheck("String")
         .appendField("SearchBy")
-        .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","bing"], ["Yahoo","yahoo"]]), "NAME");
+        .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","Bing"], ["Yahoo","Yahoo"]]), "NAME");
     this.setOutput(true, "String");
     this.setColour(230);
  this.setTooltip("");

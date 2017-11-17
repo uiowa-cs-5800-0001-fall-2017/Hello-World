@@ -184,6 +184,15 @@ Blockly.JavaScript['search_function'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = `var box=document.getElementById(`+ value_userinput +`);` + ` window.location='http://www.google.com/search?q='+escape(box.value)';`;
   // TODO: Change ORDER_NONE to the correct strength.
+  if(dropdown_name == "Yahoo"){
+    var code = " window.open('https://search.yahoo.com/search?p='+value_userinput);"
+  }
+  if(dropdown_name == "Google"){
+     var code = " window.open('https://www.google.com/search?q='+value_userinput);"
+  }
+  if(dropdown_name == "Bing"){
+    var code = " window.open('https://www.bing.com/search?q='+value_userinput);"
+  }
   return code;
 };
 
