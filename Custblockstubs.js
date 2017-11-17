@@ -135,7 +135,7 @@ Blockly.JavaScript['http_put'] = function(block) {
   var mimeType = "text/plain";
   var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
   var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
-  var xmlsend = "xmlHttp.send($('#data').val());";
+  var xmlsend = "xmlHttp.send($(" + "\"" + block.getFieldValue('data') + "\""+ ").val());";
   var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
 
   return code;

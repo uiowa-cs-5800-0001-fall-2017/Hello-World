@@ -44,6 +44,9 @@
           <a class="nav-link" href="help.html">Help</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="tutorial.html">Tutorial</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World">Github</a>
         </li>
       </ul>
@@ -59,11 +62,12 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Export
+            Options
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <button class="dropdown-item" id="exportJS" type="button">As JS Code</button>
-            <button class="dropdown-item" id="exportBlocks">As Blockly Code</button>
+            <button class="dropdown-item" id="exportJS" type="button">Export JS To File</button>
+            <button class="dropdown-item" id="exportBlocks">Export Blocks To File</button>
+            <button class="dropdown-item" id="importBlocks">Import Blocks From File</button>
             <button class="dropdown-item" id="publish">Save To Cloud</button>
           </div>
         </li>
@@ -74,9 +78,6 @@
       </ul>
     </nav>
     <div class="container">
-      <div class="row">
-        <input id="projectTitle" class="dottedUnderline" type="text" value="Untitled Project" readonly="true">
-      </div>
       <div class="row">
         <div class="col-md-6">
           <div class="navbar" style="height:3em;">
@@ -101,9 +102,11 @@
           </div>
           <div id="chatbotDisplay" class="displayArea" style="display:none">
             <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
-            <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
+            <!-- <h2><span style="color:white;<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('myTextArea')" /> position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
-            <textarea id="chat-input"></textarea>
+			<script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
+            <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
+			<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
           </div>
           <!--<script type="text/javascript" src="chattest.js"></script> -->
         </div>
@@ -112,6 +115,7 @@
   </div>
 
   <div id="blocklyDiv" style="position: absolute"></div>
+  <input id="fileButton" style="position: fixed; top: -100em" type="file" /> <!-- just ignore this -->
 </body>
 
 </html>
