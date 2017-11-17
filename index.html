@@ -59,11 +59,12 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Export
+            Options
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <button class="dropdown-item" id="exportJS" type="button">As JS Code</button>
-            <button class="dropdown-item" id="exportBlocks">As Blockly Code</button>
+            <button class="dropdown-item" id="exportJS" type="button">Export JS Code</button>
+            <button class="dropdown-item" id="exportBlocks">Export Blockly Code</button>
+            <button class="dropdown-item" id="importBlocks">Import Blockly Code</button>
             <button class="dropdown-item" id="publish">Save To Cloud</button>
           </div>
         </li>
@@ -74,9 +75,6 @@
       </ul>
     </nav>
     <div class="container">
-      <div class="row">
-        <input id="projectTitle" class="dottedUnderline" type="text" value="Untitled Project" readonly="true">
-      </div>
       <div class="row">
         <div class="col-md-6">
           <div class="navbar" style="height:3em;">
@@ -112,6 +110,7 @@
   </div>
 
   <div id="blocklyDiv" style="position: absolute"></div>
+  <input id="fileButton" style="position: fixed; top: -100em" type="file" /> <!-- just ignore this -->
 </body>
 
 </html>
