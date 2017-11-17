@@ -10,6 +10,9 @@ Chatbot.saveLocalWorkspace = function() {
 Chatbot.getBlocks = function() {
   return Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
 };
+Chatbot.getScript = function(){
+  return Blockly.JavaScript.workspaceToCode(Blockly.mainWorkspace);
+};
 
 Chatbot.loadLocalWorkspace = function() {
   if (localStorage.xml != null) {
@@ -19,34 +22,47 @@ Chatbot.loadLocalWorkspace = function() {
   }
 };
 
-Chatbot.getBlocksFromServer = function(userId, projectName){
+Chatbot.getBlocksFromServer = function(userId) {
   // This is for end users since it doesn't require logging in.
   // Returns a promise, so use .then on the return variable
   // ex: Chatbot.getBlocksFromServer(x,y).then(function(data){console.log(data);});
-  return $.get(`https://blocklychatbot.firebaseio.com/${userId}/${projectName}.json`).done(function(data) {
+  return $.get(`https://blocklychatbot.firebaseio.com/${userId}/blocks.json`).done(function(data) {
     console.log("GET succeeded");
     return data;
-  }).fail(function(error){
+  }).fail(function(error) {
+    console.log("GET failed");
+    console.log(error);
+  });
+};
+Chatbot.getScriptFromServer = function(userId) {
+  // This is for end users since it doesn't require logging in.
+  // Returns a promise, so use .then on the return variable
+  // ex: Chatbot.getBlocksFromServer(x,y).then(function(data){console.log(data);});
+  return $.get(`https://blocklychatbot.firebaseio.com/${userId}/script.json`).done(function(data) {
+    console.log("GET succeeded");
+    return data;
+  }).fail(function(error) {
     console.log("GET failed");
     console.log(error);
   });
 };
 
-Chatbot.readFromServer = function(projectName){
+Chatbot.readFromServer = function() {
   //This is for use with the block editor and requires a user to be logged in
   // Returns a promise, so use .then on the return variable
   // ex: Chatbot.readFromServer(x).then(function(data){console.log(data);});
-  return Chatbot.database.child(projectName).once('value').then(function(snapshot){
+  return Chatbot.database.once('value').then(function(snapshot) {
     return snapshot.val();
   });
 };
 
-Chatbot.writeToServer = function(projectName, blocks){
+Chatbot.writeToServer = function(blocks, script) {
   var updates = {};
-  updates[projectName] = blocks;
-  Chatbot.database.update(updates).then(function(){
+  updates.blocks = blocks;
+  updates.script = script;
+  Chatbot.database.update(updates).then(function() {
     console.log("Successfully wrote to server");
-  }).catch(function(error){
+  }).catch(function(error) {
     console.log("Failed to write to server");
     console.log(error);
   });
@@ -90,7 +106,7 @@ $(document).ready(function() {
     } else {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then(function(result) {
-        console.log(result.user.displayName+" has logged in");
+        console.log(result.user.displayName + " has logged in");
       }).catch(function(error) {
         //Handle errors
         console.log('error logging in');
@@ -100,7 +116,7 @@ $(document).ready(function() {
   });
 
   $("#publish").click(function() {
-    Chatbot.writeToServer($("#projectTitle").val(),Chatbot.getBlocks());
+    Chatbot.writeToServer(Chatbot.getBlocks(), Chatbot.getScript());
   });
 
 });
