@@ -28,9 +28,9 @@ Blockly.JavaScript['socket_setup'] = function(block) {
 };
 
 Blockly.JavaScript['input'] = function(block) {
-  var text_intromessage = block.getFieldValue('intromessage');
+  var text_intromessage = block.getFieldValue('intromessage').toString();
   // TODO: Assemble JavaScript into code variable.
-  var code = ('<div id = "bot-bubble-message" >' + text_intromessage + "</div>");
+  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_intromessage + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
   return code;
 };
 
@@ -148,7 +148,7 @@ Blockly.JavaScript['http_put'] = function(block) {
   var mimeType = "text/plain";
   var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
   var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
-  var xmlsend = "xmlHttp.send($('#data').val());";
+  var xmlsend = "xmlHttp.send($(" + "\"" + block.getFieldValue('data') + "\""+ ").val());";
   var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
 
   return code;

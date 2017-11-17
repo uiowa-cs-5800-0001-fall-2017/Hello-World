@@ -44,6 +44,9 @@
           <a class="nav-link" href="help.html">Help</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="tutorial.html">Tutorial</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World">Github</a>
         </li>
       </ul>
@@ -99,9 +102,11 @@
           </div>
           <div id="chatbotDisplay" class="displayArea" style="display:none">
             <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
-            <!-- <h2><span style="color:white; top: 150px; width: 24vw; position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
+            <!-- <h2><span style="color:white;<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('myTextArea')" /> position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
-            <textarea id="chat-input"></textarea>
+			<script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
+            <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
+			<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
           </div>
           <script type="text/javascript" src="chat.js"></script>
         </div>

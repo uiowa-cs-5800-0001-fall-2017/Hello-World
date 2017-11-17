@@ -18,7 +18,7 @@
 <body>
   <div class="content">
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot</a>
+      <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot Help Page</a>
       <ul class="nav nav-pills mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">Block Editor<span class="sr-only">(current)</span></a>
@@ -27,13 +27,13 @@
           <a class="nav-link active" href="#">Help</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="tutorial.html">Tutorial</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World">Github</a>
         </li>
       </ul>
       <ul class="nav">
-        <!-- <li class="nav-item active">
-          <div class="navbar-brand">Help</div>
-        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Block List
@@ -41,7 +41,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a href="#if_do" class="dropdown-item">If... Do...</a>
             <a href="#socketsetup" class="dropdown-item">Socket Setup</a>
-            <a href="#while_do" class="dropdown-item">While... Do...</a>
+            <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
             <a href="#message" class="dropdown-item">Message</a>
             <a href="#print" class="dropdown-item">Print</a>
             <a href="#http_get" class="dropdown-item">http GET</a>
@@ -56,77 +56,166 @@
         </li>
       </ul>
     </nav>
+<!--
+  - Add blocks from the Bolck Editor "Basic" tab here
+  - make sure to add a .png file in the BlockImages directory
+  - make sure you add the block to the toolbox in index.js
+  - make sure to add your bolck above in the dropdown menu
+-->
+    <div class="helpitem">
+      <h2>Classic Blockly Blocks</h2>
+    </div>
+    
     <div class="container">
       <div class="helpItem">
         <a id="if_do"><b>if_do</b></a>
         <img src="BlockImages/ifDo.png" alt="If Do Loop Block" width="70" height="50">
         <p class="tab2">
-          Write the help description and here.....................
+          Conditional statements are central to computer programming. They make it possible to express 
+          statements like:
+          <p class="tab1">
+            - If there is a path to the left, turn left.
+          </p>
+          <p class="tab1">
+            - If score = 100, print "Well done!".
+          </p>
+          <p class="tab2">
+            It is also possible to specify that something should happen if the condition is not true. An if 
+            block may have zero or one else sections but not more than one. An if block may haveany number 
+            of else if sections. Conditions are evaluated top to bottom until one is satisfied, or until no 
+            more conditions are left. The else section guarantees that some action is performed, even if 
+            none of the prior conditions are true. An else section may occur after any number of else if 
+            sections, including zero.
+          </p>
+          <p class="tab2">
+            To add else if and else clauses, the user needs to click on the gear icon, which opens a new 
+            window. The user can then drag else if and else clauses into the if block, as well as reordering 
+            and removing them. When finished, the user should click on the minus sign, which closes the 
+            window. Note that the shapes of the blocks allows any number of else if subblocks to be added but 
+            only up to one else block.
+          </p>
+          <p class="tab2">
+            For a more indepth look at if do loops, please visit Blokly's help page: 
+            <a href = "https://github.com/google/blockly/wiki/IfElse">Blockly Help</a>
+          </p>
         </p>
       </div>
+      
+
       <div class="helpItem">
-        <a id="socketsetup"><b>Socket Setup</b></a>
-        <img src="BlockImages/socketsetup.png" alt="socketsetup" width="70" height="50">
+        <a id="repeat"><b>repeat</b></a>
+        <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="80" height="50">
         <p class="tab2">
-          Write the help description and here.....................
+          The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
+          loops repeat their bodies while some condition is true. Repeat-until loops are similar except that 
+          they repeat their bodies until some condition is true.
+        </p>
+        <p class="tab2">
+          For a more indepth look at repeat loops, please visit Blokly's help page: 
+          <a href = "https://github.com/google/blockly/wiki/Loops#repeat">Blockly Help</a>
         </p>
       </div>
 
-      <div class="helpItem">
-        <a id="while_do"><b>do_while</b></a>
-        <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="80" height="50">
-        <p class="tab2">
-          Write the help description and here.....................
-        </p>
-      </div>
 
       <div class="helpItem">
         <a id="message"><b>message</b></a>
-        <img src="BlockImages/message.png" alt="Message Block" width="50" height="25">
+        <img src="BlockImages/message.png" alt="Message Block" width="85" height="40">
         <p class="tab2">
           Write the help description and here.....................
+        </p>
+        <p class="tab2">
+          For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
+          <a href = "https://en.wikipedia.org/wiki/String_(computer_science)">Blockly Help</a>
         </p>
       </div>
 
+
       <div class="helpItem">
         <a id="print"><b>print</b></a>
-        <img src="BlockImages/print.png" alt="Print Block" width="50" height="25">
+        <img src="BlockImages/print.png" alt="Print Block" width="85" height="40">
         <p class="tab2">
-          Write the help description and here.....................
+          The print block causes the input value to be displayed in a pop-up window, If the code 
+          is exported as JavaScript, Python, or Dart, it will be printed to the console (screen). 
+          In no case is it sent to the printer, as the name might suggest.
         </p>
+        <p class="tab2">
+          For a more indepth look at print, please visit the Blockly help page:  
+          <a href = "https://github.com/google/blockly/wiki/Text#printing-text">Blockly Help</a>
+        </p>
+      </div>
+<!--
+  - Add blocks from the Bolck Editor "Requests" tab here
+  - make sure to add a .png file in the BlockImages directory
+  - make sure you add the block to the toolbox in index.js
+  - make sure to add your bolck above in the dropdown menu
+-->
+      <div class="helpitem">
+        <h2>Blockly Request Blocks</h2>
       </div>
 
       <div class="helpItem">
         <a id="http_get"><b>http_get</b></a>
-        <img src="BlockImages/httpGet.png" alt="HTTP GET Block" width="105" height="25">
+        <img src="BlockImages/httpGet.png" alt="HTTP GET Block" width="180" height="40">
         <p class="tab2">
-          This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> example: http://www.your_web_site.com
+          This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> 
+          example: http://www.your_web_site.com
         </p>
       </div>
+      
 
       <div class="helpItem">
         <a id="http_put"><b>http_put</b></a>
-        <img src="BlockImages/httpPut.png" alt="HTTP PUT Block" width="105" height="25">
+        <img src="BlockImages/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
         <p class="tab2">
-          This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> example: http://www.your_web_site.com
+          This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> 
+          example: http://www.your_web_site.com
         </p>
+      </div>
+<!--
+  - Add blocks from the Bolck Editor "Chatbot" tab here
+  - make sure to add a .png file in the BlockImages directory
+  - make sure you add the block to the toolbox in index.js
+  - make sure to add your bolck above in the dropdown menu
+-->
+      <div class="helpitem">
+        <h2>Blockly Chatbot Blocks</h2>
       </div>
 
       <div class="helpItem">
-        <a id="response"><b>response</b></a>
-        <img src="BlockImages/response.png" alt="Response Block" width="80" height="25">
+        <a id="socketsetup"><b>Socket Setup</b></a>
+        <img src="BlockImages/socketsetup.png" alt="socketsetup" width="100" height="50">
         <p class="tab2">
           Write the help description and here.....................
         </p>
       </div>
+      
+      
+      <div class="helpItem">
+        <a id="response"><b>response</b></a>
+        <img src="BlockImages/response.png" alt="Response Block" width="110" height="40">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+
 
       <div class="helpItem">
         <a id="introduction"><b>introduction</b></a>
-        <img src="BlockImages/introduction.png" alt="Introduction Block" width="80" height="25">
+        <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>
       </div>
+      
+      <div class="helpItem">
+        <a id="text/matching list"><b>text/matching list</b></a>
+        <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+      
+      
     </div>
   </div>
 </body>
