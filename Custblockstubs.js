@@ -154,20 +154,6 @@ Blockly.JavaScript['http_put'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['responsespeed'] = function(block) {
-  var value_input_speed = Blockly.JavaScript.valueToCode(block, 'Input speed', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['memoryfunction'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
 
 Blockly.JavaScript['language'] = function(block) {
   var dropdown_lan = block.getFieldValue('Lan');
