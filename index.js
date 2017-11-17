@@ -13,7 +13,7 @@ var BLOCKS = {
     },
     {
       name: 'Chatbot',
-      blocks: ['response', 'input','validate','lists_create_with','socket_setup','question_block'],
+      blocks: ['response', 'input','validate','lists_create_with','socket_setup','question_block', 'get_user_resopnse'],
       color: '20'
     }
   ]
