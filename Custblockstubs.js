@@ -160,6 +160,27 @@ Blockly.JavaScript['language'] = function(block) {
   var value_userinput = Blockly.JavaScript.valueToCode(block, 'UseriNPUT', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
+  if(dropdown_lan == "English"){
+    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'en');}"
+  }
+  if(dropdown_lan == "Chinese"){
+    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'zh-CN');}"
+  }
+  if(dropdown_lan == "French"){
+    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'fr');}"
+  }
+  if(dropdown_lan == "German"){
+    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'de');}"
+  }
+    if(dropdown_lan == "Russian"){
+      var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'ru');}"
+  }
+    if(dropdown_lan == "Korean"){
+      var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'ko');}"
+  }
+
+
+  type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -167,8 +188,6 @@ Blockly.JavaScript['language'] = function(block) {
 Blockly.JavaScript['search_function'] = function(block) {
   var dropdown_name = block.getFieldValue('NAME');
   var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = `var box=document.getElementById(`+ value_userinput +`);` + ` window.location='http://www.google.com/search?q='+escape(box.value)';`;
   // TODO: Change ORDER_NONE to the correct strength.
   if(dropdown_name == "Yahoo"){
     var code = " window.open('https://search.yahoo.com/search?p='+value_userinput);"

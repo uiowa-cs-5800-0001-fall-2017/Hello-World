@@ -126,7 +126,7 @@ Blockly.Blocks['http_put'] = {
     this.appendValueInput("UseriNPUT")
         .setCheck("String")
         .appendField("Languages Setting")
-        .appendField(new Blockly.FieldDropdown([["English","OPTIONNAME"], ["Chinese","OPTIONNAME"], ["Franch","OPTIONNAME"], ["Germany","OPTIONNAME"], ["Russian","OPTIONNAME"], ["Korean","OPTIONNAME"], ["Janpan","OPTIONNAME"]]), "Lan");
+        .appendField(new Blockly.FieldDropdown([["English","OPTIONNAME"], ["Chinese","OPTIONNAME"], ["French","OPTIONNAME"], ["German","OPTIONNAME"], ["Russian","OPTIONNAME"], ["Korean","OPTIONNAME"], ["Janpan","OPTIONNAME"]]), "Lan");
     this.setOutput(true, "required language mode");
     this.setColour(330);
  this.setTooltip("");
