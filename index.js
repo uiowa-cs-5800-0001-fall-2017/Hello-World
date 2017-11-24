@@ -125,6 +125,7 @@ window.onload = function() {
     reader.onload = function(e) {
       var contents = e.target.result;
       // Display file content
+      Blockly.mainWorkspace.clear();
       Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(contents), Blockly.mainWorkspace);
     };
     reader.readAsText(file);

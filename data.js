@@ -16,6 +16,7 @@ Chatbot.getScript = function() {
 
 Chatbot.loadLocalWorkspace = function() {
   if (localStorage.xml != null) {
+    Blockly.mainWorkspace.clear();
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(localStorage.xml), Blockly.mainWorkspace);
   } else {
     console.log('No local save found');
@@ -131,7 +132,10 @@ $(document).ready(function() {
     Chatbot.writeToServer(Chatbot.getBlocks(), Chatbot.getScript());
   });
   $("#loadCloud").click(function() {
+    console.log("here");
     Chatbot.readFromServer().then(function(data){
+      console.log("blocks:",data.blocks);
+      Blockly.mainWorkspace.clear();
       Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(data.blocks), Blockly.mainWorkspace);
     });
   });
