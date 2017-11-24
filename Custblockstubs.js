@@ -43,22 +43,9 @@ Blockly.JavaScript['response'] = function(block) {
 
 Blockly.JavaScript['get_user_resopnse'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = $("#chat-input").keydown(function(event) {
-    if (event.keyCode == 13) {
-      event.preventDefault();
-      if ($("#char-input").val() != "") {
-        var userResponse = $("#chat-input").val()
-        socket.emit("chat-message", $("#chat-input").val());
-      }
-      $("#chat-input").val("");
-
-      $("#chat-container").animate({
-        scrollTop: 10000000
-      }, "fast"); //this makes the scroll bar go to the bottom.
-
-    };
-  });
-  return code
+  var userResponse = '';
+  var code =(`$("#chat-input").keydown(function(event) { if (event.keyCode == 13) { event.preventDefault(); if ($("#char-input").val() != "") { userResponse = $("#chat-input").val(); var div = ('<div id = "chat-bubble-message" >'+` + ' userResponse ' + `+"</div>"); $("#chat-container").append(div.toString() + "<br />"); } $("#chat-input").val(""); $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); }});`);
+  return code;
 };
 // grammar checking block
 Blockly.JavaScript['userresponsevarable'] = function(block) {
@@ -72,7 +59,7 @@ Blockly.JavaScript['userresponsevarable'] = function(block) {
 Blockly.JavaScript['question_block'] = function(block) {
   var text_question_they_want_to_ask = block.getFieldValue('Question they want to ask');
   // TODO: Assemble JavaScript into code variable.
-  var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
+  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_question_they_want_to_ask + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
   return code;
 };
 
