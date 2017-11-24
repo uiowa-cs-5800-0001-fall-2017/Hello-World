@@ -10,7 +10,7 @@ Chatbot.saveLocalWorkspace = function() {
 Chatbot.getBlocks = function() {
   return Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(Blockly.mainWorkspace));
 };
-Chatbot.getScript = function(){
+Chatbot.getScript = function() {
   return Blockly.JavaScript.workspaceToCode(Blockly.mainWorkspace);
 };
 
@@ -60,12 +60,24 @@ Chatbot.writeToServer = function(blocks, script) {
   var updates = {};
   updates.blocks = blocks;
   updates.script = script;
-  Chatbot.database.update(updates).then(function() {
-    console.log("Successfully wrote to server");
-  }).catch(function(error) {
-    console.log("Failed to write to server");
-    console.log(error);
+  console.log('here');
+  Chatbot.readFromServer().then(function(data) {
+    if (data.blocks === blocks) {
+      return;
+    } else {
+      if (confirm("Are you sure you want to overwrite your cloud files? This action cannot be undone.")) {
+        Chatbot.database.update(updates).then(function() {
+          console.log("Successfully wrote to server");
+        }).catch(function(error) {
+          console.log("Failed to write to server");
+          console.log(error);
+        });
+      } else {
+        return;
+      }
+    }
   });
+
 };
 
 $(document).ready(function() {
@@ -83,7 +95,7 @@ $(document).ready(function() {
     if (user) {
       // User is signed in.
       console.log("signed in");
-      console.log(user);
+      // console.log(user);
       Chatbot.database = firebase.database().ref(user.uid);
       loginButton.text("Log Out");
     } else {
@@ -117,6 +129,11 @@ $(document).ready(function() {
 
   $("#publish").click(function() {
     Chatbot.writeToServer(Chatbot.getBlocks(), Chatbot.getScript());
+  });
+  $("#loadCloud").click(function() {
+    Chatbot.readFromServer().then(function(data){
+      Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(data.blocks), Blockly.mainWorkspace);
+    });
   });
 
 });
