@@ -141,3 +141,13 @@ Blockly.JavaScript['http_put'] = function(block) {
 
   return code;
 };
+
+Blockly.JavaScript['https_get'] = function(block) {
+
+  return code;
+};
+
+Blockly.JavaScript['https_put'] = function(block) {
+
+  return code;
+};

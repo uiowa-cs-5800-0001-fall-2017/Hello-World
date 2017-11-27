@@ -120,7 +120,33 @@ Blockly.Blocks['http_put'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("ype the URL that you are sending the data to");
+ this.setTooltip("Type the URL that you are sending the data to");
  this.setHelpUrl("help.html#http_put");
+  }
+};
+
+Blockly.Blocks['https_get'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("url for https GET request"), "url");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+ this.setTooltip("Type URL you are requesting");
+ this.setHelpUrl("help.html#https_get");
+  }
+};
+
+Blockly.Blocks['https_put'] = {
+  init: function() {
+    this.appendValueInput("data")
+        .setCheck("String")
+        .appendField(new Blockly.FieldTextInput("the url for https PUT request"), "url");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+ this.setTooltip("Type the URL that you are sending the data to");
+ this.setHelpUrl("help.html#https_put");
   }
 };
