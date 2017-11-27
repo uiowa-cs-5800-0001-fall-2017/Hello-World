@@ -8,7 +8,7 @@ Blockly.Blocks['validate'] = {
         .appendField("Matching List");
     this.setOutput("Boolean");
     this.setColour(0);
- this.setTooltip("vaildates strings ");
+ this.setTooltip("vaildates that the strings are matching");
  this.setHelpUrl("help.html#validate");
   }
 };
@@ -95,7 +95,7 @@ Blockly.Blocks['end_sockets'] = {
     this.setPreviousStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#end_sockets");
   }
 };
 

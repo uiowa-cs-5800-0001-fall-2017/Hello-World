@@ -121,10 +121,10 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 Blockly.JavaScript['http_get'] = function(block) {
   
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlOpen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
-  var xmlTry = "xmlHttp.send(null);";
-  var xmlResp = "alert(xmlHttp.responseText);";
-  var code = xmlHttp + '\n' + xmlOpen + '\n' + xmlTry + '\n' + xmlResp + '\n';
+  var xmlOpen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", true);";
+  var xmlSend = "xmlHttp.send(null);";
+  var xmlresp = "alert(xmlHttp.responseText);";
+  var code = xmlHttp + '\n' + xmlOpen + '\n' + xmlSend + '\n' + xmlresp + '\n';
 
   return code;
 };
