@@ -40,14 +40,30 @@
               </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a href="#if_do" class="dropdown-item">If... Do...</a>
-            <a href="#socketsetup" class="dropdown-item">Socket Setup</a>
             <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
             <a href="#message" class="dropdown-item">Message</a>
             <a href="#print" class="dropdown-item">Print</a>
             <a href="#http_get" class="dropdown-item">http GET</a>
             <a href="#http_put" class="dropdown-item">http PUT</a>
-            <a href="#response" class="dropdown-item">Response</a>
-            <a href="#introduction" class="dropdown-item">Introduction</a>
+            
+            
+            <!--  need to find the id needed for this, and make sure it belongs in the chatbot section  -->
+            <a href="#????????" class="dropdown-item">Response</a>
+            <a href="#input" class="dropdown-item">Introduction</a>
+            <a href="#validate" class="dropdown-item">Text/Matching List</a>
+            
+            
+            <!--  need to find the id needed for this, and make sure it belongs in the chatbot section  -->
+            <a href="#????????" class="dropdown-item">Create List With</a>
+            <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
+            <a href="#question_block" class="dropdown-item">Question</a>
+            <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
+            
+            
+            
+            
+            
+            
           </div>
         </li>
         <li class="nav-item">
@@ -62,14 +78,16 @@
   - make sure you add the block to the toolbox in index.js
   - make sure to add your bolck above in the dropdown menu
 -->
-    <div class="helpitem">
-      <h2>Classic Blockly Blocks</h2>
-    </div>
-    
     <div class="container">
+      
+      <div class="helpitem">
+        <h2>Classic Blockly Blocks</h2>
+      </div>
+    
+    
       <div class="helpItem">
-        <a id="if_do"><b>if_do</b></a>
-        <img src="BlockImages/ifDo.png" alt="If Do Loop Block" width="70" height="50">
+        <a id="if_do"><b>If... Do...     </b></a>
+        <img src="BlockImages/if_do.png" alt="If Do Loop Block" width="100" height="75">
         <p class="tab2">
           Conditional statements are central to computer programming. They make it possible to express 
           statements like:
@@ -103,8 +121,8 @@
       
 
       <div class="helpItem">
-        <a id="repeat"><b>repeat</b></a>
-        <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="80" height="50">
+        <a id="repeat"><b>Repeat While... or Until...     </b></a>
+        <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="100" height="75">
         <p class="tab2">
           The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
           loops repeat their bodies while some condition is true. Repeat-until loops are similar except that 
@@ -118,7 +136,7 @@
 
 
       <div class="helpItem">
-        <a id="message"><b>message</b></a>
+        <a id="message"><b>Message     </b></a>
         <img src="BlockImages/message.png" alt="Message Block" width="85" height="40">
         <p class="tab2">
           Write the help description and here.....................
@@ -131,7 +149,7 @@
 
 
       <div class="helpItem">
-        <a id="print"><b>print</b></a>
+        <a id="print"><b>Print     </b></a>
         <img src="BlockImages/print.png" alt="Print Block" width="85" height="40">
         <p class="tab2">
           The print block causes the input value to be displayed in a pop-up window, If the code 
@@ -154,7 +172,7 @@
       </div>
 
       <div class="helpItem">
-        <a id="http_get"><b>http_get</b></a>
+        <a id="http_get"><b>http GET     </b></a>
         <img src="BlockImages/httpGet.png" alt="HTTP GET Block" width="180" height="40">
         <p class="tab2">
           This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> 
@@ -164,7 +182,7 @@
       
 
       <div class="helpItem">
-        <a id="http_put"><b>http_put</b></a>
+        <a id="http_put"><b>http PUT     </b></a>
         <img src="BlockImages/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
         <p class="tab2">
           This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> 
@@ -181,35 +199,70 @@
         <h2>Blockly Chatbot Blocks</h2>
       </div>
 
+
+<!--
+    need to find the id needed for this
+-->
       <div class="helpItem">
-        <a id="socketsetup"><b>Socket Setup</b></a>
-        <img src="BlockImages/socketsetup.png" alt="socketsetup" width="100" height="50">
-        <p class="tab2">
-          Write the help description and here.....................
-        </p>
-      </div>
-      
-      
-      <div class="helpItem">
-        <a id="response"><b>response</b></a>
+        <a id="??????????"><b>Response     </b></a>
         <img src="BlockImages/response.png" alt="Response Block" width="110" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>
       </div>
-
-
+      
+      
       <div class="helpItem">
-        <a id="introduction"><b>introduction</b></a>
+        <a id="input"><b>Introduction     </b></a>
         <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>
       </div>
       
+      
       <div class="helpItem">
-        <a id="text/matching list"><b>text/matching list</b></a>
-        <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
+        <a id="tvalidate"><b>Text/Matching List     </b></a>
+        <img src="BlockImages/text-matchingList.png" alt="Introduction Block" width="120" height="75">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+      
+      
+<!--
+    need to find the id needed for this
+-->
+      <div class="helpItem">
+        <a id="???????????"><b>Create List With     </b></a>
+        <img src="BlockImages/createList.png" alt="Introduction Block" width="120" height="75">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+      
+      
+      <div class="helpItem">
+        <a id="socket_setup"><b>Bot Setup     </b></a>
+        <img src="BlockImages/socketsetup.png" alt="socketsetup" width="100" height="50">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+
+
+      <div class="helpItem">
+        <a id="question_block"><b>Question     </b></a>
+        <img src="BlockImages/question.png" alt="socketsetup" width="110" height="40">
+        <p class="tab2">
+          Write the help description and here.....................
+        </p>
+      </div>
+      
+      
+      <div class="helpItem">
+        <a id="get_user_resopnse"><b>Get User Response     </b></a>
+        <img src="BlockImages/user_response.png" alt="socketsetup" width="140" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>

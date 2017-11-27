@@ -9,7 +9,7 @@ Blockly.Blocks['validate'] = {
     this.setOutput("Boolean");
     this.setColour(0);
  this.setTooltip("vaildates strings ");
- this.setHelpUrl("hel.html");
+ this.setHelpUrl("help.html#validate");
   }
 };
 
@@ -20,7 +20,7 @@ Blockly.Blocks['socket_setup'] = {
         .appendField("Botsetup");
     this.setColour(230);
  this.setTooltip("sets up sockets");
- this.setHelpUrl("help.html");
+ this.setHelpUrl("help.html#socket_setup");
   }
 };
 Blockly.Blocks['input'] = {
@@ -32,7 +32,7 @@ Blockly.Blocks['input'] = {
     this.setNextStatement(true, null);
     this.setColour(120);
  this.setTooltip("sends first message to user");
- this.setHelpUrl("help.html#http_introduction");
+ this.setHelpUrl("help.html#input");
   }
 };
 
@@ -44,7 +44,7 @@ Blockly.Blocks['get_user_resopnse'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#get_user_resopnse");
   }
 };
 
@@ -69,7 +69,7 @@ Blockly.Blocks['question_block'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("sends next question to user");
- this.setHelpUrl("help.html#http_Question");
+ this.setHelpUrl("help.html#question_block");
   }
 };
 
