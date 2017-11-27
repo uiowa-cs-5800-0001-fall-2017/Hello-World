@@ -113,12 +113,14 @@ Blockly.Blocks['http_get'] = {
 
 Blockly.Blocks['http_put'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("url for http PUT request"), "url");
+    this.appendValueInput("data")
+        .setCheck("String")
+        .appendField(new Blockly.FieldTextInput("the url for http PUT request"), "url");
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
- this.setTooltip("Type the URL that you are sending the data to");
+ this.setTooltip("ype the URL that you are sending the data to");
  this.setHelpUrl("help.html#http_put");
   }
 };

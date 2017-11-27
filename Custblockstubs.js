@@ -121,22 +121,23 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 Blockly.JavaScript['http_get'] = function(block) {
   
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
-  var xmltry = "xmlHttp.send(null);";
-  var xmlresp = "alert(xmlHttp.responseText);";
-  var code = xmlHttp + '\n' + xmlopen + '\n' + xmltry + '\n' + xmlresp;
+  var xmlOpen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
+  var xmlTry = "xmlHttp.send(null);";
+  var xmlResp = "alert(xmlHttp.responseText);";
+  var code = xmlHttp + '\n' + xmlOpen + '\n' + xmlTry + '\n' + xmlResp + '\n';
 
   return code;
 };
 
 Blockly.JavaScript['http_put'] = function(block) {
   
+  var data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
   var xmlHttp = "var xmlHttp = getNewHTTPObject();";
   var mimeType = "text/plain";
-  var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
-  var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
-  var xmlsend = "xmlHttp.send($(" + "\"" + block.getFieldValue('data') + "\""+ ").val());";
-  var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
+  var xmlOpen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
+  var xmlSet = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
+  var xmlSend = "xmlHttp.send($(" +  data + ").val());";
+  var code = xmlHttp + '\n' + mimeType + '\n' + xmlOpen + '\n' + xmlSet + '\n' + xmlSend + '\n';
 
   return code;
 };
