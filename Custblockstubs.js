@@ -121,22 +121,34 @@ Blockly.JavaScript['end_sockets'] = function(block) {
 Blockly.JavaScript['http_get'] = function(block) {
   
   var xmlHttp = "var xmlHttp = new XMLHttpRequest();";
-  var xmlopen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
-  var xmltry = "xmlHttp.send(null);";
+  var xmlOpen = "xmlHttp.open('GET', " + "\"" + block.getFieldValue('url') + "\"" + ", true);";
+  var xmlSend = "xmlHttp.send(null);";
   var xmlresp = "alert(xmlHttp.responseText);";
-  var code = xmlHttp + '\n' + xmlopen + '\n' + xmltry + '\n' + xmlresp;
+  var code = xmlHttp + '\n' + xmlOpen + '\n' + xmlSend + '\n' + xmlresp + '\n';
 
   return code;
 };
 
 Blockly.JavaScript['http_put'] = function(block) {
   
-  var xmlHttp = "var xmlHttp = getNewHTTPObject();";
+  var x = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
+  
   var mimeType = "text/plain";
-  var xmlopen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
-  var xmlset = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
-  var xmlsend = "xmlHttp.send($(" + "\"" + block.getFieldValue('data') + "\""+ ").val());";
-  var code = xmlHttp + '\n' + mimeType + '\n' + xmlopen + '\n' + xmlset + '\n' + xmlsend;
+  var xmlHttp = "var xmlHttp = getNewHTTPObject();";
+  var xmlOpen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", true);";
+  var xmlSet = "xmlHttp.setRequestHeader('Content-Type', " + mimeType + ");";
+  var xmlSend = "xmlHttp.send($(" + x + ").val());";
+  var code = xmlHttp + '\n' + mimeType + '\n' + xmlOpen + '\n' + xmlSet + '\n' + xmlSend + '\n' + x;
+
+  return code;
+};
+
+Blockly.JavaScript['https_get'] = function(block) {
+
+  return code;
+};
+
+Blockly.JavaScript['https_put'] = function(block) {
 
   return code;
 };

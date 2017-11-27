@@ -40,14 +40,14 @@
               </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a href="#if_do" class="dropdown-item">If... Do...</a>
-            <a href="#socketsetup" class="dropdown-item">Socket Setup</a>
             <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
             <a href="#message" class="dropdown-item">Message</a>
             <a href="#print" class="dropdown-item">Print</a>
             <a href="#http_get" class="dropdown-item">http GET</a>
             <a href="#http_put" class="dropdown-item">http PUT</a>
-            <a href="#response" class="dropdown-item">Response</a>
-            <a href="#introduction" class="dropdown-item">Introduction</a>
+            <a href="#https_get" class="dropdown-item">https GET</a>
+            <a href="#https_put" class="dropdown-item">https PUT</a>
+            <a href="#validate" class="dropdown-item">Validate</a>
           </div>
         </li>
         <li class="nav-item">
@@ -60,15 +60,16 @@
   - Add blocks from the Bolck Editor "Basic" tab here
   - make sure to add a .png file in the BlockImages directory
   - make sure you add the block to the toolbox in index.js
-  - make sure to add your bolck above in the dropdown menu
+  - make sure to add your block above in the dropdown menu
 -->
-    <div class="helpitem">
-      <h2>Classic Blockly Blocks</h2>
-    </div>
-    
     <div class="container">
+      
+      <div class="helpitem">
+        <h2>Classic Blockly Blocks</h2>
+      </div>
+      
       <div class="helpItem">
-        <a id="if_do"><b>if_do</b></a>
+        <a id="if_do"><b>If... Do...</b></a>
         <img src="BlockImages/ifDo.png" alt="If Do Loop Block" width="70" height="50">
         <p class="tab2">
           Conditional statements are central to computer programming. They make it possible to express 
@@ -96,14 +97,14 @@
           </p>
           <p class="tab2">
             For a more indepth look at if do loops, please visit Blokly's help page: 
-            <a href = "https://github.com/google/blockly/wiki/IfElse">Blockly Help</a>
+            <a href = "https://github.com/google/blockly/wiki/IfElse" target= "_blank">Blockly Help</a>
           </p>
         </p>
       </div>
       
 
       <div class="helpItem">
-        <a id="repeat"><b>repeat</b></a>
+        <a id="repeat"><b>Repeat While... or Until...</b></a>
         <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="80" height="50">
         <p class="tab2">
           The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
@@ -112,26 +113,26 @@
         </p>
         <p class="tab2">
           For a more indepth look at repeat loops, please visit Blokly's help page: 
-          <a href = "https://github.com/google/blockly/wiki/Loops#repeat">Blockly Help</a>
+          <a href = "https://github.com/google/blockly/wiki/Loops#repeat" target= "_blank">Blockly Help</a>
         </p>
       </div>
 
 
       <div class="helpItem">
-        <a id="message"><b>message</b></a>
+        <a id="message"><b>Message</b></a>
         <img src="BlockImages/message.png" alt="Message Block" width="85" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>
         <p class="tab2">
           For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
-          <a href = "https://en.wikipedia.org/wiki/String_(computer_science)">Blockly Help</a>
+          <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target= "_blank">Blockly Help</a>
         </p>
       </div>
 
 
       <div class="helpItem">
-        <a id="print"><b>print</b></a>
+        <a id="print"><b>Print</b></a>
         <img src="BlockImages/print.png" alt="Print Block" width="85" height="40">
         <p class="tab2">
           The print block causes the input value to be displayed in a pop-up window, If the code 
@@ -140,21 +141,21 @@
         </p>
         <p class="tab2">
           For a more indepth look at print, please visit the Blockly help page:  
-          <a href = "https://github.com/google/blockly/wiki/Text#printing-text">Blockly Help</a>
+          <a href = "https://github.com/google/blockly/wiki/Text#printing-text" target= "_blank">Blockly Help</a>
         </p>
       </div>
 <!--
   - Add blocks from the Bolck Editor "Requests" tab here
   - make sure to add a .png file in the BlockImages directory
   - make sure you add the block to the toolbox in index.js
-  - make sure to add your bolck above in the dropdown menu
+  - make sure to add your block above in the dropdown menu
 -->
       <div class="helpitem">
         <h2>Blockly Request Blocks</h2>
       </div>
 
       <div class="helpItem">
-        <a id="http_get"><b>http_get</b></a>
+        <a id="http_get"><b>HTTP GET</b></a>
         <img src="BlockImages/httpGet.png" alt="HTTP GET Block" width="180" height="40">
         <p class="tab2">
           This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> 
@@ -164,56 +165,52 @@
       
 
       <div class="helpItem">
-        <a id="http_put"><b>http_put</b></a>
+        <a id="http_put"><b>HTTP PUT</b></a>
         <img src="BlockImages/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
         <p class="tab2">
           This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> 
           example: http://www.your_web_site.com
         </p>
       </div>
+      
+      
+      <div class="helpItem">
+        <a id="https_get"><b>HTTPs GET</b></a>
+        <img src="BlockImages/httpsGet.png" alt="HTTPS GET Block" width="180" height="40">
+        <p class="tab2">
+          This block sends an HTTPS GET request to the URL you specify. The entire URL must be entered -> 
+          example: https://www.your_web_site.com
+        </p>
+      </div>
+      
+
+      <div class="helpItem">
+        <a id="https_put"><b>HTTPs PUT</b></a>
+        <img src="BlockImages/httpsPut.png" alt="HTTPS PUT Block" width="180" height="40">
+        <p class="tab2">
+          This block sends an HTTPS PUT request to the URL you specify. The entire URL must be entered -> 
+          example: https://www.your_web_site.com
+        </p>
+      </div>
 <!--
   - Add blocks from the Bolck Editor "Chatbot" tab here
   - make sure to add a .png file in the BlockImages directory
   - make sure you add the block to the toolbox in index.js
-  - make sure to add your bolck above in the dropdown menu
+  - make sure to add your block above in the dropdown menu
 -->
       <div class="helpitem">
         <h2>Blockly Chatbot Blocks</h2>
       </div>
 
-      <div class="helpItem">
-        <a id="socketsetup"><b>Socket Setup</b></a>
-        <img src="BlockImages/socketsetup.png" alt="socketsetup" width="100" height="50">
-        <p class="tab2">
-          Write the help description and here.....................
-        </p>
-      </div>
-      
-      
-      <div class="helpItem">
-        <a id="response"><b>response</b></a>
-        <img src="BlockImages/response.png" alt="Response Block" width="110" height="40">
-        <p class="tab2">
-          Write the help description and here.....................
-        </p>
-      </div>
-
 
       <div class="helpItem">
-        <a id="introduction"><b>introduction</b></a>
-        <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
+        <a id="validate"><b>Validate</b></a>
+        <img src="BlockImages/validate.png" alt="Validate Block" width="110" height="40">
         <p class="tab2">
           Write the help description and here.....................
         </p>
       </div>
       
-      <div class="helpItem">
-        <a id="text/matching list"><b>text/matching list</b></a>
-        <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
-        <p class="tab2">
-          Write the help description and here.....................
-        </p>
-      </div>
       
       
     </div>
