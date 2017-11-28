@@ -15,7 +15,7 @@
   </head>
   
   <body>
-    <div class="content">
+    <div class="header" align="center">
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot Help Page</a>
         <ul class="nav nav-pills mr-auto">
@@ -61,9 +61,11 @@
           </li>
         </ul>
       </nav>
+    </div>
+    <div class="content">
   <!--
     - Add blocks from the Bolck Editor "Basic" tab here
-    - make sure to add a .png file in the BlockImages directory
+    - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
     - make sure to add your bolck above in the dropdown menu
   -->
@@ -73,7 +75,7 @@
           
           
           <a id="if_do"><b>If... Do...     </b></a>
-          <img src="BlockImages/if_do.png" alt="If Do Loop Block" width="100" height="75">
+          <img src="Block_Images/if_do.png" alt="If Do Loop Block" width="100" height="75">
           <p class="tab2">
             Conditional statements are central to computer programming. They make it possible to express 
             statements like:
@@ -106,7 +108,7 @@
           
     
           <a id="repeat"><b>Repeat While... or Until...     </b></a>
-          <img src="BlockImages/doWhile.png" alt="Do While Loop Block" width="120" height="75">
+          <img src="Block_Images/doWhile.png" alt="Do While Loop Block" width="120" height="75">
           <p class="tab2">
             The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
             loops repeat their bodies while some condition is true. Repeat-until loops are similar except that 
@@ -119,7 +121,7 @@
     
     
           <a id="message"><b>Message     </b></a>
-          <img src="BlockImages/message.png" alt="Message Block" width="85" height="40">
+          <img src="Block_Images/message.png" alt="Message Block" width="85" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -130,7 +132,7 @@
     
     
           <a id="print"><b>Print     </b></a>
-          <img src="BlockImages/print.png" alt="Print Block" width="85" height="40">
+          <img src="Block_Images/print.png" alt="Print Block" width="85" height="40">
           <p class="tab2">
             The print block causes the input value to be displayed in a pop-up window, If the code 
             is exported as JavaScript, Python, or Dart, it will be printed to the console (screen). 
@@ -143,7 +145,7 @@
         </div>
   <!--
     - Add blocks from the Bolck Editor "Requests" tab here
-    - make sure to add a .png file in the BlockImages directory
+    - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
     - make sure to add your bolck above in the dropdown menu
   -->
@@ -151,7 +153,7 @@
         <div class="tab1">
   
           <a id="http_get"><b>http GET     </b></a>
-          <img src="BlockImages/httpGet.png" alt="HTTP GET Block" width="180" height="40">
+          <img src="Block_Images/httpGet.png" alt="HTTP GET Block" width="180" height="40">
           <p class="tab2">
             This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> 
             example: http://www.your_web_site.com
@@ -159,7 +161,7 @@
   
           
           <a id="http_put"><b>http PUT     </b></a>
-          <img src="BlockImages/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
+          <img src="Block_Images/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
           <p class="tab2">
             This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> 
             example: http://www.your_web_site.com
@@ -167,7 +169,7 @@
           
           
           <a id="https_get"><b>https GET     </b></a>
-          <img src="BlockImages/httpsGet.png" alt="HTTPs GET Block" width="180" height="40">
+          <img src="Block_Images/httpsGet.png" alt="HTTPs GET Block" width="180" height="40">
           <p class="tab2">
             This block sends an HTTPs GET request to the URL you specify. The entire URL must be entered -> 
             example: https://www.your_web_site.com
@@ -175,7 +177,7 @@
   
           
           <a id="https_put"><b>https PUT     </b></a>
-          <img src="BlockImages/httpsPut.png" alt="HTTPs PUT Block" width="180" height="40">
+          <img src="Block_Images/httpsPut.png" alt="HTTPs PUT Block" width="180" height="40">
           <p class="tab2">
             This block sends an HTTPs PUT request to the URL you specify. The entire URL must be entered -> 
             example: https://www.your_web_site.com
@@ -184,7 +186,7 @@
         </div>
   <!--
     - Add blocks from the Bolck Editor "Chatbot" tab here
-    - make sure to add a .png file in the BlockImages directory
+    - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
     - make sure to add your bolck above in the dropdown menu
   -->
@@ -195,21 +197,21 @@
       need to find the id needed for this
   -->
           <a id="??????????"><b>Response     </b></a>
-          <img src="BlockImages/response.png" alt="Response Block" width="110" height="40">
+          <img src="Block_Images/response.png" alt="Response Block" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
           <a id="input"><b>Introduction     </b></a>
-          <img src="BlockImages/introduction.png" alt="Introduction Block" width="110" height="40">
+          <img src="Block_Images/introduction.png" alt="Introduction Block" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
           <a id="tvalidate"><b>Text/Matching List     </b></a>
-          <img src="BlockImages/validate.png" alt="Introduction Block" width="120" height="75">
+          <img src="Block_Images/validate.png" alt="Introduction Block" width="120" height="75">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -219,28 +221,28 @@
         need to find the id needed for this
     -->
           <a id="???????????"><b>Create List With     </b></a>
-          <img src="BlockImages/createList.png" alt="Introduction Block" width="120" height="75">
+          <img src="Block_Images/createList.png" alt="Introduction Block" width="120" height="75">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
           <a id="socket_setup"><b>Bot Setup     </b></a>
-          <img src="BlockImages/bot_setup.png" alt="socketsetup" width="100" height="50">
+          <img src="Block_Images/bot_setup.png" alt="socketsetup" width="100" height="50">
           <p class="tab2">
             Write the help description and here.....................
           </p>
     
     
           <a id="question_block"><b>Question     </b></a>
-          <img src="BlockImages/question.png" alt="socketsetup" width="110" height="40">
+          <img src="Block_Images/question.png" alt="socketsetup" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
           <a id="get_user_resopnse"><b>Get User Response     </b></a>
-          <img src="BlockImages/user_response.png" alt="socketsetup" width="140" height="40">
+          <img src="Block_Images/user_response.png" alt="socketsetup" width="140" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
