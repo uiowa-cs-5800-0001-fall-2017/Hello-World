@@ -8,8 +8,8 @@ Blockly.Blocks['validate'] = {
         .appendField("Matching List");
     this.setOutput("Boolean");
     this.setColour(0);
- this.setTooltip("vaildates strings ");
- this.setHelpUrl("hel.html");
+ this.setTooltip("vaildates that the strings are matching");
+ this.setHelpUrl("help.html#validate");
   }
 };
 
@@ -20,7 +20,7 @@ Blockly.Blocks['socket_setup'] = {
         .appendField("Botsetup");
     this.setColour(230);
  this.setTooltip("sets up sockets");
- this.setHelpUrl("help.html");
+ this.setHelpUrl("help.html#socket_setup");
   }
 };
 Blockly.Blocks['input'] = {
@@ -32,7 +32,7 @@ Blockly.Blocks['input'] = {
     this.setNextStatement(true, null);
     this.setColour(120);
  this.setTooltip("sends first message to user");
- this.setHelpUrl("help.html#http_introduction");
+ this.setHelpUrl("help.html#input");
   }
 };
 
@@ -44,7 +44,7 @@ Blockly.Blocks['get_user_resopnse'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#get_user_resopnse");
   }
 };
 
@@ -69,7 +69,7 @@ Blockly.Blocks['question_block'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("sends next question to user");
- this.setHelpUrl("help.html#http_Question");
+ this.setHelpUrl("help.html#question_block");
   }
 };
 
@@ -95,7 +95,7 @@ Blockly.Blocks['end_sockets'] = {
     this.setPreviousStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#end_sockets");
   }
 };
 
@@ -113,12 +113,40 @@ Blockly.Blocks['http_get'] = {
 
 Blockly.Blocks['http_put'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("url for http PUT request"), "url");
+    this.appendValueInput("data")
+        .setCheck("String")
+        .appendField(new Blockly.FieldTextInput("the url for http PUT request"), "url");
+    this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(225);
  this.setTooltip("Type the URL that you are sending the data to");
  this.setHelpUrl("help.html#http_put");
+  }
+};
+
+Blockly.Blocks['https_get'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("url for https GET request"), "url");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+ this.setTooltip("Type URL you are requesting");
+ this.setHelpUrl("help.html#https_get");
+  }
+};
+
+Blockly.Blocks['https_put'] = {
+  init: function() {
+    this.appendValueInput("data")
+        .setCheck("String")
+        .appendField(new Blockly.FieldTextInput("the url for https PUT request"), "url");
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(100);
+ this.setTooltip("Type the URL that you are sending the data to");
+ this.setHelpUrl("help.html#https_put");
   }
 };
