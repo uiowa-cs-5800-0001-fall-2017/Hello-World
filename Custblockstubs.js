@@ -19,7 +19,16 @@ Blockly.JavaScript['validate'] = function (block) {
 var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
 return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
-
+Blockly.JavaScript['contains'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+ 
+  
+  
+  // TODO: Assemble JavaScript into code variable.
+  var code = ` var validation = userResponse.includes(text_name);`
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
 Blockly.JavaScript['socket_setup'] = function(block) {
   var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
   // TODO: Assemble JavaScript into code variable.

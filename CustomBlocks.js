@@ -12,6 +12,17 @@ Blockly.Blocks['validate'] = {
  this.setHelpUrl("help.html#validate");
   }
 };
+Blockly.Blocks['contains'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("contains")
+        .appendField(new Blockly.FieldTextInput("default"), "NAME");
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 Blockly.Blocks['socket_setup'] = {
   init: function() {
