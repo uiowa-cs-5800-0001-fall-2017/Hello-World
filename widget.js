@@ -15,7 +15,6 @@ Chatbot.getScriptFromServer = function(userId) {
     });
    };
 $(document).ready(function(){
-  $("#BlocklyWidget").append("Hello World");
    $('html > head').append(`
      <style>
      /* Chat stylings */
