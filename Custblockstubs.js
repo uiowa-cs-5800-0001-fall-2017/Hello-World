@@ -58,7 +58,7 @@ Blockly.JavaScript['input'] = function(block) {
 Blockly.JavaScript['response'] = function(block) {
   var text_userresponse = block.getFieldValue('userResponse');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_userresponse + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
   return code;
 };
 
