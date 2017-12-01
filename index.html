@@ -33,7 +33,7 @@
 </head>
 
 <body>
-  <div class="content">
+  <div class="header">
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot</a>
       <ul class="nav nav-pills mr-auto">
@@ -47,7 +47,7 @@
           <a class="nav-link" href="tutorial.html">Tutorial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World">Github</a>
+          <a class="nav-link" href="https://github.com/uiowa-cs-5800-0001-fall-2017/Hello-World" target="_blank">Github</a>
         </li>
       </ul>
       <ul class="nav">
@@ -68,6 +68,7 @@
             <button class="dropdown-item" id="exportJS" type="button">Export JS To File</button>
             <button class="dropdown-item" id="exportBlocks">Export Blocks To File</button>
             <button class="dropdown-item" id="importBlocks">Import Blocks From File</button>
+            <button class="dropdown-item" id="loadCloud">Load From Cloud</button>
             <button class="dropdown-item" id="publish">Save To Cloud</button>
           </div>
         </li>
@@ -77,6 +78,8 @@
         </li>
       </ul>
     </nav>
+  </div>
+  <div class="content">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -108,7 +111,7 @@
             <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
 			<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
           </div>
-          <!--<script type="text/javascript" src="chattest.js"></script> -->
+          <script type="text/javascript" src="chat.js"></script>
         </div>
       </div>
     </div>

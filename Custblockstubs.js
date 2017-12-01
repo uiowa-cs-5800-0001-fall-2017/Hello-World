@@ -19,7 +19,13 @@ Blockly.JavaScript['validate'] = function (block) {
 var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
 return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
-
+Blockly.JavaScript['contains'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
 Blockly.JavaScript['socket_setup'] = function(block) {
   var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
   // TODO: Assemble JavaScript into code variable.
@@ -43,9 +49,22 @@ Blockly.JavaScript['response'] = function(block) {
 
 Blockly.JavaScript['get_user_resopnse'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var userResponse = '';
-  var code =(`$("#chat-input").keydown(function(event) { if (event.keyCode == 13) { event.preventDefault(); if ($("#char-input").val() != "") { userResponse = $("#chat-input").val(); var div = ('<div id = "chat-bubble-message" >'+` + ' userResponse ' + `+"</div>"); $("#chat-container").append(div.toString() + "<br />"); } $("#chat-input").val(""); $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); }});`);
-  return code;
+  var code = $("#chat-input").keydown(function(event) {
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      if ($("#char-input").val() != "") {
+        var userResponse = $("#chat-input").val()
+        socket.emit("chat-message", $("#chat-input").val());
+      }
+      $("#chat-input").val("");
+
+      $("#chat-container").animate({
+        scrollTop: 10000000
+      }, "fast"); //this makes the scroll bar go to the bottom.
+
+    };
+  });
+  return code
 };
 // grammar checking block
 Blockly.JavaScript['userresponsevarable'] = function(block) {
@@ -59,7 +78,7 @@ Blockly.JavaScript['userresponsevarable'] = function(block) {
 Blockly.JavaScript['question_block'] = function(block) {
   var text_question_they_want_to_ask = block.getFieldValue('Question they want to ask');
   // TODO: Assemble JavaScript into code variable.
-  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_question_they_want_to_ask + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
+  var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
   return code;
 };
 
@@ -131,14 +150,13 @@ Blockly.JavaScript['http_get'] = function(block) {
 
 Blockly.JavaScript['http_put'] = function(block) {
   
-  var x = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
-  
-  var mimeType = "text/plain";
+  var data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
   var xmlHttp = "var xmlHttp = getNewHTTPObject();";
-  var xmlOpen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", true);";
-  var xmlSet = "xmlHttp.setRequestHeader('Content-Type', " + mimeType + ");";
-  var xmlSend = "xmlHttp.send($(" + x + ").val());";
-  var code = xmlHttp + '\n' + mimeType + '\n' + xmlOpen + '\n' + xmlSet + '\n' + xmlSend + '\n' + x;
+  var mimeType = "text/plain";
+  var xmlOpen = "xmlHttp.open('PUT', " + "\"" + block.getFieldValue('url') + "\"" + ", false);";
+  var xmlSet = "xmlHttp.setRequestHeader('Content-Type', mimeType);";
+  var xmlSend = "xmlHttp.send($(" +  data + ").val());";
+  var code = xmlHttp + '\n' + mimeType + '\n' + xmlOpen + '\n' + xmlSet + '\n' + xmlSend + '\n';
 
   return code;
 };

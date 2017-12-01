@@ -1,19 +1,22 @@
 // Add block names/categories here to add them to the toolbox
 var BLOCKS = {
-  categories: [
-    {
+  categories: [{
       name: 'Basic',
       blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
       color: '210'
     },
     {
       name: 'Requests',
-      blocks: ['http_get', 'http_put'],
+      blocks: ['http_get', 'http_put','https_get', 'https_put'],
       color: '80'
     },
     {
       name: 'Chatbot',
+<<<<<<< HEAD
       blocks: ['response', 'input','validate','lists_create_with','socket_setup','question_block', 'get_user_resopnse'],
+=======
+	blocks: ['response', 'input', 'validate', 'lists_create_with', 'socket_setup', 'question_block','contains'],
+>>>>>>> 26dddef60130d0fe96bc83b70498441bfb7e5d4a
       color: '20'
     }
   ]
@@ -107,17 +110,37 @@ window.onload = function() {
   var runCodeButton = $('#runCodeButton');
   runCodeButton.click(runCode);
 
-  function exportCode () {
+  function exportCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     // alert(code)
     download('blocklyCode_javascript.js', code);
   }
-  function exportBlocks () {
+
+  function exportBlocks() {
     download('blocklyCode_blocks.txt', Chatbot.getBlocks());
+  }
+
+  function importBlocks(e) {
+    var file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var contents = e.target.result;
+      // Display file content
+      Blockly.mainWorkspace.clear();
+      Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(contents), Blockly.mainWorkspace);
+    };
+    reader.readAsText(file);
   }
 
   $('#exportJS').click(exportCode);
   $('#exportBlocks').click(exportBlocks);
+  $('#fileButton').change(importBlocks);
+  $('#importBlocks').click(function() {
+    $('#fileButton').click();
+  });
 
   function clearBlocks() {
     var count = workspace.getAllBlocks().length;
@@ -152,12 +175,4 @@ window.onload = function() {
   }
   codeButton.click(previewCode);
   chatbotButton.click(previewChatbot);
-
-  $("#projectTitle").click(function(){
-      $("#projectTitle").prop("readonly","");
-      console.log("clicked");
-  });
-  $("#projectTitle").blur(function(){
-    $("#projectTitle").prop("readonly","true");
-  })
 };
