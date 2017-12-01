@@ -11,7 +11,7 @@
     "jshint": "^2.9.5"
   },
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint index.js",
+    "test": "",
     "start": "node server.js"
   },
   "dependencies": {
