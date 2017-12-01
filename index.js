@@ -2,17 +2,17 @@
 var BLOCKS = {
   categories: [{
       name: 'Basic',
-      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
+      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print', 'logic_boolean', 'logic_compare', 'variables_get', 'variables_set'],
       color: '210'
     },
     {
       name: 'Requests',
-      blocks: ['http_get', 'http_put', 'https_get', 'https_put'],
+      blocks: ['http_get', 'http_put','https_get', 'https_put'],
       color: '80'
     },
     {
       name: 'Chatbot',
-      blocks: ['response', 'input', 'validate', 'lists_create_with', 'socket_setup', 'question_block', 'contains'],
+	blocks: ['response', 'input', 'validate', 'lists_create_with', 'socket_setup', 'question_block','contains', 'get_user_response', 'initalizer','userresponsevarable','if_enter'],
       color: '20'
     }
   ]
@@ -61,7 +61,7 @@ window.onload = function() {
   var workspace = Blockly.inject(blocklyDiv, {
     toolbox: generateBlocks()
   });
-  var onresize = function(e) { // jshint ignore:line
+  var onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea;
     var x = 0;
@@ -83,7 +83,7 @@ window.onload = function() {
 
   Chatbot.loadLocalWorkspace();
 
-  function generateCode(event) { // jshint ignore:line
+  function generateCode(event) {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     if (code === '') {
       $('#codeDisplay code').text('Add More Blocks to Generate Code');
@@ -95,10 +95,12 @@ window.onload = function() {
   workspace.addChangeListener(generateCode);
 
   function runCode() {
+	
     Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
     var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
     try {
-      eval(code); //jshint ignore: line
+      eval(code);
+		//jshint ignore: line
     } catch (e) {
       alert(e); //jshint ignore: line
     }
@@ -171,28 +173,4 @@ window.onload = function() {
   }
   codeButton.click(previewCode);
   chatbotButton.click(previewChatbot);
-
-  $("#copyScripts").click(function() {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($("#scriptsToCopy").text()).select();
-    document.execCommand("copy");
-    $temp.remove();
-  });
-  $("#copyChatbot").click(function() {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($("#widgetToPaste").text()).select();
-    document.execCommand("copy");
-    $temp.remove();
-  });
-
-  $("#showWidgetButton").click(function() {
-    if (Chatbot.getUserId) {
-      $("#widgetModal").modal();
-      $("#widgetToPaste").append(`&lt;div id="BlocklyChatbot" data="${Chatbot.getUserId()}"&gt;&lt;/div&gt;`);
-    }else{
-      alert("You have to sign in to export your chatbot");
-    }
-  });
 };

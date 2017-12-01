@@ -12,6 +12,20 @@ Blockly.Blocks['validate'] = {
  this.setHelpUrl("help.html#validate");
   }
 };
+
+Blockly.Blocks['if_enter'] = {
+  init: function() {
+    this.appendStatementInput("NAME")
+        .setCheck(null)
+        .appendField("if enter");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks['contains'] = {
   init: function() {
     this.appendDummyInput()
@@ -34,6 +48,20 @@ Blockly.Blocks['socket_setup'] = {
  this.setHelpUrl("help.html#socket_setup");
   }
 };
+
+Blockly.Blocks['initalizer'] = {
+ init: function() {
+   this.appendDummyInput()
+       .appendField("Initialize varibles");
+   this.setPreviousStatement(true, null);
+   this.setNextStatement(true, null);
+   this.setColour(230);
+this.setTooltip("");
+this.setHelpUrl("");
+ }
+};
+
+
 Blockly.Blocks['input'] = {
   init: function() {
     this.appendDummyInput()
@@ -47,12 +75,13 @@ Blockly.Blocks['input'] = {
   }
 };
 
-Blockly.Blocks['get_user_resopnse'] = {
+Blockly.Blocks['get_user_response'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("get user response");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
+	this.setOutput(true, "String");
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("help.html#get_user_resopnse");
@@ -64,7 +93,8 @@ Blockly.Blocks['userresponsevarable'] = {
     this.appendValueInput("UserResponse")
         .setCheck("String")
         .appendField("User ResponseChecker");
-    this.setOutput(true, "Boolean");
+	this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(120);
  this.setTooltip("");
  this.setHelpUrl("");

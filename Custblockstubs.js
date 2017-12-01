@@ -19,15 +19,27 @@ Blockly.JavaScript['validate'] = function (block) {
 var code = functionName + '(' + value_ar + ','+ value_ar2 + ')';
 return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
+
+Blockly.JavaScript['if_enter'] = function(block) {
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = `$("#chat-input").keydown(function(event) { if (event.keyCode == 13) {`+statements_name+`}})`; 
+;
+  return code;
+};
 Blockly.JavaScript['contains'] = function(block) {
   var text_name = block.getFieldValue('NAME');
  
   
-  
-  // TODO: Assemble JavaScript into code variable.
-  var code = ` var validation = userResponse.includes(text_name);`
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+    var functionName = Blockly.JavaScript.provideFunction_(
+      `contains`,
+    [ `function ` + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + `(name) {`,
+		`var k = false;`,
+		`k = userResponse.toString().includes(` + ` name ` + `)`,   
+		`return k;`,
+		`}`]);
+var code = functionName + '(' + '"' + text_name + '"' + ')';
+return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 Blockly.JavaScript['socket_setup'] = function(block) {
   var statements_socket_set_up = Blockly.JavaScript.statementToCode(block, 'socket_set_up');
@@ -50,38 +62,32 @@ Blockly.JavaScript['response'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['get_user_resopnse'] = function(block) {
+Blockly.JavaScript['initalizer'] = function(block) {
+ // TODO: Assemble JavaScript into code variable.
+ var code = `var userResponse = ''; var validation = false;`
+ return code;
+};
+
+Blockly.JavaScript['get_user_response'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = $("#chat-input").keydown(function(event) {
-    if (event.keyCode == 13) {
-      event.preventDefault();
-      if ($("#char-input").val() != "") {
-        var userResponse = $("#chat-input").val()
-        socket.emit("chat-message", $("#chat-input").val());
-      }
-      $("#chat-input").val("");
-
-      $("#chat-container").animate({
-        scrollTop: 10000000
-      }, "fast"); //this makes the scroll bar go to the bottom.
-
-    };
-  });
-  return code
+ 
+		 var code = `var userResponse = '';`+ `$("#chat-input").keydown(function(event) {  if (event.keyCode == 13) { event.preventDefault(); run = false; if ($("#char-input").val() != "") { userResponse = $("#chat-input").val(); var div = ('<div id = "chat-bubble-message" >'+` + ' userResponse ' + `+"</div>"); $("#chat-container").append(div.toString() + "<br />"); } $("#chat-input").val(""); $("#chat-container").animate({ scrollTop: 10000000 }, "fast"); }});`
+	
+ 
+  return code;
 };
 // grammar checking block
 Blockly.JavaScript['userresponsevarable'] = function(block) {
-  var value_userresponse = Blockly.JavaScript.valueToCode(block, 'UserResponse', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = '$("#chat-input").keydown(function(event) {  if (event.keyCode == 13) {window.alert(userResponse)}});';
   // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  return code;
 };
 
 Blockly.JavaScript['question_block'] = function(block) {
   var text_question_they_want_to_ask = block.getFieldValue('Question they want to ask');
   // TODO: Assemble JavaScript into code variable.
-  var code = ('<div id = "bot-bubble-message" > text_question_they_want_to_ask + "</div>");\n')
+  var code = (`var div = ('<div id = "bot-bubble-message" >'+` + '"' + text_question_they_want_to_ask + '"+' + `"</div>");` + `$("#chat-container").append(div.toString() + "<br />");  `);
   return code;
 };
 
