@@ -88,7 +88,7 @@ $(document).ready(function(){
     <textarea id=“chat-input” contenteditable=“true” spellcheck=“true”></textarea>
     <input type=“button” value=“Spell Check in a Dialog” onclick=“$Spelling.SpellCheckInWindow(‘chat-input’)” />
    `);
-   Chatbot.getScriptFromServer($('BlocklyWidget').data()).then((data){
+   Chatbot.getScriptFromServer($('BlocklyWidget').data()).then((data)){
     data.eval();
 })
 
