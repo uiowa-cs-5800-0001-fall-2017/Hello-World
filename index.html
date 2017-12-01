@@ -70,6 +70,8 @@
             <button class="dropdown-item" id="importBlocks">Import Blocks From File</button>
             <button class="dropdown-item" id="loadCloud">Load From Cloud</button>
             <button class="dropdown-item" id="publish">Save To Cloud</button>
+            <button class="dropdown-item" id="showWidgetButton">Export The Widget</button>
+
           </div>
         </li>
         <li class="nav-item">
@@ -119,6 +121,35 @@
 
   <div id="blocklyDiv" style="position: absolute"></div>
   <input id="fileButton" style="position: fixed; top: -100em" type="file" /> <!-- just ignore this -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="widgetModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Use Your Widget</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+          <textarea id="widgetRequirements" readonly>
+            &lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;
+            &lt;script type="text/javascript" src="https://blocklychatbot.herokuapp.com/widget.js"&gt;&lt;/script&gt;
+          </textarea>
+          <p>Some more text</p>
+          <textarea id="widgetToPaste" readonly>
+            
+          </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </body>
 
 </html>

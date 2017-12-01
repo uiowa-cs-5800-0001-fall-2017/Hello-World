@@ -171,4 +171,9 @@ window.onload = function() {
   }
   codeButton.click(previewCode);
   chatbotButton.click(previewChatbot);
+
+  $("#showWidgetButton").click(function(){
+    $("#widgetModal").modal();
+      $("#widgetToPaste").append(`&lt;div id="BlocklyChatbot" data="${Chatbot.getUserId()}"&gt;&lt;/div&gt;`);
+  })
 };

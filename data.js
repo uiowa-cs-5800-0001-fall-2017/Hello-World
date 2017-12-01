@@ -63,6 +63,9 @@ Chatbot.writeToServer = function(blocks, script) {
   updates.script = script;
   console.log('here');
   Chatbot.readFromServer().then(function(data) {
+    if(data == null){
+      data = {blocks: ""};
+    }
     if (data.blocks == blocks) {
       return;
     } else {
