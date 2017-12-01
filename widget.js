@@ -1,3 +1,6 @@
+if(typeof Chatbot !== 'undefined'){}else{
+  Chatbot = {};
+}
 Chatbot.getScriptFromServer = function(userId) {
     // This is for end users since it doesn’t require logging in.
     // Returns a promise, so use .then on the return variable
@@ -88,8 +91,11 @@ $(document).ready(function(){
     <textarea id=“chat-input” contenteditable=“true” spellcheck=“true”></textarea>
     <input type=“button” value=“Spell Check in a Dialog” onclick=“$Spelling.SpellCheckInWindow(‘chat-input’)” />
    `);
-   Chatbot.getScriptFromServer($('BlocklyWidget').data()).then((data){
-    data.eval();
-})
+   if($(document).height == 0){
+     $(document).height = 500;
+   }
+   Chatbot.getScriptFromServer($('BlocklyWidget').data()).then(function(data){
+    eval(data);
+  })
 
-   });
+});
