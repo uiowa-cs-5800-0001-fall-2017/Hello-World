@@ -65,7 +65,7 @@ window.onload = function() {
   var workspace = Blockly.inject(blocklyDiv, {
     toolbox: generateBlocks()
   });
-  var onresize = function(e) {
+  var onresize = function(e) {// jshint ignore:line
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea;
     var x = 0;
@@ -87,7 +87,7 @@ window.onload = function() {
 
   Chatbot.loadLocalWorkspace();
 
-  function generateCode(event) {
+  function generateCode(event) {// jshint ignore:line
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     if (code === '') {
       $('#codeDisplay code').text('Add More Blocks to Generate Code');

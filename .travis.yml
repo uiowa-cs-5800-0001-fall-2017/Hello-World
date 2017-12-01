@@ -14,3 +14,9 @@ after_success:
   - yes | git push heroku master
 node_js:
 - node
+
+deploy:
+  provider: heroku
+  app: blocklychatbot
+  api_key:
+    secure: 796d717e-ed5c-4577-bbc8-f59c9eaa67ee
