@@ -63,7 +63,7 @@ Chatbot.writeToServer = function(blocks, script) {
   updates.script = script;
   console.log('here');
   Chatbot.readFromServer().then(function(data) {
-    if (data.blocks === blocks) {
+    if (data.blocks == blocks) {
       return;
     } else {
       if (confirm("Are you sure you want to overwrite your cloud files? This action cannot be undone.")) {
@@ -79,6 +79,15 @@ Chatbot.writeToServer = function(blocks, script) {
     }
   });
 
+};
+
+Chatbot.getUserId = function(){
+  var user = firebase.auth().currentUser;
+  if(user){
+    return user.uid;
+  }else{
+    console.log("Can't retrieve id without being logged in.");
+  }
 };
 
 $(document).ready(function() {
