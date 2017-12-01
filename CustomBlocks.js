@@ -151,7 +151,7 @@ Blockly.Blocks['grammar_check'] = {
   init: function() {
     this.appendValueInput("Userinput")
         .setCheck("String")
-        .appendField("Grammar Chcek");
+        .appendField("Grammar Check");
     this.setOutput(true, "Boolean");
     this.setColour(330);
  this.setTooltip("");
