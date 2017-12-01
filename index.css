@@ -29,20 +29,20 @@ h3 {
 
 .header {
   background-color: white;
-  border-bottom:1px solid white; 
-  padding:10px 20px; 
-  position:fixed; 
+  border-bottom:1px solid white;
+  padding:10px 20px;
+  position:fixed;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index:2000; 
+  z-index:2000;
   width:92%;
 }
 
 .content {
   background-color: white;
-  border-top: 70px solid white; 
+  border-top: 70px solid white;
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
@@ -98,6 +98,23 @@ h3 {
 
 .tab2{
   margin-left: 20px;
+}
+
+/* Modal stylings */
+.modal-holder{
+  overflow:auto;
+}
+.modalRequirement{
+  white-space: nowrap;
+  width: auto;
+  overflow-x: scroll;
+
+}
+.copy-button{
+  color:gray;
+}
+.copy-button:hover{
+  color:black;
 }
 
 

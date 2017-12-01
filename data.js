@@ -1,5 +1,8 @@
 // goog.provide('Chatbot');
-Chatbot = {};
+if(typeof Chatbot !== 'undefined'){}else{
+  Chatbot = {};
+}
+
 Chatbot.database = null;
 
 // Same as 'window.onload', but uses jQuery so it doesn't overwrite the other one in index.js
@@ -90,6 +93,7 @@ Chatbot.getUserId = function(){
     return user.uid;
   }else{
     console.log("Can't retrieve id without being logged in.");
+    return;
   }
 };
 
