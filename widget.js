@@ -92,7 +92,7 @@ $(document).ready(function(){
     <input type=“button” value=“Spell Check in a Dialog” onclick=“$Spelling.SpellCheckInWindow(‘chat-input’)” />
    `);
    Chatbot.getScriptFromServer($('BlocklyWidget').data()).then(function(data){
-    data.eval();
+    eval(data);
   })
 
 });
