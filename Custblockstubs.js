@@ -21,8 +21,11 @@ return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 Blockly.JavaScript['contains'] = function(block) {
   var text_name = block.getFieldValue('NAME');
+ 
+  
+  
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = ` var validation = userResponse.includes(text_name);`
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
