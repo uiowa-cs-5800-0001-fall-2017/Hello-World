@@ -1,3 +1,6 @@
+if(typeof Chatbot !== 'undefined'){}else{
+  Chatbot = {};
+}
 Chatbot.getScriptFromServer = function(userId) {
     // This is for end users since it doesn’t require logging in.
     // Returns a promise, so use .then on the return variable
