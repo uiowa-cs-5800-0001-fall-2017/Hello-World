@@ -88,6 +88,18 @@ Blockly.Blocks['get_user_response'] = {
   }
 };
 
+Blockly.Blocks['response'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("response")
+        .appendField(new Blockly.FieldTextInput("default"), "userResponse");
+    this.setNextStatement(true, "String");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("help.html#response");
+  }
+};
+
 Blockly.Blocks['userresponsevarable'] = {
   init: function() {
     this.appendValueInput("UserResponse")

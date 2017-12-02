@@ -20,6 +20,13 @@ h3 {
   border-bottom: 3px solid #999;
 }
 
+.anchor{
+  display: block;
+  height: 95px;         /*same height as header*/
+  margin-top: -95px;    /*same height as header*/
+  visibility: hidden;
+}
+
 .app-title {
   color: white;
   font-size: 2.5em;
@@ -32,12 +39,17 @@ h3 {
   border-bottom:1px solid white;
   padding:10px 20px;
   position:fixed;
+  position:fixed; 
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
   z-index:2000;
   width:92%;
+}
+
+.footer {
+  margin-top: 800px;
 }
 
 .content {
@@ -51,6 +63,7 @@ h3 {
   margin: 0 auto;
   padding: 10px;
   width: 92%;
+  top: -50px;
 }
 
 .toolbar {
@@ -94,13 +107,14 @@ h3 {
 
 .tab1{
   margin-left: 40px;
+  margin-right: 40px;
 }
 
 .tab2{
   margin-left: 20px;
+  margin-right: 40px;
 }
 
-/* Modal stylings */
 .modal-holder{
   overflow:auto;
 }
@@ -116,7 +130,6 @@ h3 {
 .copy-button:hover{
   color:black;
 }
-
 
 /* Chat stylings */
 #chat-container {
