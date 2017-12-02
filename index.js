@@ -14,7 +14,13 @@ var BLOCKS = {
       name: 'Chatbot',
 	blocks: ['response', 'input', 'validate', 'lists_create_with', 'socket_setup', 'question_block','contains', 'get_user_response', 'initalizer','userresponsevarable','if_enter'],
       color: '20'
+    },
+    {
+      name: 'Function',
+  blocks: ['language','search_function'],
+      color: '50'
     }
+
   ]
 };
 

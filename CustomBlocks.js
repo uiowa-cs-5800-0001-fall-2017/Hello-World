@@ -203,3 +203,28 @@ Blockly.Blocks['https_put'] = {
  this.setHelpUrl("help.html#https_put");
   }
 };
+Blockly.Blocks['language'] = {
+  init: function() {
+    this.appendValueInput("UseriNPUT")
+        .setCheck("String")
+        .appendField("Languages Setting")
+        .appendField(new Blockly.FieldDropdown([["English","English"], ["Chinese","Chinese"], ["French","French"], ["German","German"], ["Russian","Russian"], ["Korean","Korean"], ["Janpan","Janpan"]]), "Lan");
+    this.setOutput(true, "required language mode");
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['search_function'] = {
+  init: function() {
+    this.appendValueInput("Userinput")
+        .setCheck("String")
+        .appendField("SearchBy")
+        .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","Bing"], ["Yahoo","Yahoo"]]), "NAME");
+    this.setOutput(true, "String");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

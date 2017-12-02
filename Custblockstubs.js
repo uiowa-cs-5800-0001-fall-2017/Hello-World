@@ -203,8 +203,6 @@ Blockly.JavaScript['language'] = function(block) {
     if(dropdown_lan == "Korean"){
       var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'ko');}"
   }
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
   return code;
 };
 
@@ -213,13 +211,14 @@ Blockly.JavaScript['search_function'] = function(block) {
   var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Change ORDER_NONE to the correct strength.
   if(dropdown_name == "Yahoo"){
-    var code = " window.open('https://search.yahoo.com/search?p='"+value_userinput+");"
+    var code = " var strn = 'https://search.yahoo.com/search?p='; window.open(strn.concat("+value_userinput+"));"
   }
   if(dropdown_name == "Google"){
      var code = " window.open('https://www.google.com/search?q='"+value_userinput+");"
+     var code = " var strn = 'https://www.google.com/search?q='; window.open(strn.concat("+value_userinput+"));"
   }
   if(dropdown_name == "Bing"){
-    var code = " window.open('https://www.bing.com/search?q='"+value_userinput+");"
+    var code = " var strn = 'https://www.bing.com/search?q='; window.open(strn.concat("+value_userinput+"));"
   }
 
   return code;
