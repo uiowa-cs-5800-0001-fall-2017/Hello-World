@@ -22,7 +22,7 @@ Blockly.Blocks['if_enter'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#if_enter");
   }
 };
 
@@ -34,7 +34,7 @@ Blockly.Blocks['contains'] = {
     this.setOutput(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#contains");
   }
 };
 
@@ -57,7 +57,7 @@ Blockly.Blocks['initalizer'] = {
    this.setNextStatement(true, null);
    this.setColour(230);
 this.setTooltip("");
-this.setHelpUrl("");
+this.setHelpUrl("help.html#initialize_variables");
  }
 };
 
@@ -104,12 +104,12 @@ Blockly.Blocks['userresponsevarable'] = {
   init: function() {
     this.appendValueInput("UserResponse")
         .setCheck("String")
-        .appendField("User ResponseChecker");
+        .appendField("User Response Checker");
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#user_response_checker");
   }
 };
 
