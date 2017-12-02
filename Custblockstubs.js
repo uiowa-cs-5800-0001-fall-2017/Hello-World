@@ -180,32 +180,6 @@ Blockly.JavaScript['https_put'] = function(block) {
   return code;
 };
 
-
-Blockly.JavaScript['language'] = function(block) {
-  var dropdown_lan = block.getFieldValue('Lan');
-  var value_userinput = Blockly.JavaScript.valueToCode(block, 'UseriNPUT', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-   if(dropdown_lan == "English"){
-    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'en');}"
-  }
-  if(dropdown_lan == "Chinese"){
-    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'zh-CN');}"
-  }
-  if(dropdown_lan == "French"){
-    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'fr');}"
-  }
-  if(dropdown_lan == "German"){
-    var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'de');}"
-  }
-    if(dropdown_lan == "Russian"){
-      var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'ru');}"
-  }
-    if(dropdown_lan == "Korean"){
-      var code = "function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'ko');}"
-  }
-  return code;
-};
-
 Blockly.JavaScript['search_function'] = function(block) {
   var dropdown_name = block.getFieldValue('NAME');
   var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);

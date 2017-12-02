@@ -17,7 +17,7 @@ var BLOCKS = {
     },
     {
       name: 'Function',
-  blocks: ['language','search_function'],
+  blocks: ['search_function'],
       color: '50'
     }
 
