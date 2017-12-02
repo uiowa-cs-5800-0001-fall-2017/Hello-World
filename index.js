@@ -3,7 +3,7 @@ var BLOCKS = {
   categories: [
     {
       name: 'Basic',
-      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print'],
+      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print','lists_create_with'],
       color: '210'
     },
     {
@@ -13,7 +13,7 @@ var BLOCKS = {
     },
     {
       name: 'Chatbot',
-      blocks: ['response', 'input','validate','lists_create_with','socket_setup','question_block', 'get_user_resopnse'],
+      blocks: ['response', 'input','validate','socket_setup','question_block', 'get_user_resopnse'],
       color: '20'
     }
   ]

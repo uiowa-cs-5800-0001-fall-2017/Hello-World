@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Chatbot</title>
-  
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="index.css">
@@ -40,16 +40,14 @@
               <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
               <a href="#message" class="dropdown-item">Message</a>
               <a href="#print" class="dropdown-item">Print</a>
+              <a href="#list_create_with" class="dropdown-item">Create List With</a>
               <a href="#http_get" class="dropdown-item">http GET</a>
               <a href="#http_put" class="dropdown-item">http PUT</a>
               <a href="#https_get" class="dropdown-item">https GET</a>
               <a href="#https_put" class="dropdown-item">https PUT</a>
-              <!--  need to find the id needed for this, and make sure it belongs in the chatbot section  -->
-              <a href="#????????" class="dropdown-item">Response</a>
+              <a href="#response" class="dropdown-item">Response</a>
               <a href="#input" class="dropdown-item">Introduction</a>
               <a href="#validate" class="dropdown-item">Text/Matching List</a>
-              <!--  need to find the id needed for this, and make sure it belongs in the chatbot section  -->
-              <a href="#????????" class="dropdown-item">Create List With</a>
               <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
               <a href="#question_block" class="dropdown-item">Question</a>
               <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
@@ -74,7 +72,8 @@
         <div class="tab1">
           
           
-          <a id="if_do"><b>If... Do...     </b></a>
+          <a class="anchor" id="if_do"></a>
+          <b>If... Do...     </b>
           <img src="Block_Images/if_do.png" alt="If Do Loop Block" width="100" height="75">
           <p class="tab2">
             Conditional statements are central to computer programming. They make it possible to express 
@@ -107,7 +106,8 @@
           </p>
           
     
-          <a id="repeat"><b>Repeat While... or Until...     </b></a>
+          <a class="anchor" id="repeat"></a>
+          <b>Repeat While... or Until...     </b>
           <img src="Block_Images/doWhile.png" alt="Do While Loop Block" width="120" height="75">
           <p class="tab2">
             The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
@@ -120,7 +120,8 @@
           </p>
     
     
-          <a id="message"><b>Message     </b></a>
+          <a class="anchor" id="message"></a>
+          <b>Message     </b>
           <img src="Block_Images/message.png" alt="Message Block" width="85" height="40">
           <p class="tab2">
             Write the help description and here.....................
@@ -131,7 +132,8 @@
           </p>
     
     
-          <a id="print"><b>Print     </b></a>
+          <a class="anchor" id="print"></a>
+          <b>Print     </b>
           <img src="Block_Images/print.png" alt="Print Block" width="85" height="40">
           <p class="tab2">
             The print block causes the input value to be displayed in a pop-up window, If the code 
@@ -141,6 +143,19 @@
           <p class="tab2">
             For a more indepth look at print, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Text#printing-text" target="_blank">Blockly Help</a>
+          </p>
+          
+          
+          <a class="anchor" id="list_create_with"><b>Create List With     </b></a>
+          <b>Create List With     </b>
+          <img src="Block_Images/createList.png" alt="Introduction Block" width="125" height="75">
+          <p class="tab2">
+            The create list with block allows the user to specify the initial values in a new list. It is less common, but
+            possible, to create a list with values of different types. To change the number of inputs, click on the gear icon.
+          </p>
+          <p class="tab2">
+            For a more indepth look at print, please visit the Blockly help page:  
+            <a href = "https://github.com/google/blockly/wiki/Lists#create-list-with" target="_blank">Blockly Help</a>
           </p>
         </div>
   <!--
@@ -152,35 +167,51 @@
         <div><h3>Blockly Request Blocks</h3></div>
         <div class="tab1">
   
-          <a id="http_get"><b>http GET     </b></a>
+          <a class="anchor" id="http_get"></a>
+          <b>http GET     </b>
           <img src="Block_Images/httpGet.png" alt="HTTP GET Block" width="180" height="40">
           <p class="tab2">
-            This block sends an HTTP GET request to the URL you specify. The entire URL must be entered -> 
-            example: http://www.your_web_site.com
+            This block sends an HTTP GET request to the URL you specify. The entire URL must be entered
+            <p class="tab1">
+              - example: http://www.your_web_site.com
+            </p>
           </p>
   
           
-          <a id="http_put"><b>http PUT     </b></a>
+          <a class="anchor" id="http_put"></a>
+          <b>http PUT     </b>
           <img src="Block_Images/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
           <p class="tab2">
-            This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered -> 
-            example: http://www.your_web_site.com
+            This block sends an HTTP PUT request to the URL you specify. Attach the message to be sent by connecting a 
+            <a href="#message">Message</a> block to the right of the http PUT block. The entire 
+            URL must be entered
+            <p class="tab1">
+              - example: http://www.your_web_site.com
+            </p>
           </p>
           
           
-          <a id="https_get"><b>https GET     </b></a>
+          <a class="anchor" id="https_get"></a>
+          <b>https GET     </b>
           <img src="Block_Images/httpsGet.png" alt="HTTPs GET Block" width="180" height="40">
           <p class="tab2">
-            This block sends an HTTPs GET request to the URL you specify. The entire URL must be entered -> 
-            example: https://www.your_web_site.com
+            This block sends an HTTPs GET request to the URL you specify. The entire URL must be entered.
+            <p class="tab1">
+              - example: https://www.your_web_site.com
+            </p>
           </p>
   
           
-          <a id="https_put"><b>https PUT     </b></a>
+          <a class="anchor" id="https_put"></a>
+          <b>https PUT     </b>
           <img src="Block_Images/httpsPut.png" alt="HTTPs PUT Block" width="180" height="40">
           <p class="tab2">
-            This block sends an HTTPs PUT request to the URL you specify. The entire URL must be entered -> 
-            example: https://www.your_web_site.com
+            This block sends an HTTP PUT request to the URL you specify. Attach the message to be sent by connecting a 
+            <a href="#message">Message</a> block to the right of the http PUT block. The entire 
+            URL must be entered
+            <p class="tab1">
+              - example: https://www.your_web_site.com
+            </p>
           </p>
           
         </div>
@@ -196,52 +227,48 @@
   <!--
       need to find the id needed for this
   -->
-          <a id="??????????"><b>Response     </b></a>
+          <a class="anchor" id="response"></a>
+          <b>Response     </b>
           <img src="Block_Images/response.png" alt="Response Block" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
-          <a id="input"><b>Introduction     </b></a>
+          <a class="anchor" id="input"></a>
+          <b>Introduction     </b>
           <img src="Block_Images/introduction.png" alt="Introduction Block" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
-          <a id="tvalidate"><b>Text/Matching List     </b></a>
-          <img src="Block_Images/validate.png" alt="Introduction Block" width="120" height="75">
+          <a class="anchor" id="tvalidate"></a>
+          <b>Text/Matching List     </b>
+          <img src="Block_Images/validate.png" alt="Introduction Block" width="125" height="75">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
-    <!--
-        need to find the id needed for this
-    -->
-          <a id="???????????"><b>Create List With     </b></a>
-          <img src="Block_Images/createList.png" alt="Introduction Block" width="120" height="75">
-          <p class="tab2">
-            Write the help description and here.....................
-          </p>
-          
-          
-          <a id="socket_setup"><b>Bot Setup     </b></a>
+          <a class="anchor" id="socket_setup"></a>
+          <b>Bot Setup     </b>
           <img src="Block_Images/bot_setup.png" alt="socketsetup" width="100" height="50">
           <p class="tab2">
             Write the help description and here.....................
           </p>
     
     
-          <a id="question_block"><b>Question     </b></a>
+          <a class="anchor" id="question_block"></a>
+          <b>Question     </b>
           <img src="Block_Images/question.png" alt="socketsetup" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
-          <a id="get_user_resopnse"><b>Get User Response     </b></a>
+          <a class="anchor" id="get_user_resopnse"></a>
+          <b>Get User Response     </b>
           <img src="Block_Images/user_response.png" alt="socketsetup" width="140" height="40">
           <p class="tab2">
             Write the help description and here.....................
@@ -249,7 +276,8 @@
   
         </div>
       </div>
-
+      <div class="footer" align="center"></div>
     </div>
+   
   </body>
 </html>
