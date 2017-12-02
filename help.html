@@ -36,21 +36,32 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Block List</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a href="#if_do" class="dropdown-item">If... Do...</a>
-              <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
-              <a href="#message" class="dropdown-item">Message</a>
-              <a href="#print" class="dropdown-item">Print</a>
-              <a href="#list_create_with" class="dropdown-item">Create List With</a>
-              <a href="#http_get" class="dropdown-item">http GET</a>
-              <a href="#http_put" class="dropdown-item">http PUT</a>
-              <a href="#https_get" class="dropdown-item">https GET</a>
-              <a href="#https_put" class="dropdown-item">https PUT</a>
-              <a href="#response" class="dropdown-item">Response</a>
-              <a href="#input" class="dropdown-item">Introduction</a>
-              <a href="#validate" class="dropdown-item">Text/Matching List</a>
-              <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
-              <a href="#question_block" class="dropdown-item">Question</a>
-              <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
+              <a href="#Classic" class="dropdownItem"><h>Blockly Classic Blocks</h></a>
+                <a href="#if_do" class="dropdown-item">If... Do...</a>
+                <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
+                <a href="#message" class="dropdown-item">Message</a>
+                <a href="#print" class="dropdown-item">Print</a>
+                <a href="#boolean" class="dropdown-item">Logical Boolean</a>
+                <a href="#compare" class="dropdown-item">Logical Comparison</a>
+                <a href="#get" class="dropdown-item">Get</a>
+                <a href="#set" class="dropdown-item">Set</a>
+                <a href="#list_create_with" class="dropdown-item">Create List With</a>
+              <a href="#Request" class="dropdownItem"><h>Blockly Request Blocks</h></a>
+                <a href="#http_get" class="dropdown-item">http GET</a>
+                <a href="#http_put" class="dropdown-item">http PUT</a>
+                <a href="#https_get" class="dropdown-item">https GET</a>
+                <a href="#https_put" class="dropdown-item">https PUT</a>
+              <a href="#Chatbot" class="dropdownItem"><h>Blockly Chatbot Blocks</h></a>
+                <a href="#response" class="dropdown-item">Response</a>
+                <a href="#input" class="dropdown-item">Introduction</a>
+                <a href="#validate" class="dropdown-item">Text/Matching List</a>
+                <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
+                <a href="#question_block" class="dropdown-item">Question</a>
+                <a href="#contains" class="dropdown-item">Logical Contains</a>
+                <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
+                <a href="#initialize_variables" class="dropdown-item">Initialize Variables</a>
+                <a href="#user_response_checker" class="dropdown-item">User Response Checker</a>
+                <a href="#if_enter" class="dropdown-item">If Enter</a>
             </div>
           </li>
           <li class="nav-item">
@@ -68,13 +79,14 @@
     - make sure to add your bolck above in the dropdown menu
   -->
       <div class="tab2">
+        <a class="anchor" id="Classic"></a>
         <div><h3>Classic Blockly Blocks</h3></div>
         <div class="tab1">
           
-          
+        
           <a class="anchor" id="if_do"></a>
           <b>If... Do...     </b>
-          <img src="Block_Images/if_do.png" alt="If Do Loop Block" width="100" height="75">
+          <img src="Block_Images/ifDo.png" alt="Block_Images/ifDo.png not found" width="100" height="75">
           <p class="tab2">
             Conditional statements are central to computer programming. They make it possible to express 
             statements like:
@@ -108,7 +120,7 @@
     
           <a class="anchor" id="repeat"></a>
           <b>Repeat While... or Until...     </b>
-          <img src="Block_Images/doWhile.png" alt="Do While Loop Block" width="120" height="75">
+          <img src="Block_Images/doWhile.png" alt="Block_Images/doWhile.png not found" width="120" height="75">
           <p class="tab2">
             The simplest "repeat" block runs the code in its body the specified number of times. "Repeat while" 
             loops repeat their bodies while some condition is true. Repeat-until loops are similar except that 
@@ -122,19 +134,22 @@
     
           <a class="anchor" id="message"></a>
           <b>Message     </b>
-          <img src="Block_Images/message.png" alt="Message Block" width="85" height="40">
+          <img src="Block_Images/message.png" alt="Block_Images/message.png not found" width="85" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            WThe message block is used to input a string. A string is a collection of characters (abc,123,@#$).
           </p>
           <p class="tab2">
             For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
             <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
           </p>
-    
-    
+          <p class="tab2">
+            ,or eturn to the http/https PUT request block   
+            <a href="help.html#Request">return</a>
+          </p>
+          
           <a class="anchor" id="print"></a>
           <b>Print     </b>
-          <img src="Block_Images/print.png" alt="Print Block" width="85" height="40">
+          <img src="Block_Images/print.png" alt="Block_Images/print.png not found" width="85" height="40">
           <p class="tab2">
             The print block causes the input value to be displayed in a pop-up window, If the code 
             is exported as JavaScript, Python, or Dart, it will be printed to the console (screen). 
@@ -146,9 +161,58 @@
           </p>
           
           
-          <a class="anchor" id="list_create_with"><b>Create List With     </b></a>
+          <a class="anchor" id="boolean"></a>
+          <b>Logical Boolean     </b>
+          <img src="Block_Images/boolean.png" alt="Block_Images/boolean.png not found" width="100" height="40">
+          <p class="tab2">
+            A single block, with a dropdown specifying either true or false, used to get a boolean value.
+          </p>
+          <p class="tab2">
+            For a more indepth look at logical booleans, please visit the Blockly help page:  
+            <a href = "https://github.com/google/blockly/wiki/Logic#values" target="_blank">Blockly Help</a>
+          </p>
+          
+          <a class="anchor" id="compare"></a>
+          <b>Logical Comparison     </b>
+          <img src="Block_Images/comparison.png" alt="Block_Images/comparison.png not found" width="120" height="40">
+          <p class="tab2">
+            There are six comparison operators. Each takes two inputs (normally numbers) and returns true or false 
+            depending on how the inputs compare with each other. The six operators are: equals, not equals, less 
+            than, less than or equal, greater than, greater than or equal.
+          </p>
+          <p class="tab2">
+            For a more indepth look at logical comparisons, please visit the Blockly help page:  
+            <a href = "https://github.com/google/blockly/wiki/Logic#comparisons" target="_blank">Blockly Help</a>
+          </p>
+          
+          
+          <a class="anchor" id="get"></a>
+          <b>Get     </b>
+          <img src="Block_Images/get.png" alt="Block_Images/get.png not found" width="100" height="40">
+          <p class="tab2">
+            The get block provides the value stored in a variable, without changing it. It is possible, but a bad 
+            idea, to write a program in which a get appears without a corresponding set.
+          </p>
+          <p class="tab2">
+            For a more indepth look at get funtions, please visit the Blockly help page:  
+            <a href = "https://github.com/google/blockly/wiki/Variables#get" target="_blank">Blockly Help</a>
+          </p>
+          
+          <a class="anchor" id="set"></a>
+          <b>Set     </b>
+          <img src="Block_Images/set.png" alt="Block_Images/set.png not found" width="135" height="40">
+          <p class="tab2">
+            The set block assigns a value to a variable, creating the variable if it doesn't already exist.
+          </p>
+          <p class="tab2">
+            For a more indepth look at set funtions, please visit the Blockly help page:  
+            <a href = "https://github.com/google/blockly/wiki/Variables#set" target="_blank">Blockly Help</a>
+          </p>
+          
+          
+          <a class="anchor" id="list_create_with"></a>
           <b>Create List With     </b>
-          <img src="Block_Images/createList.png" alt="Introduction Block" width="125" height="75">
+          <img src="Block_Images/createList.png" alt="Block_Images/createList.png not found" width="135" height="75">
           <p class="tab2">
             The create list with block allows the user to specify the initial values in a new list. It is less common, but
             possible, to create a list with values of different types. To change the number of inputs, click on the gear icon.
@@ -164,12 +228,13 @@
     - make sure you add the block to the toolbox in index.js
     - make sure to add your bolck above in the dropdown menu
   -->
+        <a class="anchor" id="Request"></a>
         <div><h3>Blockly Request Blocks</h3></div>
         <div class="tab1">
   
           <a class="anchor" id="http_get"></a>
           <b>http GET     </b>
-          <img src="Block_Images/httpGet.png" alt="HTTP GET Block" width="180" height="40">
+          <img src="Block_Images/httpGet.png" alt="Block_Images/httpGet.png not found" width="180" height="40">
           <p class="tab2">
             This block sends an HTTP GET request to the URL you specify. The entire URL must be entered
             <p class="tab1">
@@ -180,7 +245,7 @@
           
           <a class="anchor" id="http_put"></a>
           <b>http PUT     </b>
-          <img src="Block_Images/httpPut.png" alt="HTTP PUT Block" width="180" height="40">
+          <img src="Block_Images/httpPut.png" alt="Block_Images/httpPut.png not found" width="180" height="40">
           <p class="tab2">
             This block sends an HTTP PUT request to the URL you specify. Attach the message to be sent by connecting a 
             <a href="#message">Message</a> block to the right of the http PUT block. The entire 
@@ -193,7 +258,7 @@
           
           <a class="anchor" id="https_get"></a>
           <b>https GET     </b>
-          <img src="Block_Images/httpsGet.png" alt="HTTPs GET Block" width="180" height="40">
+          <img src="Block_Images/httpsGet.png" alt="Block_Images/httpsGet.png not found" width="180" height="40">
           <p class="tab2">
             This block sends an HTTPs GET request to the URL you specify. The entire URL must be entered.
             <p class="tab1">
@@ -204,7 +269,7 @@
           
           <a class="anchor" id="https_put"></a>
           <b>https PUT     </b>
-          <img src="Block_Images/httpsPut.png" alt="HTTPs PUT Block" width="180" height="40">
+          <img src="Block_Images/httpsPut.png" alt="Block_Images/httpsPut.png not found" width="180" height="40">
           <p class="tab2">
             This block sends an HTTP PUT request to the URL you specify. Attach the message to be sent by connecting a 
             <a href="#message">Message</a> block to the right of the http PUT block. The entire 
@@ -221,15 +286,14 @@
     - make sure you add the block to the toolbox in index.js
     - make sure to add your bolck above in the dropdown menu
   -->
-        <div><h3>Blockly Chatbot Blocks</h3></div>
+        <a class="anchor" id="Chatbot"></a>
+        <div><h3 >Blockly Chatbot Blocks</h3></div>
         <div class="tab1">
-          
-  <!--
-      need to find the id needed for this
-  -->
+
+
           <a class="anchor" id="response"></a>
           <b>Response     </b>
-          <img src="Block_Images/response.png" alt="Response Block" width="110" height="40">
+          <img src="Block_Images/response.png" alt="Block_Images/response.png not found" width="120" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -237,15 +301,15 @@
           
           <a class="anchor" id="input"></a>
           <b>Introduction     </b>
-          <img src="Block_Images/introduction.png" alt="Introduction Block" width="110" height="40">
+          <img src="Block_Images/introduction.png" alt="Block_Images/introduction.png not found" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
-          <a class="anchor" id="tvalidate"></a>
+          <a class="anchor" id="validate"></a>
           <b>Text/Matching List     </b>
-          <img src="Block_Images/validate.png" alt="Introduction Block" width="125" height="75">
+          <img src="Block_Images/validate.png" alt="Block_Images/validate.png not found" width="125" height="75">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -253,7 +317,7 @@
           
           <a class="anchor" id="socket_setup"></a>
           <b>Bot Setup     </b>
-          <img src="Block_Images/bot_setup.png" alt="socketsetup" width="100" height="50">
+          <img src="Block_Images/botSetup.png" alt="Block_Images/botSetup.png not found" width="100" height="50">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -261,15 +325,43 @@
     
           <a class="anchor" id="question_block"></a>
           <b>Question     </b>
-          <img src="Block_Images/question.png" alt="socketsetup" width="110" height="40">
+          <img src="Block_Images/question.png" alt="Block_Images/question.png not found" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
           
           
+          <a class="anchor" id="contains"></a>
+          <b>Logical Contains     </b>
+          <img src="Block_Images/contains.png" alt="Block_Images/contains.png not found" width="140" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+          
           <a class="anchor" id="get_user_resopnse"></a>
           <b>Get User Response     </b>
-          <img src="Block_Images/user_response.png" alt="socketsetup" width="140" height="40">
+          <img src="Block_Images/userResponse.png" alt="Block_Images/userResponse.png not found" width="140" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+          
+          <a class="anchor" id="initialize_variables"></a>
+          <b>Initialize Variables     </b>
+          <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+          
+          <a class="anchor" id="user_response_checker"></a>
+          <b>User Response Checker     </b>
+          <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+          
+          <a class="anchor" id="if_enter"></a>
+          <b>If Enter     </b>
+          <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
           <p class="tab2">
             Write the help description and here.....................
           </p>

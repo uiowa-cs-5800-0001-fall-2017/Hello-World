@@ -58,8 +58,8 @@ h3 {
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
-  min-height: 800px;
-  max-height: 5000px;
+  min-height: 100%;
+  max-height: 500%;
   margin: 0 auto;
   padding: 10px;
   width: 92%;
@@ -73,7 +73,19 @@ h3 {
   padding: 20px;
 }
 
-.dottedUnderline{
+.vid {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 12%;
+  margin-bottom: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dottedUnderline {
   font-size: 1.5em;
   padding-bottom: 0;
   border: none;
@@ -82,7 +94,7 @@ h3 {
   text-decoration: none;
 }
 
-.section-header{
+.section-header {
   margin-bottom: 10px;
 }
 
@@ -105,29 +117,29 @@ h3 {
   padding: 10px;
 }
 
-.tab1{
+.tab1 {
   margin-left: 40px;
   margin-right: 40px;
 }
 
-.tab2{
+.tab2 {
   margin-left: 20px;
   margin-right: 40px;
 }
 
-.modal-holder{
+.modal-holder {
   overflow:auto;
 }
-.modalRequirement{
+.modalRequirement {
   white-space: nowrap;
   width: auto;
   overflow-x: scroll;
 
 }
-.copy-button{
+.copy-button {
   color:gray;
 }
-.copy-button:hover{
+.copy-button:hover {
   color:black;
 }
 
@@ -200,3 +212,12 @@ h3 {
   border-right: inherit;
   box-shadow: inherit;
 }
+
+#ddlCars {
+    min-height:190px; 
+    overflow-y :auto; 
+    overflow-x:hidden; 
+    position:absolute;
+    width:300px;
+    display: contents;
+ }
