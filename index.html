@@ -105,19 +105,20 @@
             <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
             <!-- <h2><span style="color:white;<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('myTextArea')" /> position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
-			<script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
+			      <script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
             <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
-              <div id="google_translate_element"></div><script>
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'it'}, 'google_translate_element');
-                }</script>
-                <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
+            <div id="google_translate_element"></div>
+            <script>
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'it'}, 'google_translate_element');
+              }
+            </script>
+            <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />
           </div>
         </div>
       </div>
     </div>
-  
     <div id="blocklyDiv" style="position: absolute"></div>
     <input id="fileButton" style="position: fixed; top: -100em" type="file" /> <!-- just ignore this -->
   </body>
