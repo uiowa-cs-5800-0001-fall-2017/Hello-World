@@ -7,7 +7,7 @@ var BLOCKS = {
     },
     {
       name: 'Requests',
-      blocks: ['http_get', 'http_put','https_get', 'https_put'],
+      blocks: ['http_get', 'http_put',/*'https_get', 'https_put'*/],
       color: '80'
     },
     {

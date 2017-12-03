@@ -5,6 +5,10 @@ body {
   padding: 0;
 }
 
+h {
+  margin-left: 10px;
+}
+
 h1 {
     font-family: verdana;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
@@ -141,6 +145,12 @@ h3 {
 }
 .copy-button:hover {
   color:black;
+}
+
+.dropdown-menu {
+  max-height:800%;
+  overflow-y :auto; 
+  overflow-x:hidden; 
 }
 
 /* Chat stylings */
