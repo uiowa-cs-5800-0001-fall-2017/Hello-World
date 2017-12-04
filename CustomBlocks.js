@@ -108,7 +108,7 @@ Blockly.Blocks['userresponsevarable'] = {
     this.setNextStatement(true, null);
     this.setColour(160);
  this.setTooltip("");
- this.setHelpUrl("help.html#user_response_checker");
+ this.setHelpUrl("help.html#check_user_response");
   }
 };
 

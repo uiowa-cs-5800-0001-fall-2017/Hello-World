@@ -52,16 +52,16 @@
                 <!--<a href="#https_get" class="dropdown-item">https GET</a>-->
                 <!--<a href="#https_put" class="dropdown-item">https PUT</a>-->
               <a href="#Chatbot" class="dropdownItem"><h>Blockly Chatbot Blocks</h></a>
+                <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
+                <a href="#initialize_variables" class="dropdown-item">Initialize Variables</a>
                 <a href="#response" class="dropdown-item">Response</a>
                 <a href="#input" class="dropdown-item">Introduction</a>
-                <a href="#validate" class="dropdown-item">Text/Matching List</a>
-                <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
                 <a href="#question_block" class="dropdown-item">Question</a>
+                <a href="#check_user_response" class="dropdown-item">Check User Response</a>
                 <a href="#contains" class="dropdown-item">Logical Contains</a>
+                <a href="#if_enter" class="dropdown-item">If 'ENTER'</a>
                 <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
-                <a href="#initialize_variables" class="dropdown-item">Initialize Variables</a>
-                <a href="#user_response_checker" class="dropdown-item">User Response Checker</a>
-                <a href="#if_enter" class="dropdown-item">If Enter</a>
+                <a href="#validate" class="dropdown-item">Text/Matching List</a>
               <a href="#Function" class="dropdownItem"><h>Blockly Function Blocks</h></a>
                 <a href="#search_function" class="dropdown-item">Search With</a>
                 <a href="#language" class="dropdown-item">Change Language</a>
@@ -136,15 +136,11 @@
           <b>Message     </b>
           <img src="Block_Images/message.png" alt="Block_Images/message.png not found" width="85" height="40">
           <p class="tab2">
-            WThe message block is used to input a string. A string is a collection of characters (abc,123,@#$).
+            The message block is used to input a string. A string is a collection of characters (abc,123,@#$).
           </p>
           <p class="tab2">
             For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
             <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
-          </p>
-          <p class="tab2">
-            ,or eturn to the http/https PUT request block   
-            <a href="help.html#Request">return</a>
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="print"></a>
@@ -320,7 +316,7 @@
             Write the help description and here.....................
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="user_response_checker"></a>
+          <a class="anchor" id="check_user_response"></a>
           <b>Check User Response     </b>
           <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
           <p class="tab2">
@@ -334,9 +330,13 @@
             This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if the contents of the block 
             it is attached to contains the string that is entered in place of the 'default' string, and false if it does not.
           </p>
+          <p class="tab2">
+            For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
+            <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
+          </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="if_enter"></a>
-          <b>If Enter     </b>
+          <b>If 'ENTER'     </b>
           <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
           <p class="tab2">
             This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if/when the end user presses 
@@ -354,7 +354,8 @@
           <b>Text/Matching List     </b>
           <img src="Block_Images/validate.png" alt="Block_Images/validate.png not found" width="125" height="75">
           <p class="tab2">
-            Write the help description and here.....................
+            This block compares the two <a href="#message">Message</a> blocks connected to it. It returns true if they match, and 
+            false, if they do not.
           </p>
         </div>
 <!--
@@ -375,12 +376,18 @@
             from the drop down menu. There are three choices: Google, Bing, and Yahoo. Then attach a 
             <a href="#message">Message</a> block to the right of the Search With block.  
           </p>
+          <p class="tab2">
+            For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
+            <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
+          </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="language"></a>
           <b>Language Settings     </b>
           <img src="Block_Images/language.png" alt="Block_Images/language.png not found" width="200" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            This block is used to change the language of the <a href="#message">Message</a> block that is attached to its right 
+            connection. Connect a Message block to the right connection and enter your text. The Lagnuage Settings block translates 
+            your test into the language you specify in the dropdown menu.
           </p>
         </div>
       </div>
