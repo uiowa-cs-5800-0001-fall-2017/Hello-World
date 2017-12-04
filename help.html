@@ -37,10 +37,10 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Block List</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a href="#Classic" class="dropdownItem"><h>Blockly Classic Blocks</h></a>
-                <a href="#if_do" class="dropdown-item">If... Do...</a>
                 <a href="#repeat" class="dropdown-item">Repeat While... or Until...</a>
                 <a href="#message" class="dropdown-item">Message</a>
                 <a href="#print" class="dropdown-item">Print</a>
+                <a href="#if_do" class="dropdown-item">If... Do...</a>
                 <a href="#boolean" class="dropdown-item">Logical Boolean</a>
                 <a href="#compare" class="dropdown-item">Logical Comparison</a>
                 <a href="#get" class="dropdown-item">Get</a>
@@ -52,8 +52,6 @@
                 <!--<a href="#https_get" class="dropdown-item">https GET</a>-->
                 <!--<a href="#https_put" class="dropdown-item">https PUT</a>-->
               <a href="#Chatbot" class="dropdownItem"><h>Blockly Chatbot Blocks</h></a>
-                <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
-                <a href="#initialize_variables" class="dropdown-item">Initialize Variables</a>
                 <a href="#response" class="dropdown-item">Response</a>
                 <a href="#input" class="dropdown-item">Introduction</a>
                 <a href="#question_block" class="dropdown-item">Question</a>
@@ -61,7 +59,11 @@
                 <a href="#contains" class="dropdown-item">Logical Contains</a>
                 <a href="#if_enter" class="dropdown-item">If 'ENTER'</a>
                 <a href="#get_user_resopnse" class="dropdown-item">Get User Response</a>
+<!--
+                <a href="#socket_setup" class="dropdown-item">Bot Setup</a>
+                <a href="#initialize_variables" class="dropdown-item">Initialize Variables</a>
                 <a href="#validate" class="dropdown-item">Text/Matching List</a>
+-->
               <a href="#Function" class="dropdownItem"><h>Blockly Function Blocks</h></a>
                 <a href="#search_function" class="dropdown-item">Search With</a>
                 <a href="#language" class="dropdown-item">Change Language</a>
@@ -85,7 +87,6 @@
         <a class="anchor" id="Classic"></a>
         <div><h3>Classic Blockly Blocks</h3></div>
         <div class="tab1">
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="if_do"></a>
           <b>If... Do...     </b>
           <img src="Block_Images/ifDo.png" alt="Block_Images/ifDo.png not found" width="100" height="75">
@@ -118,7 +119,6 @@
             For a more indepth look at if do loops, please visit Blokly's help page: 
             <a href = "https://github.com/google/blockly/wiki/IfElse" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="repeat"></a>
           <b>Repeat While... or Until...     </b>
           <img src="Block_Images/doWhile.png" alt="Block_Images/doWhile.png not found" width="120" height="75">
@@ -131,7 +131,6 @@
             For a more indepth look at repeat loops, please visit Blokly's help page: 
             <a href = "https://github.com/google/blockly/wiki/Loops#repeat" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="message"></a>
           <b>Message     </b>
           <img src="Block_Images/message.png" alt="Block_Images/message.png not found" width="85" height="40">
@@ -142,7 +141,6 @@
             For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
             <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="print"></a>
           <b>Print     </b>
           <img src="Block_Images/print.png" alt="Block_Images/print.png not found" width="85" height="40">
@@ -155,7 +153,6 @@
             For a more indepth look at print, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Text#printing-text" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="boolean"></a>
           <b>Logical Boolean     </b>
           <img src="Block_Images/boolean.png" alt="Block_Images/boolean.png not found" width="100" height="40">
@@ -166,7 +163,6 @@
             For a more indepth look at logical booleans, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Logic#values" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="compare"></a>
           <b>Logical Comparison     </b>
           <img src="Block_Images/comparison.png" alt="Block_Images/comparison.png not found" width="120" height="40">
@@ -179,7 +175,6 @@
             For a more indepth look at logical comparisons, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Logic#comparisons" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="get"></a>
           <b>Get     </b>
           <img src="Block_Images/get.png" alt="Block_Images/get.png not found" width="100" height="40">
@@ -191,7 +186,6 @@
             For a more indepth look at get funtions, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Variables#get" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="set"></a>
           <b>Set     </b>
           <img src="Block_Images/set.png" alt="Block_Images/set.png not found" width="135" height="40">
@@ -202,7 +196,6 @@
             For a more indepth look at set funtions, please visit the Blockly help page:  
             <a href = "https://github.com/google/blockly/wiki/Variables#set" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="list_create_with"></a>
           <b>Create List With     </b>
           <img src="Block_Images/createList.png" alt="Block_Images/createList.png not found" width="135" height="75">
@@ -224,7 +217,6 @@
         <a class="anchor" id="Request"></a>
         <div><h3>Blockly Request Blocks</h3></div>
         <div class="tab1">
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="http_get"></a>
           <b>http GET     </b>
           <img src="Block_Images/httpGet.png" alt="Block_Images/httpGet.png not found" width="180" height="40">
@@ -234,7 +226,6 @@
               - example: http://www.your_web_site.com/your_exstensions
             </p>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="http_put"></a>
           <b>http PUT     </b>
           <img src="Block_Images/httpPut.png" alt="Block_Images/httpPut.png not found" width="180" height="40">
@@ -276,30 +267,12 @@
         <a class="anchor" id="Chatbot"></a>
         <div><h3 >Blockly Chatbot Blocks</h3></div>
         <div class="tab1">
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="socket_setup"></a>
-          <b>Bot Setup     </b>
-          <img src="Block_Images/botSetup.png" alt="Block_Images/botSetup.png not found" width="100" height="50">
-          <p class="tab2">
-            This block sets up all the generic properties needed for every chatbot. This is the blck that you need to start every 
-            bot with. The blocks you put inside the bot setup block will determine the funtionality of your shat bot.
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="initialize_variables"></a>
-          <b>Initialize Variables     </b>
-          <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
-          <p class="tab2">
-            This is the first block you need to use in your chatbot. It creates the two variables (userResponce and validation) 
-            that each chatbot needs. Place this block as your first inside of bot setup.
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="response"></a>
           <b>Response     </b>
           <img src="Block_Images/response.png" alt="Block_Images/response.png not found" width="120" height="40">
           <p class="tab2">
             This block will share a set/static response to the end user. Type the message you want shared into the 'default' response field.
           </p>
-           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="input"></a>
           <b>Introduction     </b>
           <img src="Block_Images/introduction.png" alt="Block_Images/introduction.png not found" width="110" height="40">
@@ -307,21 +280,18 @@
             The Introduction block is where you would enter the text of the first message shared with the end user. This is the message 
             that starts the chat. You do not have to use this block, but it is recomended.
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="question_block"></a>
           <b>Question     </b>
           <img src="Block_Images/question.png" alt="Block_Images/question.png not found" width="110" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="check_user_response"></a>
           <b>Check User Response     </b>
           <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="contains"></a>
           <b>Logical Contains     </b>
           <img src="Block_Images/contains.png" alt="Block_Images/contains.png not found" width="140" height="40">
@@ -333,14 +303,12 @@
             For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
             <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="if_enter"></a>
           <b>If 'ENTER'     </b>
           <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
           <p class="tab2">
             This block executes the function(s) of blocks inside it when the 'ENTER' button is pressed.
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="get_user_resopnse"></a>
           <b>Get User Response     </b>
           <img src="Block_Images/userResponse.png" alt="Block_Images/userResponse.png not found" width="140" height="40">
@@ -348,7 +316,21 @@
             This block maikes the chatbot wait for the user to enter a response. Add this block after any <a href="#response">Response</a> 
             or <a href="#question_block">Question</a> blocks.
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
+<!--
+          <a class="anchor" id="socket_setup"></a>
+          <b>Bot Setup     </b>
+          <img src="Block_Images/botSetup.png" alt="Block_Images/botSetup.png not found" width="100" height="50">
+          <p class="tab2">
+            This block sets up all the generic properties needed for every chatbot. This is the blck that you need to start every 
+            bot with. The blocks you put inside the bot setup block will determine the funtionality of your shat bot.
+          </p>
+          <a class="anchor" id="initialize_variables"></a>
+          <b>Initialize Variables     </b>
+          <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
+          <p class="tab2">
+            This is the first block you need to use in your chatbot. It creates the two variables (userResponce and validation) 
+            that each chatbot needs. Place this block as your first inside of bot setup.
+          </p>
           <a class="anchor" id="validate"></a>
           <b>Text/Matching List     </b>
           <img src="Block_Images/validate.png" alt="Block_Images/validate.png not found" width="130" height="75">
@@ -357,6 +339,7 @@
             false, if they do not.
           </p>
         </div>
+-->
 <!--
     - Add blocks from the Bolck Editor "Function" tab here
     - make sure to add a .png file in the Block_Images directory
@@ -366,7 +349,6 @@
         <a class="anchor" id="Function"></a>
         <div><h3 >Blockly Fuction Blocks</h3></div>
         <div class="tab1">
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="search_function"></a>
           <b>Searh With     </b>
           <img src="Block_Images/searchFunction.png" alt="Block_Images/searchFunction.png not found" width="190" height="40">
@@ -379,7 +361,6 @@
             For a more indepth look at strings, please visit the Blockly recomended wikipedia page:  
             <a href = "https://en.wikipedia.org/wiki/String_(computer_science)" target="_blank">Blockly Help</a>
           </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="language"></a>
           <b>Language Settings     </b>
           <img src="Block_Images/language.png" alt="Block_Images/language.png not found" width="220" height="40">
