@@ -80,7 +80,6 @@ Blockly.Blocks['get_user_response'] = {
         .appendField("get user response");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-	this.setOutput(true, "String");
     this.setColour(330);
  this.setTooltip("");
  this.setHelpUrl("help.html#get_user_resopnse");
