@@ -68,13 +68,14 @@
             <button class="dropdown-item" id="exportJS" type="button">Export JS To File</button>
             <button class="dropdown-item" id="exportBlocks">Export Blocks To File</button>
             <button class="dropdown-item" id="importBlocks">Import Blocks From File</button>
-            <button class="dropdown-item" id="loadCloud">Load From Cloud</button>
             <button class="dropdown-item" id="publish">Save To Cloud</button>
+            <button class="dropdown-item" id="loadCloud">Load From Cloud</button>
+            <button class="dropdown-item" id="showWidgetButton">Export To Widget</button>
           </div>
-        <li class="nav-item">
-          <!-- <button id="loginButton" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button> -->
-          <button id="loginButton" class="btn btn-primary">Loading...</button>
-        </li>
+          <li class="nav-item">
+            <!-- <button id="loginButton" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button> -->
+            <button id="loginButton" class="btn btn-primary">Loading...</button>
+          </li>
       </ul>
     </nav>
   </div>
@@ -106,12 +107,14 @@
             <!-- <h1><span style= "color: white;">Welcome to Pizzabot!</span></h1> -->
             <!-- <h2><span style="color:white;<input type="button" value="Spell Check in a Dialog" onclick="$Spelling.SpellCheckInWindow('myTextArea')" /> position: absolute; background-color: navy; border-style: solid; text-align: center; font-family: verdana;">Pizza chat</span></h2> -->
             <div id="chat-container"></div>
-			      <script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
+            <script type='text/javascript' src='JavaScriptSpellCheck/include.js'></script>
             <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
             <div id="google_translate_element"></div>
             <script>
               function googleTranslateElementInit() {
-                new google.translate.TranslateElement({pageLanguage: 'it'}, 'google_translate_element');
+                new google.translate.TranslateElement({
+                  pageLanguage: 'it'
+                }, 'google_translate_element');
               }
             </script>
             <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -121,6 +124,45 @@
       </div>
     </div>
     <div id="blocklyDiv" style="position: absolute"></div>
-    <input id="fileButton" style="position: fixed; top: -100em" type="file" /> <!-- just ignore this -->
-  </body>
+    <input id="fileButton" style="position: fixed; top: -100em" type="file" />
+    <!-- just ignore this -->
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="widgetModal" role="dialog">
+    <div class="modal-dialog" style="margin-top:100px">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Put Your Chatbot on the Web</h4>
+        </div>
+        <div class="modal-body">
+          <p class="modal-text">
+            To put your new chatbot to your own website, paste these two script tags into the header of the page, then put the div wherever you want your chatbot to show up! Remember, your chatbot will be whatever size you set the div to be.
+
+          </p>
+          <h5 class="modal-header">Scripts <span id="copyScripts" class="copy-button">copy</span></h5>
+          <div id="scriptsToCopy" class="modal-holder">
+            <code readonly class="modalRequirement">
+              &lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"&gt;&lt;/script&gt;<br />
+              </code>
+            <code readonly class="modalRequirement">
+              &lt;script type="text/javascript" src="https://blocklychatbot.herokuapp.com/widget.js"&gt;&lt;/script&gt;
+              </code>
+          </div>
+          <h5 class="modal-header">Chatbot Div <span id="copyChatbot" class="copy-button">copy</span> </h5>
+          <div class="modal-holder">
+            <code id="widgetToPaste" class="modalRequirement" readonly></code>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

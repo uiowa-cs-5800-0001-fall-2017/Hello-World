@@ -7,17 +7,17 @@ var BLOCKS = {
     },
     {
       name: 'Requests',
-      blocks: ['http_get', 'http_put',/*'https_get', 'https_put'*/],
+      blocks: ['http_get', 'http_put', /*'https_get', 'https_put'*/ ],
       color: '80'
     },
     {
       name: 'Chatbot',
-	blocks: ['response', 'input','question_block', 'userresponsevarable', 'contains', 'if_enter', 'get_user_response'],
+      blocks: ['response', 'input', 'question_block', 'userresponsevarable', 'contains', 'if_enter', 'get_user_response'],
       color: '20'
     },
     {
       name: 'Function',
-  blocks: ['search_function','language'],
+      blocks: ['search_function', 'language'],
       color: '50'
     }
 
@@ -67,7 +67,7 @@ window.onload = function() {
   var workspace = Blockly.inject(blocklyDiv, {
     toolbox: generateBlocks()
   });
-  var onresize = function(e) {
+  var onresize = function(e) { // jshint ignore:line
     // Compute the absolute coordinates and dimensions of blocklyArea.
     var element = blocklyArea;
     var x = 0;
@@ -89,7 +89,7 @@ window.onload = function() {
 
   Chatbot.loadLocalWorkspace();
 
-  function generateCode(event) {
+  function generateCode(event) { // jshint ignore:line
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     if (code === '') {
       $('#codeDisplay code').text('Add More Blocks to Generate Code');
@@ -101,12 +101,12 @@ window.onload = function() {
   workspace.addChangeListener(generateCode);
 
   function runCode() {
-	
+
     Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0)throw "INfinite loop.";\n';
     var code = Blockly.JavaScript.INFINITE_LOOP_TRAP = Blockly.JavaScript.workspaceToCode(workspace);
     try {
       eval(code);
-		//jshint ignore: line
+      //jshint ignore: line
     } catch (e) {
       alert(e); //jshint ignore: line
     }
@@ -179,4 +179,28 @@ window.onload = function() {
   }
   codeButton.click(previewCode);
   chatbotButton.click(previewChatbot);
+
+  $("#copyScripts").click(function() {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($("#scriptsToCopy").text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  });
+  $("#copyChatbot").click(function() {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($("#widgetToPaste").text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+  });
+
+  $("#showWidgetButton").click(function() {
+    if (Chatbot.getUserId) {
+      $("#widgetModal").modal();
+      $("#widgetToPaste").append(`&lt;div id="BlocklyChatbot" data="${Chatbot.getUserId()}"&gt;&lt;/div&gt;`);
+    } else {
+      alert("You have to sign in to export your chatbot");
+    }
+  });
 };
