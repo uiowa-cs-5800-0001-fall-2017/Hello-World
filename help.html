@@ -64,6 +64,7 @@
                 <a href="#if_enter" class="dropdown-item">If Enter</a>
               <a href="#Function" class="dropdownItem"><h>Blockly Function Blocks</h></a>
                 <a href="#search_function" class="dropdown-item">Search With</a>
+                <a href="#language" class="dropdown-item">Change Language</a>
             </div>
           </li>
           <li class="nav-item">
@@ -282,27 +283,6 @@
         <div><h3 >Blockly Chatbot Blocks</h3></div>
         <div class="tab1">
           <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="response"></a>
-          <b>Response     </b>
-          <img src="Block_Images/response.png" alt="Block_Images/response.png not found" width="120" height="40">
-          <p class="tab2">
-            Write the help description and here.....................
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="input"></a>
-          <b>Introduction     </b>
-          <img src="Block_Images/introduction.png" alt="Block_Images/introduction.png not found" width="110" height="40">
-          <p class="tab2">
-            The Introduction block is where you would enter text that you want to say to the end user before any other messages are shared.
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="validate"></a>
-          <b>Text/Matching List     </b>
-          <img src="Block_Images/validate.png" alt="Block_Images/validate.png not found" width="125" height="75">
-          <p class="tab2">
-            Write the help description and here.....................
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="socket_setup"></a>
           <b>Bot Setup     </b>
           <img src="Block_Images/botSetup.png" alt="Block_Images/botSetup.png not found" width="100" height="50">
@@ -311,9 +291,38 @@
             bot with. The blocks you put inside the bot setup block will determine the funtionality of your shat bot.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="initialize_variables"></a>
+          <b>Initialize Variables     </b>
+          <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
+          <p class="tab2">
+            This is the first block you need to use in your chatbot. It creates the two variables (userResponce and validation) 
+            that each chatbot needs. Place this block as your first inside of bot setup.
+          </p>
+          <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="response"></a>
+          <b>Response     </b>
+          <img src="Block_Images/response.png" alt="Block_Images/response.png not found" width="120" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+           <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="input"></a>
+          <b>Introduction     </b>
+          <img src="Block_Images/introduction.png" alt="Block_Images/introduction.png not found" width="110" height="40">
+          <p class="tab2">
+            The Introduction block is where you would enter text that you want to say to the end user before any other messages are shared.
+          </p>
+          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="question_block"></a>
           <b>Question     </b>
           <img src="Block_Images/question.png" alt="Block_Images/question.png not found" width="110" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
+          </p>
+          <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="user_response_checker"></a>
+          <b>Check User Response     </b>
+          <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
           <p class="tab2">
             Write the help description and here.....................
           </p>
@@ -326,6 +335,14 @@
             it is attached to contains the string that is entered in place of the 'default' string, and false if it does not.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="if_enter"></a>
+          <b>If Enter     </b>
+          <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
+          <p class="tab2">
+            This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if/when the end user presses 
+            the 'ENTER' button.
+          </p>
+          <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="get_user_resopnse"></a>
           <b>Get User Response     </b>
           <img src="Block_Images/userResponse.png" alt="Block_Images/userResponse.png not found" width="140" height="40">
@@ -333,27 +350,11 @@
             Write the help description and here.....................
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="initialize_variables"></a>
-          <b>Initialize Variables     </b>
-          <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
-          <p class="tab2">
-            This is the first block you need to use in your chatbot. It creates the two variables (userResponce and validation) 
-            that each chatbot needs. Place this block as your first inside of bot setup.
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="user_response_checker"></a>
-          <b>Check User Response     </b>
-          <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
+          <a class="anchor" id="validate"></a>
+          <b>Text/Matching List     </b>
+          <img src="Block_Images/validate.png" alt="Block_Images/validate.png not found" width="125" height="75">
           <p class="tab2">
             Write the help description and here.....................
-          </p>
-          <!--------------------------------------------------------------------------------------------------------------->
-          <a class="anchor" id="if_enter"></a>
-          <b>If Enter     </b>
-          <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
-          <p class="tab2">
-            This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if/when the end user presses 
-            the 'ENTER' button.
           </p>
         </div>
 <!--
@@ -368,11 +369,18 @@
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="search_function"></a>
           <b>Searh With     </b>
-          <img src="Block_Images/searchFunction.png" alt="Block_Images/searchFunction.png not found" width="160" height="40">
+          <img src="Block_Images/searchFunction.png" alt="Block_Images/searchFunction.png not found" width="180" height="40">
           <p class="tab2">
             This block will search the web based searh engine of your choice for the string you enter. Select a search engine 
             from the drop down menu. There are three choices: Google, Bing, and Yahoo. Then attach a 
             <a href="#message">Message</a> block to the right of the Search With block.  
+          </p>
+          <!--------------------------------------------------------------------------------------------------------------->
+          <a class="anchor" id="language"></a>
+          <b>Language Settings     </b>
+          <img src="Block_Images/language.png" alt="Block_Images/language.png not found" width="200" height="40">
+          <p class="tab2">
+            Write the help description and here.....................
           </p>
         </div>
       </div>

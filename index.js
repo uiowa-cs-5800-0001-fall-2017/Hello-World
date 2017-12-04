@@ -2,7 +2,7 @@
 var BLOCKS = {
   categories: [{
       name: 'Basic',
-      blocks: ['controls_if', 'controls_whileUntil', 'text', 'text_print', 'logic_boolean', 'logic_compare', 'variables_get', 'variables_set', 'lists_create_with'],
+      blocks: ['controls_whileUntil', 'text', 'text_print', 'controls_if', 'logic_boolean', 'logic_compare', 'variables_get', 'variables_set', 'lists_create_with'],
       color: '210'
     },
     {
@@ -12,12 +12,12 @@ var BLOCKS = {
     },
     {
       name: 'Chatbot',
-	blocks: ['response', 'input', 'validate', 'socket_setup', 'question_block','contains', 'get_user_response', 'initalizer','userresponsevarable','if_enter'],
+	blocks: ['socket_setup', 'initalizer', 'response', 'input','question_block', 'userresponsevarable', 'contains', 'if_enter', 'get_user_response',  'validate'],
       color: '20'
     },
     {
       name: 'Function',
-  blocks: ['search_function'],
+  blocks: ['search_function','language'],
       color: '50'
     }
 

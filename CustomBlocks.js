@@ -7,7 +7,7 @@ Blockly.Blocks['validate'] = {
         .setCheck("Array")
         .appendField("matching list");
     this.setOutput("Boolean");
-    this.setColour(0);
+    this.setColour(260);
  this.setTooltip("vaildates that the strings are matching");
  this.setHelpUrl("help.html#validate");
   }
@@ -20,7 +20,7 @@ Blockly.Blocks['if_enter'] = {
         .appendField("if enter");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(210);
  this.setTooltip("returns true when the 'ENTER' button is pressed");
  this.setHelpUrl("help.html#if_enter");
   }
@@ -32,7 +32,7 @@ Blockly.Blocks['contains'] = {
         .appendField("contains")
         .appendField(new Blockly.FieldTextInput("default"), "NAME");
     this.setOutput(true, null);
-    this.setColour(230);
+    this.setColour(210);
  this.setTooltip("returns true if the attached block contains the 'default' string.");
  this.setHelpUrl("help.html#contains");
   }
@@ -43,7 +43,7 @@ Blockly.Blocks['socket_setup'] = {
     this.appendStatementInput("socket_set_up")
         .setCheck(null)
         .appendField("bot setup");
-    this.setColour(230);
+    this.setColour(15);
  this.setTooltip("sets up sockets");
  this.setHelpUrl("help.html#socket_setup");
   }
@@ -55,7 +55,7 @@ Blockly.Blocks['initalizer'] = {
        .appendField("initialize varibles");
    this.setPreviousStatement(true, null);
    this.setNextStatement(true, null);
-   this.setColour(230);
+   this.setColour(100);
 this.setTooltip("");
 this.setHelpUrl("help.html#initialize_variables");
  }
@@ -68,7 +68,7 @@ Blockly.Blocks['input'] = {
         .appendField("introduction ");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(160);
  this.setTooltip("sends first message to user");
  this.setHelpUrl("help.html#input");
   }
@@ -81,7 +81,7 @@ Blockly.Blocks['get_user_response'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 	this.setOutput(true, "String");
-    this.setColour(230);
+    this.setColour(330);
  this.setTooltip("");
  this.setHelpUrl("help.html#get_user_resopnse");
   }
@@ -93,7 +93,7 @@ Blockly.Blocks['response'] = {
         .appendField("response")
         .appendField(new Blockly.FieldTextInput("default"), "userResponse");
     this.setNextStatement(true, "String");
-    this.setColour(230);
+    this.setColour(160);
  this.setTooltip("");
  this.setHelpUrl("help.html#response");
   }
@@ -106,7 +106,7 @@ Blockly.Blocks['userresponsevarable'] = {
         .appendField("check user response");
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(160);
  this.setTooltip("");
  this.setHelpUrl("help.html#user_response_checker");
   }
@@ -119,7 +119,7 @@ Blockly.Blocks['question_block'] = {
         .appendField(new Blockly.FieldTextInput(""), "Question they want to ask");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(160);
  this.setTooltip("sends next question to user");
  this.setHelpUrl("help.html#question_block");
   }
@@ -155,7 +155,7 @@ Blockly.Blocks['http_get'] = {
         .appendField(new Blockly.FieldTextInput("url for http GET request"), "url");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(225);
+    this.setColour(230);
  this.setTooltip("Type URL you are requesting");
  this.setHelpUrl("help.html#http_get");
   }
@@ -169,7 +169,7 @@ Blockly.Blocks['http_put'] = {
     this.setInputsInline(false);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(225);
+    this.setColour(230);
  this.setTooltip("Type the URL that you are sending the data to");
  this.setHelpUrl("help.html#http_put");
   }
@@ -181,7 +181,7 @@ Blockly.Blocks['http_put'] = {
 //         .appendField(new Blockly.FieldTextInput("url for https GET request"), "url");
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(100);
+//     this.setColour(230);
 //  this.setTooltip("Type URL you are requesting");
 //  this.setHelpUrl("help.html#https_get");
 //   }
@@ -195,7 +195,7 @@ Blockly.Blocks['http_put'] = {
 //     this.setInputsInline(false);
 //     this.setPreviousStatement(true, null);
 //     this.setNextStatement(true, null);
-//     this.setColour(100);
+//     this.setColour(230);
 //  this.setTooltip("Type the URL that you are sending the data to");
 //  this.setHelpUrl("help.html#https_put");
 //   }
@@ -205,11 +205,11 @@ Blockly.Blocks['language'] = {
   init: function() {
     this.appendValueInput("UseriNPUT")
         .setCheck("String")
-        .appendField("languages setting")
+        .appendField("language settings")
         .appendField(new Blockly.FieldDropdown([["English","English"], ["Chinese","Chinese"], ["French","French"], ["German","German"], ["Russian","Russian"], ["Korean","Korean"], ["Janpan","Janpan"]]), "Lan");
     this.setOutput(true, "required language mode");
     this.setColour(330);
- this.setTooltip("");
+ this.setTooltip("changes the language of the chatbot");
  this.setHelpUrl("help.html#language");
   }
 };
@@ -222,7 +222,7 @@ Blockly.Blocks['search_function'] = {
         .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","Bing"], ["Yahoo","Yahoo"]]), "NAME");
     this.setOutput(true, "String");
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip("searches the web with the selected search engine");
  this.setHelpUrl("help.html#search_function");
   }
 };
