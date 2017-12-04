@@ -176,30 +176,20 @@ Blockly.JavaScript['http_put'] = function(block) {
   return code;
 };
 
-// Blockly.JavaScript['https_get'] = function(block) {
+// Blockly.JavaScript['search_function'] = function(block) {
+//   var dropdown_name = block.getFieldValue('NAME');
+//   var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   if(dropdown_name == "Yahoo"){
+//     var code = " var strn = 'https://search.yahoo.com/search?p='; window.open(strn.concat("+value_userinput+"));"
+//   }
+//   if(dropdown_name == "Google"){
+//     var code = " window.open('https://www.google.com/search?q='"+value_userinput+");"
+//     var code = " var strn = 'https://www.google.com/search?q='; window.open(strn.concat("+value_userinput+"));"
+//   }
+//   if(dropdown_name == "Bing"){
+//     var code = " var strn = 'https://www.bing.com/search?q='; window.open(strn.concat("+value_userinput+"));"
+//   }
 
 //   return code;
 // };
-
-// Blockly.JavaScript['https_put'] = function(block) {
-
-//   return code;
-// };
-
-Blockly.JavaScript['search_function'] = function(block) {
-  var dropdown_name = block.getFieldValue('NAME');
-  var value_userinput = Blockly.JavaScript.valueToCode(block, 'Userinput', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Change ORDER_NONE to the correct strength.
-  if(dropdown_name == "Yahoo"){
-    var code = " var strn = 'https://search.yahoo.com/search?p='; window.open(strn.concat("+value_userinput+"));"
-  }
-  if(dropdown_name == "Google"){
-     var code = " window.open('https://www.google.com/search?q='"+value_userinput+");"
-     var code = " var strn = 'https://www.google.com/search?q='; window.open(strn.concat("+value_userinput+"));"
-  }
-  if(dropdown_name == "Bing"){
-    var code = " var strn = 'https://www.bing.com/search?q='; window.open(strn.concat("+value_userinput+"));"
-  }
-
-  return code;
-};

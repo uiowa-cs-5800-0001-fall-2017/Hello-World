@@ -2,12 +2,12 @@
 var BLOCKS = {
   categories: [{
       name: 'Basic',
-      blocks: ['controls_whileUntil', 'text', 'text_print', 'controls_if', 'logic_boolean', 'logic_compare', 'variables_get', 'variables_set', 'lists_create_with'],
+      blocks: ['controls_whileUntil', 'text', 'text_print', 'controls_if', 'logic_boolean', 'logic_compare', 'variables_get', 'variables_set'],
       color: '210'
     },
     {
       name: 'Requests',
-      blocks: ['http_get', 'http_put', /*'https_get', 'https_put'*/ ],
+      blocks: [],
       color: '80'
     },
     {
@@ -17,7 +17,7 @@ var BLOCKS = {
     },
     {
       name: 'Function',
-      blocks: ['search_function', 'language'],
+      blocks: [],
       color: '50'
     }
 
