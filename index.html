@@ -86,16 +86,15 @@
           <div class="navbar" style="height:3em;">
             <h2 class="navbar-brand" style="margin:0; padding:0">Blockly Editor</h2>
               <div id="google_translate_element"></div>
-            <script>
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'it'
-                }, 'google_translate_element');
-              }
-            </script>
-            <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-            <!--<input type="button" value="Spell Check in the Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />-->
-
+              <script>
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({
+                    pageLanguage: 'it'
+                  }, 'google_translate_element');
+                }
+              </script>
+              <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+              <!--<input type="button" value="Spell Check in the Dialog" onclick="$Spelling.SpellCheckInWindow('chat-input')" />-->
           </div>
           <div id="blocklyArea" class="displayArea"></div>
         </div>
@@ -120,7 +119,7 @@
             <div id="chat-container"></div>
             <script type='text/javascript' src='JavaScriptSpellCheck/include.js'></script>
             <textarea id="chat-input" contenteditable="true" spellcheck="true"></textarea>
-                      </div>
+          </div>
         </div>
       </div>
     </div>
