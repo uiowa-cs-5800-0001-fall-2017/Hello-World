@@ -163,7 +163,6 @@ h3 {
     overflow-y: scroll;
     word-wrap: break-word;
     font-family: verdana;
-
 }
 
 #chat-input {
@@ -184,6 +183,7 @@ h3 {
   border-radius: 10px;
   left: 13%;
 }
+
 #chat-bubble-message::before{
   content: "";
   position: absolute;
@@ -208,8 +208,9 @@ h3 {
   border: 3px double black;
   border-radius: 10px;
 }
+
 #bot-bubble-message::before{
-      content: "";
+  content: "";
   position: absolute;
   top: 100%;
   left: 30px;

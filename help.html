@@ -16,7 +16,7 @@
   
   <body>
     <div class="header" align="center">
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light" color="red">
         <a class="navbar-brand font-weight-bold" href="#">Blockly Chatbot Help Page</a>
         <ul class="nav nav-pills mr-auto">
           <li class="nav-item active">
@@ -78,7 +78,7 @@
     - Add blocks from the Bolck Editor "Basic" tab here
     - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
-    - make sure to add your bolck above in the dropdown menu
+    - make sure to add your block above in the dropdown menu
 -->
       <div class="tab2">
         <a class="anchor" id="Classic"></a>
@@ -91,31 +91,31 @@
           <p class="tab2">
             Conditional statements are central to computer programming. They make it possible to express 
             statements like:
-            <p class="tab1">
-              - If there is a path to the left, turn left.
-            </p>
-            <p class="tab1">
-              - If score = 100, print "Well done!".
-            </p>
-            <p class="tab2">
-              It is also possible to specify that something should happen if the condition is not true. An if 
-              block may have zero or one else sections but not more than one. An if block may haveany number 
-              of else if sections. Conditions are evaluated top to bottom until one is satisfied, or until no 
-              more conditions are left. The else section guarantees that some action is performed, even if 
-              none of the prior conditions are true. An else section may occur after any number of else if 
-              sections, including zero.
-            </p>
-            <p class="tab2">
-              To add else if and else clauses, the user needs to click on the gear icon, which opens a new 
-              window. The user can then drag else if and else clauses into the if block, as well as reordering 
-              and removing them. When finished, the user should click on the minus sign, which closes the 
-              window. Note that the shapes of the blocks allows any number of else if subblocks to be added but 
-              only up to one else block.
-            </p>
-            <p class="tab2">
-              For a more indepth look at if do loops, please visit Blokly's help page: 
-              <a href = "https://github.com/google/blockly/wiki/IfElse" target="_blank">Blockly Help</a>
-            </p>
+          </p>
+          <p class="tab1">
+            - If there is a path to the left, turn left.
+          </p>
+          <p class="tab1">
+            - If score = 100, print "Well done!".
+          </p>
+          <p class="tab2">
+            It is also possible to specify that something should happen if the condition is not true. An if 
+            block may have zero or one else sections but not more than one. An if block may haveany number 
+            of else if sections. Conditions are evaluated top to bottom until one is satisfied, or until no 
+            more conditions are left. The else section guarantees that some action is performed, even if 
+            none of the prior conditions are true. An else section may occur after any number of else if 
+            sections, including zero.
+          </p>
+          <p class="tab2">
+            To add else if and else clauses, the user needs to click on the gear icon, which opens a new 
+            window. The user can then drag else if and else clauses into the if block, as well as reordering 
+            and removing them. When finished, the user should click on the minus sign, which closes the 
+            window. Note that the shapes of the blocks allows any number of else if subblocks to be added but 
+            only up to one else block.
+          </p>
+          <p class="tab2">
+            For a more indepth look at if do loops, please visit Blokly's help page: 
+            <a href = "https://github.com/google/blockly/wiki/IfElse" target="_blank">Blockly Help</a>
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="repeat"></a>
@@ -222,7 +222,7 @@
     - Add blocks from the Bolck Editor "Requests" tab here
     - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
-    - make sure to add your bolck above in the dropdown menu
+    - make sure to add your block above in the dropdown menu
 -->
         <a class="anchor" id="Request"></a>
         <div><h3>Blockly Request Blocks</h3></div>
@@ -242,12 +242,12 @@
           <b>http PUT     </b>
           <img src="Block_Images/httpPut.png" alt="Block_Images/httpPut.png not found" width="180" height="40">
           <p class="tab2">
-            This block sends an HTTP PUT request to the URL you specify. Attach the message to be sent by connecting a 
-            <a href="#message">Message</a> block to the right of the http PUT block. The entire 
-            URL must be entered
+            This block sends an HTTP PUT request to the URL you specify. The entire URL must be entered
             <p class="tab1">
               - example: http://www.your_web_site.com
             </p>
+          <p class="tab2">
+            Attach the message to be sent by connecting a <a href="#message">Message</a> block to the right of the http PUT block.
           </p>
 <!--
           <a class="anchor" id="https_get"></a>
@@ -276,7 +276,7 @@
     - Add blocks from the Bolck Editor "Chatbot" tab here
     - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
-    - make sure to add your bolck above in the dropdown menu
+    - make sure to add your block above in the dropdown menu
 -->
         <a class="anchor" id="Chatbot"></a>
         <div><h3 >Blockly Chatbot Blocks</h3></div>
@@ -293,7 +293,7 @@
           <b>Introduction     </b>
           <img src="Block_Images/introduction.png" alt="Block_Images/introduction.png not found" width="110" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            The Introduction block is where you would enter text that you want to say to the end user before any other messages are shared.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="validate"></a>
@@ -307,7 +307,8 @@
           <b>Bot Setup     </b>
           <img src="Block_Images/botSetup.png" alt="Block_Images/botSetup.png not found" width="100" height="50">
           <p class="tab2">
-            Write the help description and here.....................
+            This block sets up all the generic properties needed for every chatbot. This is the blck that you need to start every 
+            bot with. The blocks you put inside the bot setup block will determine the funtionality of your shat bot.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="question_block"></a>
@@ -321,7 +322,8 @@
           <b>Logical Contains     </b>
           <img src="Block_Images/contains.png" alt="Block_Images/contains.png not found" width="140" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if the contents of the block 
+            it is attached to contains the string that is entered in place of the 'default' string, and false if it does not.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="get_user_resopnse"></a>
@@ -335,11 +337,12 @@
           <b>Initialize Variables     </b>
           <img src="Block_Images/initVars.png" alt="Block_Images/initVars.png not found" width="140" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            This is the first block you need to use in your chatbot. It creates the two variables (userResponce and validation) 
+            that each chatbot needs. Place this block as your first inside of bot setup.
           </p>
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="user_response_checker"></a>
-          <b>User Response Checker     </b>
+          <b>Check User Response     </b>
           <img src="Block_Images/checkResponse.png" alt="Block_Images/checkResponse.png not found" width="160" height="40">
           <p class="tab2">
             Write the help description and here.....................
@@ -349,24 +352,27 @@
           <b>If Enter     </b>
           <img src="Block_Images/ifEnter.png" alt="Block_Images/ifEnter.png not found" width="95" height="50">
           <p class="tab2">
-            Write the help description and here.....................
+            This block is similar to a <a href="#boolean">Logical Boolean</a>, in that it returns true if/when the end user presses 
+            the 'ENTER' button.
           </p>
         </div>
 <!--
     - Add blocks from the Bolck Editor "Function" tab here
     - make sure to add a .png file in the Block_Images directory
     - make sure you add the block to the toolbox in index.js
-    - make sure to add your bolck above in the dropdown menu
+    - make sure to add your block above in the dropdown menu
 -->
         <a class="anchor" id="Function"></a>
         <div><h3 >Blockly Fuction Blocks</h3></div>
         <div class="tab1">
           <!--------------------------------------------------------------------------------------------------------------->
           <a class="anchor" id="search_function"></a>
-          <b>Google With     </b>
+          <b>Searh With     </b>
           <img src="Block_Images/searchFunction.png" alt="Block_Images/searchFunction.png not found" width="160" height="40">
           <p class="tab2">
-            Write the help description and here.....................
+            This block will search the web based searh engine of your choice for the string you enter. Select a search engine 
+            from the drop down menu. There are three choices: Google, Bing, and Yahoo. Then attach a 
+            <a href="#message">Message</a> block to the right of the Search With block.  
           </p>
         </div>
       </div>

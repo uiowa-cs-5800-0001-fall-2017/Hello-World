@@ -2,10 +2,10 @@ Blockly.Blocks['validate'] = {
   init: function() {
     this.appendValueInput("ar")
         .setCheck("Array")
-        .appendField("Text List");
+        .appendField("text list");
     this.appendValueInput("ar2")
         .setCheck("Array")
-        .appendField("Matching List");
+        .appendField("matching list");
     this.setOutput("Boolean");
     this.setColour(0);
  this.setTooltip("vaildates that the strings are matching");
@@ -21,7 +21,7 @@ Blockly.Blocks['if_enter'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip("returns true when the 'ENTER' button is pressed");
  this.setHelpUrl("help.html#if_enter");
   }
 };
@@ -33,7 +33,7 @@ Blockly.Blocks['contains'] = {
         .appendField(new Blockly.FieldTextInput("default"), "NAME");
     this.setOutput(true, null);
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip("returns true if the attached block contains the 'default' string.");
  this.setHelpUrl("help.html#contains");
   }
 };
@@ -42,7 +42,7 @@ Blockly.Blocks['socket_setup'] = {
   init: function() {
     this.appendStatementInput("socket_set_up")
         .setCheck(null)
-        .appendField("Botsetup");
+        .appendField("bot setup");
     this.setColour(230);
  this.setTooltip("sets up sockets");
  this.setHelpUrl("help.html#socket_setup");
@@ -52,7 +52,7 @@ Blockly.Blocks['socket_setup'] = {
 Blockly.Blocks['initalizer'] = {
  init: function() {
    this.appendDummyInput()
-       .appendField("Initialize varibles");
+       .appendField("initialize varibles");
    this.setPreviousStatement(true, null);
    this.setNextStatement(true, null);
    this.setColour(230);
@@ -60,7 +60,6 @@ this.setTooltip("");
 this.setHelpUrl("help.html#initialize_variables");
  }
 };
-
 
 Blockly.Blocks['input'] = {
   init: function() {
@@ -102,9 +101,9 @@ Blockly.Blocks['response'] = {
 
 Blockly.Blocks['userresponsevarable'] = {
   init: function() {
-    this.appendValueInput("UserResponse")
+    this.appendValueInput("User Response")
         .setCheck("String")
-        .appendField("User Response Checker");
+        .appendField("check user response");
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(120);
@@ -116,7 +115,7 @@ Blockly.Blocks['userresponsevarable'] = {
 Blockly.Blocks['question_block'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Question ")
+        .appendField("question")
         .appendField(new Blockly.FieldTextInput(""), "Question they want to ask");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -126,25 +125,23 @@ Blockly.Blocks['question_block'] = {
   }
 };
 
-
-
 Blockly.Blocks['send'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("send ")
+        .appendField("send")
         .appendField(new Blockly.FieldTextInput("URL"), "NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#send");
   }
 };
 
 Blockly.Blocks['end_sockets'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("end ");
+        .appendField("end");
     this.setPreviousStatement(true, null);
     this.setColour(230);
  this.setTooltip("");
@@ -203,24 +200,25 @@ Blockly.Blocks['http_put'] = {
 //  this.setHelpUrl("help.html#https_put");
 //   }
 // };
+
 Blockly.Blocks['language'] = {
   init: function() {
     this.appendValueInput("UseriNPUT")
         .setCheck("String")
-        .appendField("Languages Setting")
+        .appendField("languages setting")
         .appendField(new Blockly.FieldDropdown([["English","English"], ["Chinese","Chinese"], ["French","French"], ["German","German"], ["Russian","Russian"], ["Korean","Korean"], ["Janpan","Janpan"]]), "Lan");
     this.setOutput(true, "required language mode");
     this.setColour(330);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("help.html#language");
   }
 };
 
 Blockly.Blocks['search_function'] = {
   init: function() {
-    this.appendValueInput("Userinput")
+    this.appendValueInput("User Input")
         .setCheck("String")
-        .appendField("Search With")
+        .appendField("search with")
         .appendField(new Blockly.FieldDropdown([["Google","Google"], ["Bing","Bing"], ["Yahoo","Yahoo"]]), "NAME");
     this.setOutput(true, "String");
     this.setColour(230);
