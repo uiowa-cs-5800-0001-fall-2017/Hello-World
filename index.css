@@ -26,8 +26,8 @@ h3 {
 
 .anchor{
   display: block;
-  height: 95px;         /*same height as header*/
-  margin-top: -95px;    /*same height as header*/
+  height: 95px;
+  margin-top: -95px;
   visibility: hidden;
 }
 
@@ -78,10 +78,6 @@ h3 {
 }
 
 .vid {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin-top: 12%;
   margin-bottom: 12%;
   margin-left: auto;
