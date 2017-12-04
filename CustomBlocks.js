@@ -92,7 +92,8 @@ Blockly.Blocks['response'] = {
     this.appendDummyInput()
         .appendField("response")
         .appendField(new Blockly.FieldTextInput("default"), "userResponse");
-    this.setNextStatement(true, "String");
+	this.setPreviousStatement(true, null);
+	this.setNextStatement(true, "String");
     this.setColour(160);
  this.setTooltip("");
  this.setHelpUrl("help.html#response");
