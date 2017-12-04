@@ -201,3 +201,14 @@ Blockly.Blocks['language'] = {
 //  this.setHelpUrl("help.html#search_function");
 //   }
 // };
+
+Blockly.Blocks['user_info_save'] = {
+ init: function() {
+   this.appendDummyInput()
+       .appendField("variable save ");
+   this.setOutput(true, "String");
+   this.setColour(230);
+this.setTooltip("");
+this.setHelpUrl("help.html#user_info_save");
+ }
+};

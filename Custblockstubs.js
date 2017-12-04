@@ -193,3 +193,22 @@ Blockly.JavaScript['http_put'] = function(block) {
 
 //   return code;
 // };
+
+Blockly.JavaScript['user_info_save'] = function(block) {
+
+ var text_name = block.getFieldValue('NAME');
+ var functionName = Blockly.JavaScript.provideFunction_(
+     `contains`,
+   [ `function ` + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + `(name) {`,
+        `var k = userResponse;`,
+        `k = userResponse.toString()`,  
+        `return k;`,
+        `}`]);
+var code = functionName + '(' + '"' + text_name + '"' + ')';
+return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+   
+ // TODO: Assemble JavaScript into code variable.
+
+ // TODO: Change ORDER_NONE to the correct strength.
+ return [code, Blockly.JavaScript.ORDER_NONE];
+};
