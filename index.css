@@ -26,8 +26,8 @@ h3 {
 
 .anchor{
   display: block;
-  height: 95px;         /*same height as header*/
-  margin-top: -95px;    /*same height as header*/
+  height: 95px;
+  margin-top: -95px;
   visibility: hidden;
 }
 
@@ -53,7 +53,7 @@ h3 {
 }
 
 .footer {
-  margin-top: 620px;
+  margin-top: 615px;
 }
 
 .content {
@@ -63,7 +63,7 @@ h3 {
   -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.33);
   min-height: 100%;
-  max-height: 500%;
+  max-height: 1000%;
   margin: 0 auto;
   padding: 10px;
   width: 92%;
@@ -78,10 +78,6 @@ h3 {
 }
 
 .vid {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin-top: 12%;
   margin-bottom: 12%;
   margin-left: auto;
