@@ -43,7 +43,7 @@ h3 {
   border-bottom:1px solid white;
   padding:10px 20px;
   position:fixed;
-  position:fixed; 
+  position:fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -144,76 +144,6 @@ h3 {
 
 .dropdown-menu {
   max-height:800%;
-  overflow-y :auto; 
-  overflow-x:hidden; 
-}
-
-/* Chat stylings */
-#chat-container {
-    height: calc(100% - 3em);
-    width: 100%;
-    border-style: solid;
-    background-color: lightblue;
-    overflow-y: scroll;
-    word-wrap: break-word;
-    font-family: verdana;
-}
-
-#chat-input {
-    height: 3em;
-    width: 100%;
-    resize: none;
-    overflow-y: scroll;
-    border-style: solid;
-}
-
-#chat-bubble-message{
-  height: 50px;
-  width: 85%;
-  background: white;
-  position: relative;
-  cursor: pointer;
-  border: 3px double black;
-  border-radius: 10px;
-  left: 13%;
-}
-
-#chat-bubble-message::before{
-  content: "";
-  position: absolute;
-  top: 100%;
-  right: 30px;
-  height: 20px;
-  width: 20px;
-  background: white;
-  box-sizing:border-box;
-  transform: rotate(45deg) translate(-50%);
-  border-bottom: inherit;
-  border-right: inherit;
-  box-shadow: inherit;
-}
-
-#bot-bubble-message{
-  height: 50px;
-  width: 85%;
-  background: gray;
-  position: relative;
-  cursor: pointer;
-  border: 3px double black;
-  border-radius: 10px;
-}
-
-#bot-bubble-message::before{
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 30px;
-  height: 20px;
-  width: 20px;
-  background: gray;
-  box-sizing:border-box;
-  transform: rotate(45deg) translate(-50%);
-  border-bottom: inherit;
-  border-right: inherit;
-  box-shadow: inherit;
+  overflow-y :auto;
+  overflow-x:hidden;
 }
